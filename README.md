@@ -12,8 +12,10 @@ Individuals with restricted diets or have many allergies will often spend time g
 * [ ] User Authentification
 * [ ] User Profile
 * [ ] Category Filter - check (e.g. "Red Meats", "nuts", "vegan")
+* [ ] Search Feature
 
 ### Bonus Features
+* [ ] 
 
 ## Technologies and Technical Challenges
 
