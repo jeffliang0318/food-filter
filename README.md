@@ -30,10 +30,18 @@ Individuals with restricted diets or have many allergies will often spend time g
 **TingTing Jiang, Ziyan Wang, Jeff Liang, Tiffany Shiu**
 
 ### Day 1
+- [ ] OAuth (google login / regular login)
+- [ ] Finish building User Database
+- [ ] Start building Category (Eg: red meat / shell seafood / tree nuts)
+- [ ] Start building ingredients association table
 
 ### Day 2
+- [ ] Finish Building Category / ingredients
+- [ ] Test all backend
 
 ### Day 3
+- [ ] Build demo login
+- [ ] Adjust backend based on frontend request
 
 ### Day 4
 
