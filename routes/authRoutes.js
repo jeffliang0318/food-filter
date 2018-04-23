@@ -34,6 +34,8 @@ module.exports = app => {
       var err = new Error('Passwords do not match.');
       err.status = 400;
       return next(err); // next to handle second callback
+      // http://thecodebarbarian.com/mongoose-error-handling
+      // next(new Error('woops'))? what is the difference? .
     }
 
     if (req.body.email &&
@@ -52,7 +54,7 @@ module.exports = app => {
       // Shortcut for saving one or more documents to the database. MyModel.create(docs) does new MyModel(doc).save() for every doc in docs.
       User.create(userData, function (err, user) {
         if (err) {
-          return next(err) // next(new Error('woops'))? what is the difference? . 
+          return next(err)
         } else {
           return res.redirect('/profile');
         }
