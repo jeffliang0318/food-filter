@@ -40,7 +40,7 @@ const userSchema = new Schema({
         return this.foodAllergies.length > 0;
       },
       message: 'Please submit food you are allergic to'
-    } 
+    }
 
 
   }
