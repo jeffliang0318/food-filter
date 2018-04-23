@@ -7,7 +7,15 @@ require('./models/User');
 //need to load User before passport otherwise Schema couldnt been found
 require('./services/passport');
 
+
+//START REGULAR LOGIN
+const bodyParser = require('body-parser');
+
 const app = express();
+
+
+// parse incoming requests
+app.use(bodyParser.json());
 
 app.use(
   cookieSession({
