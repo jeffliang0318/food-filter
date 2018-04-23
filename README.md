@@ -108,3 +108,9 @@ The technical Challenges for this website will be:
 * Launch event with friends and a/A cohort
 
 Ziyan want to learn git.
+
+* Each member shares with at least 20 family and friends
+* Distribute awareness at grocery stores
+* Launch event with friends and a/A cohort
+
+# THIS IS MY CHANGE = TIFFANY
