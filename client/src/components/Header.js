@@ -11,7 +11,7 @@ class Header extends  Component {
       case false:
         return [
           <li key="1"><a href="/auth/google">Login With Google</a></li>,
-          <li key='2'><a href="/">DEMO USER</a></li>,
+          <li key='2'><a href="/">LOGIN AS DEMO USER</a></li>,
         ];
       default:
         return [
