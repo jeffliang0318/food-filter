@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { openModal } from '../actions/modal_actions';
 
 
 
@@ -16,6 +17,9 @@ class Header extends Component {
           </li>,
           <li key="2">
             <a href="/">DEMO jeff</a>
+          </li>,
+          <li key='nav-3'>
+            <button onClick={() => this.props.openModal('login')}> openModal </button>
           </li>
         ];
       default:
@@ -46,8 +50,12 @@ class Header extends Component {
   }
 }
 
-function mapStateToProps({ auth }) {
-  return { auth };
+function mapStateToProps(state) {
+  return { auth: state.auth };
 }
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = dispatch => ({
+  openModal: modal => dispatch(openModal(modal))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

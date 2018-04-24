@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../actions";
+import Modal from "./modal";
 
 import Header from "./Header";
 import User from "./User";
@@ -17,6 +18,7 @@ class App extends Component {
       <div>
         <BrowserRouter>
           <div>
+            <Modal /> 
             <Header />
             <Route exact path="/" component={Landing} />
             <Route exact path="/user" component={User} />
