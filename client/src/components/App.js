@@ -3,11 +3,9 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 import Modal from "./modal";
-
-import Header from "./Header";
-import User from "./User";
-
-const Landing = () => <h2>FoodFilter, Can I eat this? (;</h2>;
+import Header from './Header';
+import User from './User';
+import Homepage from './Homepage';
 
 class App extends Component {
   componentDidMount() {
@@ -20,7 +18,7 @@ class App extends Component {
           <div>
             <Modal /> 
             <Header />
-            <Route exact path="/" component={Landing} />
+            <Route exact path="/" component={Homepage} />
             <Route exact path="/user" component={User} />
             <input type='checkbox' />
           </div>
