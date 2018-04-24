@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-
+import Search from './Search';
 
 class Header extends Component {
   renderContent() {
@@ -11,19 +11,19 @@ class Header extends Component {
         return;
       case false:
         return [
-          <li key="1">
-            <a href="/auth/google">Login With Google</a>
+          <li key="1" className="button-group">
+            <a href="/auth/google" >Login</a>
           </li>,
-          <li key="2">
-            <a href="/">DEMO jeff</a>
+          <li key="2" className="button-group">
+            <a href="/">Demo</a>
           </li>
         ];
       default:
         return [
-          <li key="1">
-            <a href="/user">User</a>
+          <li key="1" className="button-group">
+            <a href="/user" className="button-group">User</a>
           </li>,
-          <li key="2">
+          <li key="2" className="button-group">
             <a href="/api/logout">Logout</a>
           </li>
         ];
@@ -36,10 +36,13 @@ class Header extends Component {
         <div className="nav-wrapper">
           <Link
             to={this.props.auth ? '/' : '/auth/google'}
-            className="left brand-logo">
+            className="header-left brand-logo">
             FoodFilter
           </Link>
-          <ul className="right">{this.renderContent()}</ul>
+          <div className="header-right">
+            <Search />
+            <ul className="header-right-auth">{this.renderContent()}</ul>
+          </div>
         </div>
       </nav>
     );
