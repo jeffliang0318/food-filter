@@ -6,6 +6,8 @@
 
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const PassportLocalStrategy = require('passport-local');
+
 const mongoose = require('mongoose');
 const keys = require('../config/keys');
 
@@ -21,6 +23,8 @@ passport.deserializeUser((id, done) => {
     done(null, user);
   });
 });
+
+
 
 passport.use(
   new GoogleStrategy(
@@ -44,3 +48,25 @@ passport.use(
     }
   )
 );
+
+
+// ADDING REGULAR LOGIN
+
+passport.use(new PassportLocalStrategy(
+  function (username, password, done) {
+    User.getUserByUsername(username, function (err, user) {
+      if (err) throw err;
+      if (!user) {
+        return done(null, false, { message: 'Unknown User' });
+      }
+
+      User.comparePassword(password, user.password, function (err, isMatch) {
+        if (err) throw err;
+        if (isMatch) {
+          return done(null, user);
+        } else {
+          return done(null, false, { message: 'Invalid password' });
+        }
+      });
+    });
+  }));
