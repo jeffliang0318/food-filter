@@ -1,0 +1,8 @@
+.search-form-container {
+  border: 1px solid #ccc;
+  background: #fff;
+  width: 70%;
+  height: 30px;
+  line-height: 30px;
+  padding: 2px 10px;
+}
