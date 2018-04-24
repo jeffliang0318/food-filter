@@ -6,6 +6,8 @@
 
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const PassportLocalStrategy = require('passport-local');
+
 const mongoose = require('mongoose');
 const keys = require('../config/keys');
 
@@ -21,6 +23,8 @@ passport.deserializeUser((id, done) => {
     done(null, user);
   });
 });
+
+
 
 passport.use(
   new GoogleStrategy(
@@ -44,3 +48,21 @@ passport.use(
     }
   )
 );
+
+
+// ADDING REGULAR LOGIN
+
+passport.use(
+  new PassportLocalStrategy({
+	usernameField: 'email',
+	passwordField: 'password'
+}, function(email, password, done) {
+	User.authenticate(email, password, function(error, user){
+		// write any kind of message you'd like.
+		// The message will be displayed on the next page the user visits.
+		// We're currently not displaying any success message for logging in.
+		done(error, user, error ? { message: error.message } : null);
+	});
+}););
+
+app.use(require('connect-flash')());

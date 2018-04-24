@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 // const { Schema } = mongoose
 const Schema = mongoose.Schema;
-let User =mongoose.model('users', userSchema);
+let User = mongoose.model('users', userSchema);
 
 // START HASHING
 var bcrypt = require('bcrypt');
@@ -75,7 +75,7 @@ userSchema.statics.authenticate = function (email, password, callback) {
         }
       });
     });
-};
+}; //a callback function with two parameters, error, user (and they’ll translate nicely to Passport in that order).
 
 //hashing a password before saving it to the database
 userSchema.pre('save', function(next) { // should I change save to create?
