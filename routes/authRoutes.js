@@ -31,6 +31,7 @@ module.exports = app => {
   function(req, res){
     res.render('profile', { user: req.user });
   });
+  
   //POST route for updating data
 
   app.post('/api/login',
