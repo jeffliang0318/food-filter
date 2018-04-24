@@ -13,14 +13,14 @@ const userSchema = new Schema({
   // START CREATING REGULAR LOGIN
   email: {
     type: String,
-    index: { unique: true },
-    required: true,
+    // index: { unique: true },
+    // required: false,
     trim: true // make sure no space at front and end
   },
   username: {
     type: String,
-    index: { unique: true },
-    required: true,
+    // index: { unique: true },
+    // required: true,
     trim: true
   },
   password: {

@@ -28,42 +28,43 @@ module.exports = app => {
 
 
   //POST route for updating data
-  app.post('/', function (req, res, next) {
-    // confirm that user typed same password twice. passpord and passwordConf are two values under name property from FRONTEND
-    if (req.body.password !== req.body.passwordConf) {
-      var err = new Error('Passwords do not match.');
-      err.status = 400;
-      return next(err); // next to handle second callback
-      // http://thecodebarbarian.com/mongoose-error-handling
-      // next(new Error('woops'))? what is the difference? .
-    }
-
-    if (req.body.email &&
-      req.body.username &&
-      req.body.password &&
-      req.body.passwordConf) {
-
-      let userData = {
-        email: req.body.email,
-        username: req.body.username,
-        password: req.body.password,
-        passwordConf: req.body.passwordConf,
-      }
-
-      //use schema.create to insert data into the db
-      // Shortcut for saving one or more documents to the database. MyModel.create(docs) does new MyModel(doc).save() for every doc in docs.
-      User.create(userData, function (err, user) {
-        if (err) {
-          return next(err)
-        } else {
-          return res.redirect('/profile');
-        }
-      });
-
-    } else {
-      var err = new Error('All fields have to be filled out');
-      err.status = 400;
-      return next(err);
-    }
-
-  });
+  // app.post('/', function (req, res, next) {
+  //   // confirm that user typed same password twice. passpord and passwordConf are two values under name property from FRONTEND
+  //   if (req.body.password !== req.body.passwordConf) {
+  //     var err = new Error('Passwords do not match.');
+  //     err.status = 400;
+  //     return next(err); // next to handle second callback
+  //     // http://thecodebarbarian.com/mongoose-error-handling
+  //     // next(new Error('woops'))? what is the difference? .
+  //   }
+  //
+  //   if (req.body.email &&
+  //     req.body.username &&
+  //     req.body.password &&
+  //     req.body.passwordConf) {
+  //
+  //     let userData = {
+  //       email: req.body.email,
+  //       username: req.body.username,
+  //       password: req.body.password,
+  //       passwordConf: req.body.passwordConf,
+  //     }
+  //
+  //     //use schema.create to insert data into the db
+  //     // Shortcut for saving one or more documents to the database. MyModel.create(docs) does new MyModel(doc).save() for every doc in docs.
+  //     User.create(userData, function (err, user) {
+  //       if (err) {
+  //         return next(err)
+  //       } else {
+  //         return res.redirect('/profile');
+  //       }
+  //     });
+  //
+  //   } else {
+  //     var err = new Error('All fields have to be filled out');
+  //     err.status = 400;
+  //     return next(err);
+  //   }
+  //
+  // });
+}
