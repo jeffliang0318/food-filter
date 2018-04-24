@@ -1,2 +1,6 @@
+
 @import "./reset.css";
+@import "./global.css";
 @import "./Header.css";
+@import "./Search.css";
+@import "./Homepage.css";

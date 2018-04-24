@@ -1,21 +1,58 @@
 
 #root {
-  background-color: #ccc;
+  /* background-color: #ccc; */
+}
+
+nav {
+  box-shadow: 0px 3px 6px 0px #ccc;
+  padding: 10px 0;
 }
 .nav-wrapper {
   width: 80%;
   min-width: 600px;
   margin: 0 auto;
-  border: 1px solid red;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.nav-wrapper .right {
+.nav-wrapper .header-left {
+  flex: 1
+}
+
+.nav-wrapper .brand-logo {
+  font-size: 24px;
+}
+
+.nav-wrapper .header-right {
+  display: flex;
+  flex: 3;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav-wrapper .header-right-auth {
   display: flex;
 }
 
-.nav-wrapper .right li {
+.nav-wrapper .header-right-auth li {
   padding: 10px;
+}
+
+.button-group {
+  border: 1px solid #46b8da;
+  background-color: #5bc0de;
+  border-radius: 3px;
+  margin-left: 8px;
+  height: 12px;
+  /* line-height: 12px; */
+}
+
+.button-group:hover {
+  background-color: #31b0d5;
+  border-color: #269abc;
+}
+.button-group a {
+  font-size: 14px;
+  color: #fff;
 }
