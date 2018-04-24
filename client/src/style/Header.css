@@ -1,0 +1,21 @@
+
+#root {
+  background-color: #ccc;
+}
+.nav-wrapper {
+  width: 80%;
+  min-width: 600px;
+  margin: 0 auto;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-wrapper .right {
+  display: flex;
+}
+
+.nav-wrapper .right li {
+  padding: 10px;
+}
