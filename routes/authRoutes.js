@@ -18,8 +18,8 @@ module.exports = app => {
   );
 
   app.get('/api/current_user', (req, res) => {
-    res.send(req.user);
     console.log(req);
+    res.send(req.user);
   });
 
   app.post('/api/current_user', async (req, res) => {
