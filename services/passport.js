@@ -70,5 +70,3 @@ passport.use(new PassportLocalStrategy(
       });
     });
   }));
-
-app.use(require('connect-flash')());

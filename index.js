@@ -18,13 +18,9 @@ const keys = require('./config/keys');
 //need to load User before passport otherwise Schema couldnt been found
 require('./services/passport');
 mongoose.connect(keys.mongoURI);
-
+const app = express();
 require('./routes/authRoutes')(app);
 
-
-
-
-const app = express();
 
 
 // BodyParser middleware parse incoming requests
