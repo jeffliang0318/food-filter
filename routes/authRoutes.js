@@ -80,7 +80,7 @@ app.post('/register', function (req, res) {
 
 
 app.post('/login',
-	passport.authenticate('local', { successRedirect: '/', failureRedirect: '/users/login', failureFlash: true }),
+	passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),
 	function (req, res) {
 		res.redirect('/');
 	});
