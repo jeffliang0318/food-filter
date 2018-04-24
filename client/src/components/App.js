@@ -6,8 +6,7 @@ import * as actions from '../actions';
 import Header from "./Header";
 import User from "./User";
 
-const Dashboard = () => <h2>Dashboard</h2>;
-const Landing = () => <h2>FoodFilter, Can you eat it? (;</h2>;
+const Landing = () => <h2>FoodFilter, Can I eat this? (;</h2>;
 
 class App extends Component {
   componentDidMount() {

@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import * as actions from '../actions';
 
 class User extends  Component {
-
+  constructor(props) {
+    super(props);
+    this.state = { ingredient: [] };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.updateAllergyIngredient(this.state.ingredient)
+    .then(console.log("submit"));
+  }
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -15,7 +24,23 @@ class User extends  Component {
         ];
       default:
         return (
-            <h1>I cant eat these ):</h1>
+          <div>
+            <h1>I cant eat this ):</h1>
+            <button
+              className="submit-ingredient-button"
+              onClick={ () => this.setState({ ingredient: ["peanut"] })}
+            >
+              I cant eat peanut!
+            </button>
+            <h2>My allergy ingredient: {this.state.ingredient}</h2>
+            <button
+              className="submit-ingredient-button"
+              onClick={this.handleSubmit}
+            >
+              Update My Allergy Ingredient
+            </button>
+          </div>
+
         )
     }
   }
@@ -33,4 +58,5 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps)(User);
+
+export default connect(mapStateToProps, actions)(User);
