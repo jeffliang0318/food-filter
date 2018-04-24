@@ -104,7 +104,13 @@ The technical Challenges for this website will be:
 ### ADD ADD ADD here!!!!!
 
 ## Plan for getting Users and Reviews
+<<<<<<< HEAD
 
 * Each member shares with at least 20 family and friends
 * Distribute awareness at grocery stores
 * Launch event with friends and a/A cohort
+=======
+- Each member shares with at least 20 family and friends
+- Distribute awareness at grocery stores
+- Launch event with friends and a/A cohort
+>>>>>>> 674c3845756b6fd5a81f1a54710ac0ec3deeea56
