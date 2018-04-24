@@ -26,8 +26,18 @@ module.exports = app => {
 
   //START REGULAR ROUTES
 
-
+  app.get('/profile',
+  require('connect-ensure-login').ensureLoggedIn(),
+  function(req, res){
+    res.render('profile', { user: req.user });
+  });
   //POST route for updating data
+
+  app.post('/api/login',
+  passport.authenticate('local', { failureRedirect: '/api/login' }),
+  function(req, res) {
+    res.redirect('/');
+  });
   app.post('/', function (req, res, next) {
     // confirm that user typed same password twice. passpord and passwordConf are two values under name property from FRONTEND
     if (req.body.password !== req.body.passwordConf) {
@@ -67,4 +77,5 @@ module.exports = app => {
     }
 
   });
+
 }
