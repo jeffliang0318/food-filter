@@ -15,9 +15,6 @@ export const fetchUser = () => async dispatch => {
 
 export const updateAllergyIngredient = (ingredient) => async dispatch => {
 
-  console.log('ingredient:',ingredient);
-
-  // debugger;
   const res = await axios.post('/api/current_user', ingredient);
   // console.log(res);
   dispatch({ type: FETCH_USER, payload: res.data });
