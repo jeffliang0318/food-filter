@@ -9,6 +9,7 @@ const saltRounds = 10;
 
 const userSchema = new Schema({
   googleId: String,
+  allergyIngredient: [String],
 
 	username: {
 		type: String,
