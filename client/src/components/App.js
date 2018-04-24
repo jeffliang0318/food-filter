@@ -4,16 +4,15 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 import Header from "./Header";
+import User from "./User";
 
-const Dashboard = () => <h2>Dashboard</h2>;
-const User = () => <h2>User</h2>;
-const Landing = () => <h2>Landing</h2>;
+const Landing = () => <h2>FoodFilter, Can I eat this? (;</h2>;
 
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
   }
-    render() {
+  render() {
     return (
       <div>
         <BrowserRouter>

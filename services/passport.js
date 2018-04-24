@@ -39,7 +39,7 @@ passport.use(
         return done(null, existingUser);
       }
       // make new user
-      const user = await new User({ googleId: profile.id }).save();
+      const user = await new User({ googleId: profile.id, allergyIngredient:[] }).save();
       done(null, user);
     }
   )
