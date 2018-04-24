@@ -93,9 +93,29 @@ app.post('/login',
     })
   );
 
-  app.get('/auth/google/callback', passport.authenticate('google'));
+  app.get(
+    '/auth/google/callback',
+    passport.authenticate('google'),
+    (req, res) => {
+      // redirect to index after google auth
+      res.redirect('/')
+    }
+  );
 
   app.get('/api/current_user', (req, res) => {
+    res.send(req.user);
+  });
+
+  app.post('/api/current_user', async (req, res) => {
+    // console.log(req);
+    // console.log(res);
+    const body = req.body;
+    // const body = req.res;
+    console.log(body);
+    const  ingredient  = req.body;
+    req.user.allergyIngredient = ingredient;
+    const user = await req.user.save();
+
     res.send(req.user);
   });
 
