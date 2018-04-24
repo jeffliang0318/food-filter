@@ -21,6 +21,7 @@ class App extends Component {
             <Header />
             <Route exact path="/" component={Landing} />
             <Route exact path="/user" component={User} />
+            <input type='checkbox' />
           </div>
         </BrowserRouter>
       </div>
