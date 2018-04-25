@@ -1,4 +1,4 @@
-
+import axios from 'axios';
 export const LOGIN_USER = 'login_user';
 export const REGISTER_USER = 'register_user';
 
@@ -11,5 +11,5 @@ export const loginUser = (user) => async dispatch => {
 export const registerUser = (user) => async dispatch => {
   const res = await axios.post('/users/register', user);
 
-  dispatch({ type: LOGIN_USER, payload: res.data });
+  dispatch({ type: REGISTER_USER, payload: res.data });
 };
