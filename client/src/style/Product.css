@@ -1,0 +1,37 @@
+.ingredientList {
+  width: 70%;
+  margin: 20px auto;
+}
+
+
+.ingredientList h2 {
+  font-size: 24px;
+  padding: 10px;
+}
+
+.ingredientList h5 {
+  font-size: 24px;
+}
+
+.product-detail h5 {
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  background-color: #eee;
+}
+
+.product-detail ul {
+  margin-bottom: 30px;
+}
+
+.ing-ul li {
+  border-bottom: 1px solid #ccc;
+  height: 36px;
+  line-height: 44px;
+  padding: 0 10px;
+}
+
+.error-ul {
+  padding: 5px;
+}

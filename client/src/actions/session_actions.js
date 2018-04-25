@@ -1,4 +1,6 @@
-import { LOGIN_USER, REGISTER_USER } from './types'
+
+export const LOGIN_USER = 'login_user';
+export const REGISTER_USER = 'register_user';
 
 export const loginUser = (user) => async dispatch => {
   const res = await axios.post('/users/login', user);
