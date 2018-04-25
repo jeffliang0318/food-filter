@@ -22,11 +22,8 @@ module.exports = app => {
   });
 
   app.post('/api/current_user', async (req, res) => {
-    // console.log(req);
-    // console.log(res);
     const body = req.body;
     // const body = req.res;
-    console.log(body);
     const  ingredient  = req.body;
     req.user.allergyIngredient = ingredient;
     const user = await req.user.save();

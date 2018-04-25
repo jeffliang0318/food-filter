@@ -6,6 +6,7 @@ class Homepage extends Component {
     return (
       <main className="homepage-main">
         <div className="homepage-hero">
+          <div className="header-backcolor"></div>
           <div className="homepage-header">
             <h1>Food Filter</h1>
             <p className="homepage-description">
