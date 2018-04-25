@@ -18,7 +18,8 @@ require('./services/passport');
 mongoose.connect(keys.mongoURI);
 const app = express();
 require('./routes/authRoutes')(app);
-
+var routes = require('./routes/index');
+var users = require('./routes/users');
 
 
 // BodyParser middleware parse incoming requests
@@ -44,6 +45,11 @@ app.use(session({
 // Passport init
 app.use(passport.initialize());
 app.use(passport.session());
+
+//
+app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', exphbs({defaultLayout:'layout'}));
+app.set('view engine', 'handlebars');
 
 
 
@@ -76,6 +82,10 @@ app.use(function (req, res, next) {
   res.locals.user = req.user || null;
   next();
 });
+
+
+app.use('/', routes);
+app.use('/users', users);
 
 // const PORT = process.env.PORT || 5000;
 // app.listen(PORT);

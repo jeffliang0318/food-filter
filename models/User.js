@@ -27,7 +27,7 @@ const userSchema = new Schema({
 
 });
 
-let User = mongoose.model('users', userSchema);
+var User = module.exports = mongoose.model('users', userSchema);
 
 module.exports.createUser = function(newUser, callback){
 	bcrypt.genSalt(saltRounds, function(err, salt) {
