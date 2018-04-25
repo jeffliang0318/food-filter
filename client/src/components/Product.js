@@ -64,11 +64,23 @@ class Product extends Component {
     return str;
   }
 
+  renderErrors() {
+    return (
+      <ul className="error-ul">
+        {this.props.errors.map((error, idx) => (
+          <li key={`error-${idx}`}>{error}</li>
+        ))}
+      </ul>
+    );
+  }
+
+
   render() {
     if (!this.props.searchResults) {
       return (
         <div className="ingredientList">
           <h2>Nothing Found. Please Try again!</h2>
+          <div className="error-ul">{this.renderErrors()}</div>
         </div>
       );
     }
@@ -90,7 +102,8 @@ class Product extends Component {
 }
 
 const mapStateToProps = state => ({
-  searchResults: state.searchResults
+  searchResults: state.searchResults,
+  errors: state.errors
 });
 
 export default connect(mapStateToProps, null)(Product);
