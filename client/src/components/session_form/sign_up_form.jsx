@@ -7,7 +7,7 @@ class signUpForm extends React.Component {
         this.state = {
           username: "",
           email: "",
-          password: "", 
+          password: "",
           password2: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,70 +27,70 @@ class signUpForm extends React.Component {
 
     render() {
         return (
-            <div className='whole-login-container'>
-                <a className="google-login" href="/auth/google"> 
-                    <i className="fab fa-google-plus-g"></i>
-                    <text> Sign in with Google+</text>
-                </a>
+          <div className='whole-login-container'>
+            <form onSubmit={this.handleSubmit} className="login-form-box">
+              <div className="login-form">
 
-          <form onSubmit={this.handleSubmit} className="login-form-box">
-            <div className="login-form">
+                  <h1 className="login-title">{this.props.formType}</h1>
 
-                <h1 className="login-title">{this.props.formType}</h1>
+                  <div>
+                    <input
+                      type="text"
+                      value={this.state.username}
+                      onChange={this.update("username")}
+                      className="login-input"
+                      placeholder="Username"
+                      />
+                  </div>
+                <br />
+                  <div>
+                    <input
+                      type="text"
+                      value={this.state.email}
+                      onChange={this.update("email")}
+                      className="login-input"
+                      placeholder="Email"
+                      />
+                  </div>
+                <br />
+                  <div>
+                    <input
+                      type="password"
+                      value={this.state.password}
+                      onChange={this.update("password")}
+                      className="login-input"
+                      placeholder="Password"
+                      />
+                  </div>
+                <br />
+                  <div>
+                    <input
+                      type="password"
+                      value={this.state.password2}
+                      onChange={this.update("password2")}
+                      className="login-input"
+                      placeholder="Confirm Password"
+                      />
+                  </div>
+                <br />
 
-                <div>
-                  <input
-                    type="text"
-                    value={this.state.username}
-                    onChange={this.update("username")}
-                    className="login-input"
-                    placeholder="Username"
-                    />
-                </div>
-              <br />
-                <div>
-                  <input
-                    type="text"
-                    value={this.state.email}
-                    onChange={this.update("email")}
-                    className="login-input"
-                    placeholder="Email"
-                    />
-                </div>
-              <br />
-                <div>
-                  <input
-                    type="password"
-                    value={this.state.password}
-                    onChange={this.update("password")}
-                    className="login-input"
-                    placeholder="Password"
-                    />
-                </div>
-              <br />
-                <div>
-                  <input
-                    type="password"
-                    value={this.state.password2}
-                    onChange={this.update("password2")}
-                    className="login-input"
-                    placeholder="Confirm Password"
-                    />
-                </div>
-              <br />
-               
-              <input
-                className="session-submit"
-                type="submit"
-                value={this.props.formType}
-              />
-            </div>
-          </form>
+                <input
+                  className="session-submit"
+                  type="submit"
+                  value={this.props.formType}
+                />
+              </div>
+            </form>
+            <a className="google-login" href="/auth/google">
+                <i className="fab fa-google-plus-g"></i>
+                <p>Sign in with Google+</p>
+            </a>
+
             <div className="form-nav">
                  {this.props.otherForm}
             </div>
 
-            </div>
+          </div>
         );
     }
 

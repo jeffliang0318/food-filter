@@ -11,7 +11,6 @@ export const fetch_product = upc => async dispatch => {
   let ndbno;
 
   if (ndbRes.data.list){
-    console.log(1)
     ndbno = ndbRes.data.list.item[0].ndbno;
     const productRes = await axios.get(
       `https://api.nal.usda.gov/ndb/reports/?ndbno=${ndbno}&type=b&format=json&api_key=isSv3qRSg7VBxruUEqYSxZbrmiEwkhpTTMsss1Ci`
@@ -23,9 +22,6 @@ export const fetch_product = upc => async dispatch => {
     });
 
   } else {
-    // console.log(2)
-    // console.log(`ndbRes : ${ndbRes.data.errors}`)
-    // console.log(ndbRes)
     dispatch({
       type: FETCH_PRODUCT,
       searchResults: ""
@@ -35,7 +31,6 @@ export const fetch_product = upc => async dispatch => {
       type: FETCH_ERROR,
       errors: ndbRes.data.errors.error[0].message
     });
-    // console.log(ndbRes.data.errors.error.message)
   }
 
 };
