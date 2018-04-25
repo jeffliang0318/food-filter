@@ -106,3 +106,4 @@ The technical Challenges for this website will be:
 * Each member shares with at least 20 family and friends
 * Distribute awareness at grocery stores
 * Launch event with friends and a/A cohort
+
