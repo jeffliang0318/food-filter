@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-
-
 
 class Search extends Component {
 
   render() {
     return (
-      <form>
-        <input placeholder="Search here"/>
-      </form>
+      <div className="search-form-container">
+        <form className="search-form">
+          <input placeholder="Search UPC"/>
+        </form>
+      </div>
     );
   }
 }
