@@ -10,7 +10,7 @@ class User extends  Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateAllergyIngredient(this.state.ingredient));
+    this.props.updateAllergyIngredient(this.state.ingredient);
   }
   renderContent() {
     switch (this.props.auth) {
