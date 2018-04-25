@@ -1,8 +1,28 @@
-.search-form-container {
-  border: 1px solid #ccc;
+.search-form {
   background: #fff;
-  width: 70%;
-  height: 30px;
-  line-height: 30px;
-  padding: 2px 10px;
+  width: 80%;
+  height: 36px;
+  line-height: 38px;
+  position: relative;
+  bottom: 2px;
+}
+
+.search-form input:first-of-type {
+  border: 1px solid #ccc;
+  border-right: none;
+  padding: 4px 10px;
+  width: 74%;
+  height: 80%;
+}
+
+.search-form .submit {
+  background: grey;
+  color: #fff;
+  padding: 13px 10px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.search-form .submit:hover {
+  background: #ccc;
 }

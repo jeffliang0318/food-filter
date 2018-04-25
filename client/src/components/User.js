@@ -13,19 +13,33 @@ class User extends  Component {
     this.props.updateAllergyIngredient(this.state.ingredient)
     .then(console.log("submit"));
   }
+
   renderContent() {
     switch (this.props.auth) {
       case null:
         return;
       case false:
         return [
-          <li key="1"><h1>Please Login for more features</h1></li>,
-          <li key='2'><a href="/">Back to Homepage</a></li>,
+          <h3 key={1}>
+            Please Login for more features
+          </h3>,
+          <a key={2} className="button-group" href="/">Back to Homepage</a>
         ];
       default:
         return (
           <div>
-            <h1>I cant eat this ):</h1>
+            <h1>Username</h1>
+            <hr />
+            <div>
+              <h4>Allgey List. From Backend Database</h4>
+              <ul>
+                <li>Eggs</li>
+                <li>Eggs</li>
+                <li>Eggs</li>
+              </ul>
+            </div>
+            <hr />
+
             <button
               className="submit-ingredient-button"
               onClick={ () => this.setState({ ingredient: ["peanut"] })}
@@ -47,7 +61,7 @@ class User extends  Component {
 
   render() {
     return (
-      <div>
+      <div className="user-profile">
       {this.renderContent()}
       </div>
     );
