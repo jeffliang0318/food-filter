@@ -13,14 +13,11 @@ class Header extends Component {
       case false:
         return [
           <li key="1" className="button-group">
-            <a href="/auth/google" >Login</a>
+            <button onClick={() => this.props.openModal('login')}> Login </button>
           </li>,
           <li key="2" className="button-group">
             <a href="/">Demo</a>
           </li>,
-          <li key='nav-3'>
-            <button onClick={() => this.props.openModal('login')}> openModal </button>
-          </li>
         ];
       default:
         return [
