@@ -7,7 +7,7 @@ class loginForm extends React.Component {
         this.state = {
           username: "",
           email: "",
-          password: "", 
+          password: "",
           password2: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,9 +28,9 @@ class loginForm extends React.Component {
     render() {
         return (
             <div className='whole-login-container'>
-                <a className="google-login" href="/auth/google"> 
+                <a className="google-login" href="/auth/google">
                     <i className="fab fa-google-plus-g"></i>
-                    <text> Sign in with Google+</text>
+                    <p> Sign in with Google+</p>
                 </a>
 
           <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -68,7 +68,7 @@ class loginForm extends React.Component {
                     />
                 </div>
               <br />
-               
+
               <input
                 className="session-submit"
                 type="submit"
