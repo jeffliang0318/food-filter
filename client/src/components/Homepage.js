@@ -14,7 +14,9 @@ class Homepage extends Component {
 
     return () => {
       document.getElementById(elId).scrollIntoView({
-        "behavior" : "smooth"
+        "behavior" : "smooth",
+        "block": "start",
+        "inline": "center"
       });
     }
   }

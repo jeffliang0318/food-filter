@@ -6,9 +6,7 @@ class loginForm extends React.Component {
         super(props);
         this.state = {
           username: "",
-          email: "",
-          password: "",
-          password2: ""
+          password: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
@@ -23,63 +21,59 @@ class loginForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        // this.props.login(this.state).then(
+        //   (payload) => {
+        //     this.props.closeModal();
+        //     this.props.clearErrors();
+        //   }
+        // );
       }
 
     render() {
         return (
-            <div className='whole-login-container'>
-                <a className="google-login" href="/auth/google">
-                    <i className="fab fa-google-plus-g"></i>
-                    <p> Sign in with Google+</p>
-                </a>
+          <div className='whole-login-container'>
 
+            <form onSubmit={this.handleSubmit} className="login-form-box">
+              <div className="login-form">
 
-          <form onSubmit={this.handleSubmit} className="login-form-box">
-            <div className="login-form">
+                  <h1 className="login-title">Please {this.props.formType}</h1>
+                  <div>
+                    <input
+                      type="text"
+                      value={this.state.username}
+                      onChange={this.update("username")}
+                      className="login-input"
+                      placeholder="Username"
+                      />
+                  </div>
+                <br />
+                  <div>
+                    <input
+                      type="password"
+                      value={this.state.password}
+                      onChange={this.update("password")}
+                      className="login-input"
+                      placeholder="Password"
+                      />
+                  </div>
+                <br />
 
-                <h1 className="login-title">{this.props.formType}</h1>
+                <input
+                  className="session-submit"
+                  type="submit"
+                  value={this.props.formType}
+                />
+              </div>
+            </form>
 
-                <div>
-                  <input
-                    type="text"
-                    value={this.state.username}
-                    onChange={this.update("username")}
-                    className="login-input"
-                    placeholder="Username"
-                    />
-                </div>
-              <br />
-                <div>
-                  <input
-                    type="text"
-                    value={this.state.email}
-                    onChange={this.update("email")}
-                    className="login-input"
-                    placeholder="Email"
-                    />
-                </div>
-              <br />
-                <div>
-                  <input
-                    type="password"
-                    value={this.state.password}
-                    onChange={this.update("password")}
-                    className="login-input"
-                    placeholder="Password"
-                    />
-                </div>
-              <br />
+            <a className="google-login" href="/auth/google">
+                <i className="fab fa-google-plus-g"></i>
+                <p>Sign in with Google+</p>
+            </a>
 
-              <input
-                className="session-submit"
-                type="submit"
-                value={this.props.formType}
-              />
+            <div className="form-nav">
+              {this.props.otherForm}
             </div>
-          </form>
-                <div className="form-nav">
-                  {this.props.otherForm}
-                </div>
 
             </div>
         );
