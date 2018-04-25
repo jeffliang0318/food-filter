@@ -1,13 +1,13 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-class loginForm extends React.Component {
+class signUpForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
           username: "",
           email: "",
-          password: "",
+          password: "", 
           password2: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,11 +28,10 @@ class loginForm extends React.Component {
     render() {
         return (
             <div className='whole-login-container'>
-                <a className="google-login" href="/auth/google">
+                <a className="google-login" href="/auth/google"> 
                     <i className="fab fa-google-plus-g"></i>
-                    <p> Sign in with Google+</p>
+                    <text> Sign in with Google+</text>
                 </a>
-
 
           <form onSubmit={this.handleSubmit} className="login-form-box">
             <div className="login-form">
@@ -69,7 +68,17 @@ class loginForm extends React.Component {
                     />
                 </div>
               <br />
-
+                <div>
+                  <input
+                    type="password"
+                    value={this.state.password2}
+                    onChange={this.update("password2")}
+                    className="login-input"
+                    placeholder="Confirm Password"
+                    />
+                </div>
+              <br />
+               
               <input
                 className="session-submit"
                 type="submit"
@@ -77,9 +86,9 @@ class loginForm extends React.Component {
               />
             </div>
           </form>
-                <div className="form-nav">
-                  {this.props.otherForm}
-                </div>
+            <div className="form-nav">
+                 {this.props.otherForm}
+            </div>
 
             </div>
         );
@@ -87,4 +96,4 @@ class loginForm extends React.Component {
 
 }
 
-export default withRouter(loginForm);
+export default withRouter(signUpForm);
