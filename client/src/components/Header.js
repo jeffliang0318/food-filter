@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { openModal } from '../actions/modal_actions';
 
 import Search from './Search';
 
@@ -11,8 +12,12 @@ class Header extends Component {
         return;
       case false:
         return [
-          <a key="1" href="/auth/google" className="button-group">Login</a>,
-          <a key="2" className="button-group" href="/">Demo</a>
+          <li key="1" className="button-group">
+            <button onClick={() => this.props.openModal('login')}> Login </button>
+          </li>,
+          <li key="2" className="button-group">
+            <a href="/">Demo</a>
+          </li>,
         ];
       default:
         return [
@@ -41,8 +46,12 @@ class Header extends Component {
   }
 }
 
-function mapStateToProps({ auth }) {
-  return { auth };
+function mapStateToProps(state) {
+  return { auth: state.auth };
 }
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = dispatch => ({
+  openModal: modal => dispatch(openModal(modal))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
