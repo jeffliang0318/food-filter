@@ -56,7 +56,20 @@ text {
     padding-left: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
+    font-size: 17px;
     color: white;
     width: 250px;
+}
+
+.other-button {
+    margin-top: 10px;
+    align-content: center;
+    color: blue;
+}
+
+.form-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
