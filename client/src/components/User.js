@@ -10,8 +10,7 @@ class User extends  Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateAllergyIngredient(this.state.ingredient)
-    .then(console.log("submit"));
+    this.props.updateAllergyIngredient(this.state.ingredient));
   }
   renderContent() {
     switch (this.props.auth) {
@@ -23,16 +22,30 @@ class User extends  Component {
           <li key='2'><a href="/">Back to Homepage</a></li>,
         ];
       default:
+      const foodItems = this.state.ingredient.map(
+        ing => {
+          return (
+            <li key={ing}>{ing}</li>
+          )
+        }
+      )
         return (
           <div>
             <h1>I cant eat this ):</h1>
             <button
               className="submit-ingredient-button"
-              onClick={ () => this.setState({ ingredient: ["peanut"] })}
+              onClick={ () => this.setState({ingredient: this.state.ingredient.concat(["peanut"])})}
             >
               I cant eat peanut!
             </button>
-            <h2>My allergy ingredient: {this.state.ingredient}</h2>
+            <br/>
+            <button
+              className="submit-ingredient-button"
+              onClick={ () => this.setState({ingredient: this.state.ingredient.concat(["egg"])})}
+            >
+              I cant eat egg!
+            </button>
+            <h2>My allergy ingredient: {foodItems}</h2>
             <button
               className="submit-ingredient-button"
               onClick={this.handleSubmit}
