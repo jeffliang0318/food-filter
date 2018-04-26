@@ -1,6 +1,6 @@
 .whole-login-container {
     background: white;
-    padding: 30px;
+    padding: 36px;
 }
 
 .fa.fa-google-plus{
@@ -16,18 +16,21 @@
     display: flex;
     justify-content:center;
     align-items: center;
-    width: 250px;
-    background-color: #b40000;
+    width: 300px;
+    background-color: #dd4b39;
     padding: 5px 10px;
     margin-top: 8px;
     cursor: pointer;
 }
+.google-login:hover {
+  background-color: #bb0000;
+}
 
 .google-login p {
-  font-size: 14px;
+  font-size: 16px;
   color: #fff;
-  height: 18px;
-  line-height: 24px;
+  height: 30px;
+  line-height: 36px;
   margin-left: 8px;
 }
 
@@ -44,25 +47,27 @@ text {
 }
 
 .login-title {
-    font-size: 24px;
-    /* text-align: center; */
+    font-size: 30px;
     margin: 6px 0 20px;
 }
 
 .login-input {
     border-bottom: 1px solid lightgrey;
-    width: 250px;
-    padding-left: 5px;
+    width: 100%;
     padding-bottom: 3px;
 }
 
 .session-submit {
     background-color: #5bc0de;
-    padding: 8px 10px;
-    font-size: 13px;
+    padding: 12px 10px;
+    font-size: 15px;
     color: #fff;
-    width: 250px;
+    /* width: 240px; */
     cursor: pointer;
+}
+
+.session-submit:hover {
+  background-color: #31b0d5;
 }
 
 .other-button {
@@ -74,9 +79,10 @@ text {
 
 .other-button span {
   /* color: #b40000; */
+  color: #b40000;
+  padding-left: 4px;
 }
 .other-button span:hover {
-  color: #b40000;
   text-decoration: underline;
   cursor: pointer;
 }
