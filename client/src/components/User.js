@@ -7,10 +7,16 @@ class User extends  Component {
     super(props);
     this.state = {
       "egg": false,
+      "lysozyme":false,
+      "peanut": false,
+      "milk": false,
       "beef": false,
       "lamb": false,
-      "milk": false,
-      // "redmeat": ["beef", "lamb"]
+      "redmeat": ["beef", "lamb"],
+      "crab": false,
+      "lobster": false,
+      "shrimp": false,
+      "shellfish": ["crab", "lobster", "shrimp"],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -24,61 +30,51 @@ class User extends  Component {
         }
       }
 
-      let defaultList = Object.keys(this.state).filter(ing=> this.state[ing]);
+      // let defaultList = Object.keys(this.state).filter(ing => {
+      //   return this.state[ing] && (typeof this.state[ing] === 'boolean')
+      // });
+      let defaultList = this.defaultItems();
 
       let oIngCheckboxs = document.getElementsByName("ingcheckbox");
       for (let i = 0; i < oIngCheckboxs.length; i++) {
-        console.log(oIngCheckboxs[i].id)
         if( defaultList.includes(oIngCheckboxs[i].id) ){
           oIngCheckboxs[i].checked = true;
+          let groupName = String(oIngCheckboxs[i].dataset.group);
+          let gourpBool = true;
+
+          let group = document.getElementById(groupName);
+          let oMembers = document.querySelectorAll(`[data-group="${group.id}"]`);
+          for (var j = 0; j < oMembers.length; j++) {
+            // console.log(oMembers[i].checked)
+            if(oMembers[j].checked === false) gourpBool = false;
+          }
+          group.checked = gourpBool;
         }
       }
     });
-
-
   }
-  handleSubmit(e) {
-    e.preventDefault();
-    let ingsArr = Object.keys(this.state);
-    let valideItems = ingsArr.filter(ing => this.state[ing])
-    this.props.updateAllergyIngredient(valideItems);
-  }
-
-  handleChange() {
-    return e => {
-      let boolean = this.state[e.target.id]
-      this.setState({
-        [e.target.id]: !boolean
-      })
-    }
-  }
-
-
-  checkedDefault() {
-    let defaultList = this.props.auth.allergyIngredient;
-    let oIngCheckboxs = document.getElementsByName("ingcheckbox");
-    for (let i = 0; i < oIngCheckboxs.length; i++) {
-      console.log(oIngCheckboxs.id)
-      if( defaultList.includes(oIngCheckboxs.id) ){
-        oIngCheckboxs[i].checked = true;
-      }
-    }
-  }
-
-  renderErrors() {
-    return(
-      <ul className="error-ul">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
-  }
+  //
+  // checkedDefault() {
+  //   let defaultList = this.props.auth.allergyIngredient;
+  //   let oIngCheckboxs = document.getElementsByName("ingcheckbox");
+  //   for (let i = 0; i < oIngCheckboxs.length; i++) {
+  //     if(defaultList.includes(oIngCheckboxs[i].id) ){
+  //       oIngCheckboxs[i].checked = true;
+  //
+  //       let group = document.getElementById(oIngCheckboxs[i].dataset.group);
+  //       console.log(group)
+  //       let gourpBool = true;
+  //
+  //       let oMembers = document.querySelectorAll(`[data-group="${group.id}"]`);
+  //       for (var i = 0; i < oMembers.length; i++) {
+  //         if(oMembers[i].checked === false) gourpBool = false;
+  //       }
+  //       group.checked = gourpBool;
+  //     }
+  //   }
+  // }
 
   showUserList() {
-
     //from back end
     return this.props.auth.allergyIngredient.map(
       ing => (
@@ -87,18 +83,156 @@ class User extends  Component {
     )
   }
 
+  defaultItems() {
+    let defaultList = Object.keys(this.state).filter(ing => {
+      return this.state[ing] && (typeof this.state[ing] === 'boolean')
+    });
+
+    return defaultList
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let valideItems =  Object.keys(this.state).filter(ing => {
+      // if(ing === "egg")
+      return this.state[ing] && (typeof this.state[ing] === 'boolean')
+    });
+    this.props.updateAllergyIngredient(valideItems);
+  }
+
+  handleChange(e) {
+    return e => {
+      let boolean = this.state[e.target.id]
+      this.setState({
+        [e.target.id]: !boolean
+      })
+    }
+  }
+
+  updateGroupMemberCheck(e) {
+    return e => {
+      let boolean = this.state[e.target.id]
+      this.setState({
+        [e.target.id]: !boolean,
+      })
+      let group = document.getElementById(e.target.dataset.group);
+      let gourpBool = true;
+      if(!boolean === false) {
+        gourpBool = false;
+      } else {
+        let oMembers = document.querySelectorAll(`[data-group="${group.id}"]`);
+        for (var i = 0; i < oMembers.length; i++) {
+          if(oMembers[i].checked === false) gourpBool = false;
+        }
+      }
+      group.checked = gourpBool;
+    }
+  }
+
+  updteGroupCheckbox(e){
+    return e => {
+      if(e.target.checked) {
+        //group checkRedmeat
+        let group = this.state[e.target.id]
+        for (let i = 0; i < group.length; i++) {
+          let oItem = document.getElementById(group[i]);
+          oItem.checked = true;
+          this.setState({
+            [group[i]] : true
+          })
+        }
+      } else {
+        //group remove checked
+        let group = this.state[e.target.id]
+        for (let i = 0; i < group.length; i++) {
+          let oItem = document.getElementById(group[i]);
+          oItem.checked = false;
+          this.setState({
+            [group[i]] : false
+          })
+        }
+      }
+    }
+  }
+
   updateUserList() {
     return (
       <div>
         <h4>Need Update?</h4>
         <form>
+
+          <div className="ing-group">
+            <div>
+              <input
+                id="shellfish"
+                type="checkbox"
+                name="ingcheckbox"
+                onChange={this.updteGroupCheckbox()}
+              />
+              <label htmlFor="shellfish">shellfish</label>
+            </div>
+          </div>
+
+          <div className="ing-group">
+            <div>
+              <input
+                id="crab"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="shellfish"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="crab">crab</label>
+            </div>
+          </div>
+
+          <div className="ing-group">
+            <div>
+              <input
+                id="shrimp"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="shellfish"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="shrimp">shrimp</label>
+            </div>
+          </div>
+
+          <div className="ing-group">
+            <div>
+              <input
+                id="lobster"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="shellfish"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="lobster">lobster</label>
+            </div>
+          </div>
+          <br />
+
+          <div className="ing-group">
+            <div>
+              <input
+                id="redmeat"
+                type="checkbox"
+                name="ingcheckbox"
+                onChange={this.updteGroupCheckbox()}
+              />
+              <label htmlFor="redmeat">redmeat</label>
+            </div>
+          </div>
+
           <div className="ing-group">
             <div>
               <input
                 id="beef"
                 type="checkbox"
                 name="ingcheckbox"
-                onChange={this.handleChange()}
+                data-group="redmeat"
+                onChange={this.updateGroupMemberCheck()}
               />
               <label htmlFor="beef">beef</label>
             </div>
@@ -110,7 +244,8 @@ class User extends  Component {
                 id="lamb"
                 type="checkbox"
                 name="ingcheckbox"
-                onChange={this.handleChange()}
+                data-group="redmeat"
+                onChange={this.updateGroupMemberCheck()}
               />
               <label htmlFor="lamb">lamb</label>
             </div>
@@ -147,10 +282,10 @@ class User extends  Component {
             />
             <label htmlFor="milk">milk</label>
           </div>
-
         </form>
+        <br />
 
-        <h2>I cant eat these: {}</h2>
+        <h2>I cant eat these: {this.defaultItems().join(", ")}</h2>
         <button
           className="submit-ingredient-button"
           onClick={this.handleSubmit}
@@ -192,6 +327,17 @@ class User extends  Component {
           </div>
         )
     }
+  }
+  renderErrors() {
+    return(
+      <ul className="error-ul">
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
   }
 
   render() {
