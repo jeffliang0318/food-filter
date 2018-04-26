@@ -3,7 +3,7 @@ const express = require('express');
 const localStrategy = require('passport-local').Strategy;
 //START REGULAR ROUTES
 const mongoose = require('mongoose');
-const User = mongoose.model('users'); 
+const User = mongoose.model('users');
 
 module.exports = app => {
 
