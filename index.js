@@ -18,8 +18,8 @@ require('./services/passport');
 const app = express();
 //
 //
-var routes = require('./routes/index');
-var users = require('./routes/users');
+// var routes = require('./routes/index');
+// var users = require('./routes/users');
 
 
 // BodyParser middleware parse incoming requests
@@ -36,59 +36,59 @@ app.use(
   })
 );
 // Express session
-app.use(session({
-  secret: 'secret',
-  saveUninitialized: true,
-  resave: true
-}));
+// app.use(session({
+//   secret: 'secret',
+//   saveUninitialized: true,
+//   resave: true
+// }));
 
 // Passport init
 app.use(passport.initialize());
 app.use(passport.session());
 
 
-app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({defaultLayout:'layout'}));
-app.set('view engine', 'handlebars');
+// app.set('views', path.join(__dirname, 'views'));
+// app.engine('handlebars', exphbs({defaultLayout:'layout'}));
+// app.set('view engine', 'handlebars');
 
 
 mongoose.connect(keys.mongoURI);
 require('./routes/authRoutes')(app);
 
 // Express Validator
-app.use(expressValidator({
-  errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
-
-    while(namespace.length) {
-      formParam += '[' + namespace.shift() + ']';
-    }
-    return {
-      param : formParam,
-      msg   : msg,
-      value : value
-    };
-  }
-}));
+// app.use(expressValidator({
+//   errorFormatter: function(param, msg, value) {
+//       var namespace = param.split('.')
+//       , root    = namespace.shift()
+//       , formParam = root;
+//
+//     while(namespace.length) {
+//       formParam += '[' + namespace.shift() + ']';
+//     }
+//     return {
+//       param : formParam,
+//       msg   : msg,
+//       value : value
+//     };
+//   }
+// }));
 
 // Connect Flash
-app.use(flash());
+// app.use(flash());
 //
 // Global Vars for Flash messages
-app.use(function (req, res, next) {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error'); // for passport sets its own error message on error
-  res.locals.user = req.user || null;
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.locals.success_msg = req.flash('success_msg');
+//   res.locals.error_msg = req.flash('error_msg');
+//   res.locals.error = req.flash('error'); // for passport sets its own error message on error
+//   res.locals.user = req.user || null;
+//   next();
+// });
 
 
-app.use('/', routes);
-app.use('/users', users);
-//
+// app.use('/', routes);
+// app.use('/users', users);
+// //
 // const PORT = process.env.PORT || 5000;
 // app.listen(PORT);
 
