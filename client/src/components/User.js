@@ -141,7 +141,7 @@ class User extends  Component {
       )
       return (
         <div>
-          <h1>Username</h1>
+          <h1>Hi, {this.props.auth.name}</h1>
           <hr />
           <div>
             <h4>Your Allgey List</h4>
