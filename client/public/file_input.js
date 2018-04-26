@@ -49,7 +49,7 @@ $(function() {
         },
         state: {
             inputStream: {
-                size: 640,
+                size: 1280,
                 singleChannel: false
             },
             locator: {
@@ -78,7 +78,7 @@ $(function() {
 
         if (result === undefined) {
             console.log('product undefined');
-            var $node = $('<li>Cannot Find Barcode</li>');
+            var $node = $('<li>Cannot Find Barcode. Please try again.</li>');
             $("#search-error-strip ul.search-error").prepend($node);
         }
 
@@ -92,7 +92,7 @@ $(function() {
                     //NOT WORKING 
                 });
                 if (result.box === undefined) {
-                    var $node = $('<li className="error-list-item">Cannot Read barcode</li>');
+                    var $node = $('<li className="error-list-item">Cannot Read Barcode. Please try again.</li>');
                     $("#search-error-strip ul.search-error").prepend($node);
                 }
             }

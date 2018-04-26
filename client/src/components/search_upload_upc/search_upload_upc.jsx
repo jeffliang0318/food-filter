@@ -26,11 +26,11 @@ class searchUploadUPC extends React.Component {
                             />
                         </fieldset>
                     </div>
-                </div>
-            </div>  
                     <div id="search-error-strip">
                         <ul className="search-error"></ul>
                     </div>
+                </div>
+            </div>  
             <div id="result_strip">
                 <ul className="thumbnails"></ul>
             </div>
