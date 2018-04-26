@@ -7,14 +7,14 @@ class User extends  Component {
     super(props);
     this.state = {
       ingredient: [],
-      redmeat: [],
+      // redmeat: [],
       // milk: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount(){
-    const user = this.props.fetchUser();
+    // const user = this.props.fetchUser();
     // this.setState({ingredient: this.props.auth.allergyIngredient})
   }
   handleSubmit(e) {
