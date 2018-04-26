@@ -22,7 +22,12 @@ class signUpForm extends React.Component {
       }
 
     handleSubmit(e) {
+      // console.log('submit');
         e.preventDefault();
+        const user = Object.assign({}, this.state);
+        console.log(this.state);
+        // console.log(user);
+        this.props.registerUser(user);
       }
 
     render() {

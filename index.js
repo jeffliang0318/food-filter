@@ -24,6 +24,7 @@ app.use(passport.session());
 mongoose.connect(keys.mongoURI);
 
 require('./routes/authRoutes')(app);
+require('./routes/users')(app);
 
 // const PORT = process.env.PORT || 5000;
 // app.listen(PORT);
