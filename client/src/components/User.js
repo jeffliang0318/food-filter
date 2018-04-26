@@ -14,7 +14,7 @@ class User extends  Component {
   }
 
   componentDidMount(){
-    // this.props.fetchUser();
+    this.props.fetchUser();
     // this.setState({ingredient: this.props.auth.allergyIngredient})
     // let savedInfo = this.props.auth.allergyIngredient;
     // console.log(savedInfo)
@@ -27,14 +27,25 @@ class User extends  Component {
   handleChange(e) {
     return e => {
       if(e.target.checked) {
-        this.setState({
-          ingredient: this.state.ingredient.concat([e.target.id])
-        })
-        console.log(this.state)
+        // console.log(e.target);
+        if (e.target.id === "egg") {
+          this.setState({
+            ingredient: this.state.ingredient.concat(["egg", "liveyin"])
+          })
+        } else {
+          this.setState({
+            ingredient: this.state.ingredient.concat([e.target.id])
+          })
+        }
+        // console.log(this.state)
       } else {
         let index = this.state.ingredient.indexOf(e.target.id);
         let updatedIngredient = this.state.ingredient;
-        updatedIngredient.splice(index, 1);
+        if (e.target.id === "egg"){
+          updatedIngredient.splice(index, 2);
+        } else {
+          updatedIngredient.splice(index, 1);
+        }
         this.setState({
           ingredient: updatedIngredient
         })
