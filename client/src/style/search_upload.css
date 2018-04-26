@@ -1,0 +1,31 @@
+.capture-button {
+    border: 1px solid red;
+}
+
+.rerun-button {
+    border: 1px solid red;
+}
+
+.controls .input-group {
+    float: left;
+  }
+  
+  .controls .input-group input, .controls .input-group button {
+    display: block;
+  }
+
+  #result_strip ul.thumbnails > li {
+    width: 150px;
+  }
+
+  #result_strip ul.thumbnails > li .thumbnail .imgWrapper {
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+  }
+
+  #result_strip ul.thumbnails > li .thumbnail .imgWrapper img {
+    margin-top: -25px;
+    width: 130px;
+    height: 180px;
+  }
