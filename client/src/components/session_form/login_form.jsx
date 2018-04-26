@@ -66,6 +66,11 @@ class loginForm extends React.Component {
               </div>
             </form>
 
+            <button
+              className="session-submit demo-login">
+              Demo Login
+            </button>
+
             <a className="google-login" href="/auth/google">
                 <i className="fab fa-google-plus-g"></i>
                 <p>Sign in with Google+</p>

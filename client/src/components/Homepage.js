@@ -16,11 +16,10 @@ class Homepage extends Component {
       document.getElementById(elId).scrollIntoView({
         "behavior" : "smooth",
         "block": "start",
-        "inline": "center"
+        "inline": "start"
       });
     }
   }
-
 
   render() {
     return (
@@ -201,6 +200,14 @@ class Homepage extends Component {
                 </div>
               </div>
             </section>
+          </div>
+
+          <div>
+            <div
+              id="backToTop"
+              onClick={this.scrollTo("root")}>
+                Top
+            </div>
           </div>
         </section>
       </main>

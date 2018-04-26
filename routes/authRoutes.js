@@ -39,7 +39,6 @@ module.exports = app => {
 
   app.get('/api/logout', (req, res) => {
     req.logout();
-    // req.flash('success_msg', 'You are logged out');
     res.redirect('/');
   });
 };
