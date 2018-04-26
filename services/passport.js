@@ -1,11 +1,6 @@
-// const keys = require('../config/keys');
-// const GoogleStrategy = require('passport-google-oauth20').Strategy;
-// const passport = require('passport');
-// const mongoose = require('mongoose');
-// const User = mongoose.model('users');
-
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 const keys = require('../config/keys');
 
@@ -22,6 +17,20 @@ passport.deserializeUser((id, done) => {
   });
 });
 
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password, user.password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
 passport.use(
   new GoogleStrategy(
     {
