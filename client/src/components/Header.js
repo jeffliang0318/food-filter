@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { openModal } from '../actions/modal_actions';
 
 import Search from './Search';
 
@@ -11,21 +12,13 @@ class Header extends Component {
         return;
       case false:
         return [
-          <li key="1" className="button-group">
-            <a href="/auth/google" >Login</a>
-          </li>,
-          <li key="2" className="button-group">
-            <a href="/">Demo</a>
-          </li>
+          <a key="1" className="button-group" onClick={() => this.props.openModal('login')}> Login </a>,
+          <a key="2" className="button-group" href="/">Demo</a>,
         ];
       default:
         return [
-          <li key="1" className="button-group">
-            <a href="/user" className="button-group">User</a>
-          </li>,
-          <li key="2" className="button-group">
-            <a href="/api/logout">Logout</a>
-          </li>
+          <a key="1"  href="/user" className="button-group">User</a>,
+          <a key="2" className="button-group" href="/api/logout">Logout</a>
         ];
     }
   }
@@ -35,7 +28,7 @@ class Header extends Component {
       <nav>
         <div className="nav-wrapper">
           <Link
-            to={this.props.auth ? '/' : '/auth/google'}
+            to="/"
             className="header-left brand-logo">
             FoodFilter
           </Link>
@@ -49,8 +42,12 @@ class Header extends Component {
   }
 }
 
-function mapStateToProps({ auth }) {
-  return { auth };
+function mapStateToProps(state) {
+  return { auth: state.auth };
 }
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = dispatch => ({
+  openModal: modal => dispatch(openModal(modal))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
