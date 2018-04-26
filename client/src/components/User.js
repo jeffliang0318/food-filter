@@ -5,16 +5,99 @@ import * as actions from '../actions';
 class User extends  Component {
   constructor(props) {
     super(props);
-    this.state = { ingredient: [] };
+    this.state = {
+      ingredient: [],
+      // redmeat: [],
+      // milk: false
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   componentDidMount(){
-    const user = this.props.fetchUser();
+    // this.props.fetchUser();
     // this.setState({ingredient: this.props.auth.allergyIngredient})
+    // let savedInfo = this.props.auth.allergyIngredient;
+    // console.log(savedInfo)
   }
   handleSubmit(e) {
     e.preventDefault();
     this.props.updateAllergyIngredient(this.state.ingredient);
+  }
+
+  handleChange(e) {
+    return e => {
+      if(e.target.checked) {
+        this.setState({
+          ingredient: this.state.ingredient.concat([e.target.id])
+        })
+        console.log(this.state)
+      } else {
+        let index = this.state.ingredient.indexOf(e.target.id);
+        let updatedIngredient = this.state.ingredient;
+        updatedIngredient.splice(index, 1);
+        this.setState({
+          ingredient: updatedIngredient
+        })
+      }
+
+      // this.handleCheckbox(e.target);
+    }
+  }
+
+  checkRedmeat() {
+    return e => {
+      let lamb = document.getElementById("lamb");
+      let beef = document.getElementById("beef");
+      if(e.target.checked) {
+        // console.log(e)
+        // console.log(lamb.checked)
+        // console.log(beef.checked)
+
+        if(!lamb.checked) {
+          lamb.checked = true;
+          this.handleCheckbox(lamb);
+        }
+        if(!beef.checked) {
+          beef.checked = true;
+          this.handleCheckbox(beef);
+        }
+      } else {
+        lamb.checked = false;
+        beef.checked = false;
+        this.handleCheckbox(beef);
+        this.handleCheckbox(lamb);
+
+      }
+    }
+  }
+
+  // handleCheckbox(el) {
+  //   if(el.checked) {
+  //     console.log(this.state.ingredient)
+  //     this.setState({
+  //       ingredient: this.state.ingredient.concat([el.id])
+  //     })
+  //     console.log(this.state.ingredient)
+  //   } else {
+  //     let index = this.state.ingredient.indexOf(el.id);
+  //     let updatedIngredient = this.state.ingredient;
+  //     updatedIngredient.splice(index, 1);
+  //     this.setState({
+  //       ingredient: updatedIngredient
+  //     })
+  //   }
+  // }
+
+  renderErrors() {
+    return(
+      <ul className="error-ul">
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
   }
 
   renderContent() {
@@ -38,51 +121,83 @@ class User extends  Component {
         }
       )
       //onchange update
-      const update = this.state.ingredient.map(
+      const updatedList = this.state.ingredient.map(
         ing => {
           return (
             <li key={ing}>{ing}</li>
           )
         }
       )
-        return (
+      return (
+        <div>
+          <h1>Username</h1>
+          <hr />
           <div>
-            <h1>Username</h1>
-            <hr />
-            <div>
-              <h4>Allgey List. From Backend Database</h4>
-              <ul>
-              {foodItems}
-              </ul>
-            </div>
-            <hr />
+            <h4>Your Allgey List</h4>
+            <ul>
+            {foodItems}
+            </ul>
+          </div>
+          <hr />
 
-            <button
-              className="submit-ingredient-button"
-              onClick={ () => this.setState({ingredient: this.state.ingredient.concat(["peanut"])})}
-            >
-              I cant eat peanut!
-            </button>
-            <button
-              className="submit-ingredient-button"
-              onClick={ () => this.setState({ingredient: []})}
-            >
-              I can eat peanut!
-            </button>
-            <br/>
-            <button
-              className="submit-ingredient-button"
-              onClick={ () => this.setState({ingredient: this.state.ingredient.concat(["egg"])})}
-            >
-              I cant eat egg!
-            </button>
-            <button
-              className="submit-ingredient-button"
-              onClick={ () => this.setState({ingredient: []})}
-            >
-              I can eat egg!
-            </button>
-            <h2>I cant eat these: {update}</h2>
+          <div>
+            <h4>Need Update?</h4>
+            <form>
+              <div className="ing-group">
+                <div>
+                  <input
+                    id="beef"
+                    type="checkbox"
+                    onChange={this.handleChange()}
+                  />
+                  <label htmlFor="beef">beef</label>
+                </div>
+              </div>
+
+              <div className="ing-group">
+                <div>
+                  <input
+                    id="lamb"
+                    type="checkbox"
+                    onChange={this.handleChange()}
+                  />
+                  <label htmlFor="lamb">lamb</label>
+                </div>
+              </div>
+
+              <br />
+
+              <div>
+                <input
+                  id="peanut"
+                  type="checkbox"
+                  onChange={this.handleChange()}
+                />
+                <label htmlFor="peanut">peanut</label>
+              </div>
+
+              <div>
+                <input
+                  id="egg"
+                  type="checkbox"
+
+                  onChange={this.handleChange()}
+                />
+                <label htmlFor="egg">egg</label>
+              </div>
+
+              <div>
+                <input
+                  id="milk"
+                  type="checkbox"
+                  onChange={this.handleChange()}
+                />
+                <label htmlFor="milk">milk</label>
+              </div>
+
+            </form>
+
+            <h2>I cant eat these: {updatedList}</h2>
             <button
               className="submit-ingredient-button"
               onClick={this.handleSubmit}
@@ -90,8 +205,8 @@ class User extends  Component {
               Update My Allergy Ingredient
             </button>
           </div>
-
-        )
+        </div>
+      )
     }
   }
 
