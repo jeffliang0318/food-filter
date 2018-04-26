@@ -6,98 +6,64 @@ class User extends  Component {
   constructor(props) {
     super(props);
     this.state = {
-      ingredient: [],
-      // redmeat: [],
-      // milk: false
+      "egg": false,
+      "beef": false,
+      "lamb": false,
+      "milk": false,
+      // "redmeat": ["beef", "lamb"]
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount(){
-    this.props.fetchUser();
-    // this.setState({ingredient: this.props.auth.allergyIngredient})
-    // let savedInfo = this.props.auth.allergyIngredient;
-    // console.log(savedInfo)
+    this.props.fetchUser().then(res => {
+      let ings = res.allergyIngredient;
+      for (var i = 0; i < ings.length; i++) {
+        if (Object.keys(this.state).includes(ings[i])) {
+          this.setState({[ings[i]]: true})
+        }
+      }
+
+      let defaultList = Object.keys(this.state).filter(ing=> this.state[ing]);
+
+      let oIngCheckboxs = document.getElementsByName("ingcheckbox");
+      for (let i = 0; i < oIngCheckboxs.length; i++) {
+        console.log(oIngCheckboxs[i].id)
+        if( defaultList.includes(oIngCheckboxs[i].id) ){
+          oIngCheckboxs[i].checked = true;
+        }
+      }
+    });
+
+
   }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateAllergyIngredient(this.state.ingredient);
+    let ingsArr = Object.keys(this.state);
+    let valideItems = ingsArr.filter(ing => this.state[ing])
+    this.props.updateAllergyIngredient(valideItems);
   }
 
-  handleChange(e) {
+  handleChange() {
     return e => {
-      if(e.target.checked) {
-        // console.log(e.target);
-        if (e.target.id === "egg") {
-          this.setState({
-            ingredient: this.state.ingredient.concat(["egg", "liveyin"])
-          })
-        } else {
-          this.setState({
-            ingredient: this.state.ingredient.concat([e.target.id])
-          })
-        }
-        // console.log(this.state)
-      } else {
-        let index = this.state.ingredient.indexOf(e.target.id);
-        let updatedIngredient = this.state.ingredient;
-        if (e.target.id === "egg"){
-          updatedIngredient.splice(index, 2);
-        } else {
-          updatedIngredient.splice(index, 1);
-        }
-        this.setState({
-          ingredient: updatedIngredient
-        })
-      }
-
-      // this.handleCheckbox(e.target);
+      let boolean = this.state[e.target.id]
+      this.setState({
+        [e.target.id]: !boolean
+      })
     }
   }
 
-  checkRedmeat() {
-    return e => {
-      let lamb = document.getElementById("lamb");
-      let beef = document.getElementById("beef");
-      if(e.target.checked) {
-        // console.log(e)
-        // console.log(lamb.checked)
-        // console.log(beef.checked)
 
-        if(!lamb.checked) {
-          lamb.checked = true;
-          this.handleCheckbox(lamb);
-        }
-        if(!beef.checked) {
-          beef.checked = true;
-          this.handleCheckbox(beef);
-        }
-      } else {
-        lamb.checked = false;
-        beef.checked = false;
-        this.handleCheckbox(beef);
-        this.handleCheckbox(lamb);
-
+  checkedDefault() {
+    let defaultList = this.props.auth.allergyIngredient;
+    let oIngCheckboxs = document.getElementsByName("ingcheckbox");
+    for (let i = 0; i < oIngCheckboxs.length; i++) {
+      console.log(oIngCheckboxs.id)
+      if( defaultList.includes(oIngCheckboxs.id) ){
+        oIngCheckboxs[i].checked = true;
       }
     }
   }
-
-  // handleCheckbox(el) {
-  //   if(el.checked) {
-  //     console.log(this.state.ingredient)
-  //     this.setState({
-  //       ingredient: this.state.ingredient.concat([el.id])
-  //     })
-  //     console.log(this.state.ingredient)
-  //   } else {
-  //     let index = this.state.ingredient.indexOf(el.id);
-  //     let updatedIngredient = this.state.ingredient;
-  //     updatedIngredient.splice(index, 1);
-  //     this.setState({
-  //       ingredient: updatedIngredient
-  //     })
-  //   }
-  // }
 
   renderErrors() {
     return(
@@ -108,6 +74,90 @@ class User extends  Component {
           </li>
         ))}
       </ul>
+    );
+  }
+
+  showUserList() {
+
+    //from back end
+    return this.props.auth.allergyIngredient.map(
+      ing => (
+          <li key={ing}>{ing}</li>
+      )
+    )
+  }
+
+  updateUserList() {
+    return (
+      <div>
+        <h4>Need Update?</h4>
+        <form>
+          <div className="ing-group">
+            <div>
+              <input
+                id="beef"
+                type="checkbox"
+                name="ingcheckbox"
+                onChange={this.handleChange()}
+              />
+              <label htmlFor="beef">beef</label>
+            </div>
+          </div>
+
+          <div className="ing-group">
+            <div>
+              <input
+                id="lamb"
+                type="checkbox"
+                name="ingcheckbox"
+                onChange={this.handleChange()}
+              />
+              <label htmlFor="lamb">lamb</label>
+            </div>
+          </div>
+
+          <br />
+
+          <div>
+            <input
+              id="peanut"
+              type="checkbox"
+              name="ingcheckbox"
+              onChange={this.handleChange()}
+            />
+            <label htmlFor="peanut">peanut</label>
+          </div>
+
+          <div>
+            <input
+              id="egg"
+              type="checkbox"
+              name="ingcheckbox"
+              onChange={this.handleChange()}
+            />
+            <label htmlFor="egg">egg</label>
+          </div>
+
+          <div>
+            <input
+              id="milk"
+              type="checkbox"
+              name="ingcheckbox"
+              onChange={this.handleChange()}
+            />
+            <label htmlFor="milk">milk</label>
+          </div>
+
+        </form>
+
+        <h2>I cant eat these: {}</h2>
+        <button
+          className="submit-ingredient-button"
+          onClick={this.handleSubmit}
+        >
+          Update My Allergy Ingredient
+        </button>
+      </div>
     );
   }
 
@@ -123,101 +173,24 @@ class User extends  Component {
           <a key={2} className="button-group" href="/">Back to Homepage</a>
         ];
       default:
-      //from back end
-      const foodItems = this.props.auth.allergyIngredient.map(
-        ing => {
-          return (
-            <li key={ing}>{ing}</li>
-          )
-        }
-      )
-      //onchange update
-      const updatedList = this.state.ingredient.map(
-        ing => {
-          return (
-            <li key={ing}>{ing}</li>
-          )
-        }
-      )
-      return (
-        <div>
-          <h1>Username</h1>
-          <hr />
+
+        return (
           <div>
-            <h4>Your Allgey List</h4>
-            <ul>
-            {foodItems}
-            </ul>
+            <h1>Username</h1>
+            <hr />
+            <div>
+              <h4>Your Allgey List</h4>
+              <ul>
+              {
+                this.showUserList()
+              }
+              </ul>
+            </div>
+            <hr />
+
+            {this.updateUserList()}
           </div>
-          <hr />
-
-          <div>
-            <h4>Need Update?</h4>
-            <form>
-              <div className="ing-group">
-                <div>
-                  <input
-                    id="beef"
-                    type="checkbox"
-                    onChange={this.handleChange()}
-                  />
-                  <label htmlFor="beef">beef</label>
-                </div>
-              </div>
-
-              <div className="ing-group">
-                <div>
-                  <input
-                    id="lamb"
-                    type="checkbox"
-                    onChange={this.handleChange()}
-                  />
-                  <label htmlFor="lamb">lamb</label>
-                </div>
-              </div>
-
-              <br />
-
-              <div>
-                <input
-                  id="peanut"
-                  type="checkbox"
-                  onChange={this.handleChange()}
-                />
-                <label htmlFor="peanut">peanut</label>
-              </div>
-
-              <div>
-                <input
-                  id="egg"
-                  type="checkbox"
-
-                  onChange={this.handleChange()}
-                />
-                <label htmlFor="egg">egg</label>
-              </div>
-
-              <div>
-                <input
-                  id="milk"
-                  type="checkbox"
-                  onChange={this.handleChange()}
-                />
-                <label htmlFor="milk">milk</label>
-              </div>
-
-            </form>
-
-            <h2>I cant eat these: {updatedList}</h2>
-            <button
-              className="submit-ingredient-button"
-              onClick={this.handleSubmit}
-            >
-              Update My Allergy Ingredient
-            </button>
-          </div>
-        </div>
-      )
+        )
     }
   }
 
