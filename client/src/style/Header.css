@@ -5,9 +5,10 @@
 
 nav {
   box-shadow: 0px 3px 6px 0px #ccc;
-  padding: 10px 0;
+  padding: 20px 0 12px 0;
 }
 .nav-wrapper {
+  height: 60px;
   width: 80%;
   min-width: 600px;
   margin: 0 auto;
@@ -17,11 +18,15 @@ nav {
 }
 
 .nav-wrapper .header-left {
-  flex: 1
+  flex: 1;
 }
 
 .nav-wrapper .brand-logo {
-  font-size: 24px;
+  font-size: 30px;
+  /* line-height: 100px; */
+  /* border: 1px solid red; */
+  position: relative;
+  top: 4px;
 }
 
 .nav-wrapper .header-right {
@@ -44,15 +49,12 @@ nav {
   background-color: #5bc0de;
   border-radius: 3px;
   margin-left: 8px;
-  height: 12px;
-  /* line-height: 12px; */
+  padding: 12px 10px 8px 10px;
+  font-size: 16px;
+  color: #fff;
 }
 
 .button-group:hover {
   background-color: #31b0d5;
   border-color: #269abc;
-}
-.button-group a {
-  font-size: 14px;
-  color: #fff;
 }
