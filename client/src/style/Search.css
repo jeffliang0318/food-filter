@@ -1,10 +1,11 @@
 .search-form {
   background: #fff;
-  width: 80%;
+  width: 90%;
   height: 36px;
   line-height: 38px;
   position: relative;
   bottom: 2px;
+  min-width: 400px;
 }
 
 .search-form input:first-of-type {
