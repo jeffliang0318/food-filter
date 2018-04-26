@@ -9,7 +9,14 @@ export const loginUser = (user) => async dispatch => {
 };
 
 export const registerUser = (user) => async dispatch => {
-  const res = await axios.post('/users/register', user);
-
-  dispatch({ type: LOGIN_USER, payload: res.data });
+  let res;
+  console.log(user);
+  try {
+    res = await axios.post('/users/register', user);
+  } catch(error) {
+    console.log(error)
+  }
+  // const res = await axios.post('/users/register', user);
+  //
+  // dispatch({ type: LOGIN_USER, payload: res.data });
 };
