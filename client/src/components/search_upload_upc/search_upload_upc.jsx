@@ -1,9 +1,21 @@
 import React from "react";
 
 class searchUploadUPC extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {upc: ""};
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(e) {
+        this.props.fetch_product(window.upcCode)
+        .then(() => this.props.history.push("/results"));
+    
+    }
 
     render() {
         //DO NOT CHANGE THESE className's controls, input-group, result_strip and thumbnails
+        console.log(window.upcCode);
         return (
           <div className='photo-container' >
             <div className='header-barcode-container'>
@@ -29,6 +41,9 @@ class searchUploadUPC extends React.Component {
             </div>
             <div id="result_strip">
                 <ul className="thumbnails"></ul>
+            </div>
+            <div>
+            <button onClick={this.handleClick}>Search Item</button>
             </div>
           </div>
         );
