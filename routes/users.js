@@ -8,6 +8,7 @@ module.exports = app => {
   app.get('/users/register',
     (req, res) => {
      req.logout();
+
      // redirect to index after logout
      res.redirect('/foo/bar');
    }
@@ -37,41 +38,13 @@ app.post('/users/register',function (req, res) {
 });
 
 
-app.get('/users/login', function (req, res) {
-	console.log('login');
-});
-
-
 app.post('/users/login',
-  passport.authenticate('local', { successRedirect: '/', failureRedirect: '/users/login'}),
-  function (req, res) {
-    res.redirect('/');
-    console.log('login');
+ passport.authenticate('local',
+  { failureFlash: 'Invalid username or password.' }),
+  (req, res) => {
+    req.flash();
+    let user = req.user;
+    res.redirect('/api/current_user');
 });
-// var express = require('express');
-// var router = express.Router()
-// var User = require('../models/User');
-// //
-// // // Register
-// // router.get('/register', function (req, res) {
-// // 	res.render('register');
-// // });
-// //
-// // // Login
-// // router.get('/login', function (req, res) {
-// // 	res.render('login');
-// // });
-// //
 
-//
-//
-// app.post('/login',
-// 	passport.authenticate('local', { successRedirect: '/', failureRedirect: '/users/login', failureFlash: true }),
-// 	function (req, res) {
-// 		res.redirect('/');
-// 	});
-// //
-// //
-// //
-// module.exports = router;
 };

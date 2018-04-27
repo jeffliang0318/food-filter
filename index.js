@@ -28,19 +28,29 @@ app.use(passport.session());
 mongoose.connect(keys.mongoURI);
 // Connect Flash
 app.use(flash());
-
-// Global Vars for Flash messages
-
 app.use(function (req, res, next) {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error'); // for passport sets its own error message on error
-  res.locals.user = req.user || null;
+  res.locals.messages = require('express-messages')(req, res);
   next();
 });
 
+// Global Vars for Flash messages
+//
+// app.use(function (req, res, next) {
+//   res.locals.success_msg = req.flash('success_msg');
+//   res.locals.error_msg = req.flash('error_msg');
+//   res.locals.error = req.flash('error'); // for passport sets its own error message on error
+//   res.locals.user = req.user || null;
+//   next();
+// });
 
+app.get('/', function(req, res){
+  res.render('index', { message: req.flash('info') });
+});
 
+app.get('/flash', function(req, res){
+  req.flash('info', 'Hi there!')
+  res.redirect('');
+});
 require('./routes/authRoutes')(app);
 require('./routes/users')(app);
 
@@ -48,4 +58,4 @@ require('./routes/users')(app);
 // app.listen(PORT);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT)
+app.listen(PORT);

@@ -44,10 +44,10 @@ module.exports = app => {
 };
 
 
-function ensureAuthenticated(req, res, next){
-	if(req.isAuthenticated()){
-		return next();
-	} else {
-		res.redirect('/login');
-	}
-}
+// function ensureAuthenticated(req, res, next){
+// 	if(req.isAuthenticated()){
+// 		return next();
+// 	} else {
+// 		res.redirect('/login');
+// 	}
+// }

@@ -5,12 +5,12 @@ export const FETCH_USER = 'fetch_user';
 // export const REGISTER_USER = 'REGISTER_USER';
 
 export const loginUser = (user) => async dispatch => {
-  const res = await axios.post('/users/login', user);
-  try{
-    console.log('action dispatched')
-  dispatch({ type: FETCH_USER, payload: res.data });
+  let res;
+  try {
+    res = await axios.post('/users/login', user);
+    dispatch({ type: FETCH_USER, payload: res.data });
 } catch(error) {
-  console.log('error dispatched')
+  console.log(error.response);
   dispatch({ type: FETCH_ERROR, payload: error });
 }
 };
