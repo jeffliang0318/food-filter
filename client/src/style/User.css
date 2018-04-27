@@ -72,7 +72,7 @@
 
 .ing-group {
   width: 25%;
-  min-width: 300px;
+  min-width: 280px;
   height: auto;
   /* max-height: 180px; */
   /* float: left; */
@@ -80,7 +80,7 @@
 }
 
 .ing-group img {
-  width: 60%;
+  width: 180px;
   max-width: 200px;
   height: auto;
 }
