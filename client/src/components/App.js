@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 import Modal from "./modal";
@@ -20,12 +20,15 @@ class App extends Component {
       <div>
         <BrowserRouter>
           <div>
-            <Modal /> 
+            <Modal />
             <Header />
-            <Route exact path="/" component={Homepage} />
-            <Route exact path="/user" component={User} />
-            <Route exact path="/results" component={Product} />
-            <Route exact path='/searchupload' component={SearchUpload} />
+            <Switch>
+              <Route exact path="/" component={Homepage} />
+              <Route exact path="/user" component={User} />
+              <Route exact path="/results" component={Product} />
+              <Route exact path='/searchupload' component={SearchUpload} />
+              <Redirect to="/"/>
+            </Switch>
           </div>
         </BrowserRouter>
       </div>
