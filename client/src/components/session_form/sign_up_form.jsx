@@ -22,11 +22,8 @@ class signUpForm extends React.Component {
       }
 
     handleSubmit(e) {
-      // console.log('submit');
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        console.log(this.state);
-        // console.log(user);
         this.props.registerUser(user);
       }
 
@@ -86,6 +83,7 @@ class signUpForm extends React.Component {
                 />
               </div>
             </form>
+
             <button
               className="session-submit demo-login">
               Demo Login
