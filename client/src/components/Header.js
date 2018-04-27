@@ -17,7 +17,7 @@ class Header extends Component {
         ];
       default:
         return [
-          <a key="1"  href="/user" className="button-group">User</a>,
+          <a key="1" className="button-group" href="/user">User</a>,
           <a key="2" className="button-group" href="/api/logout">Logout</a>
         ];
     }
@@ -34,7 +34,7 @@ class Header extends Component {
           </Link>
           <div className="header-right">
             <Search />
-            <ul className="header-right-auth">{this.renderContent()}</ul>
+            <div className="header-right-auth">{this.renderContent()}</div>
           </div>
         </div>
       </nav>
