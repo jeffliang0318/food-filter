@@ -6,6 +6,7 @@ class User extends  Component {
   constructor(props) {
     super(props);
     this.state = {
+      "soy":false,
       "egg": false,
       "albumin":false,
       "globulin":false,
@@ -239,6 +240,16 @@ class User extends  Component {
       <div>
         <h4>Need Update?</h4>
         <form>
+          <div>
+            <input
+              id="soy"
+              type="checkbox"
+              name="ingcheckbox"
+              onChange={this.handleChange()}
+            />
+            <label htmlFor="soy">soy</label>
+          </div>
+
           <div>
             <input
               id="peanut"
@@ -558,7 +569,7 @@ class User extends  Component {
 
         return (
           <div>
-            <h1>Username</h1>
+            <h1>Hi, {this.props.auth.name}</h1>
             <hr />
             <div>
               <h4>Your Allgey List</h4>
