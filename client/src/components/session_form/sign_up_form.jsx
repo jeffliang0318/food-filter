@@ -110,6 +110,7 @@ class signUpForm extends React.Component {
                 />
               </div>
             </form>
+
             <button
               className="session-submit demo-login">
               Demo Login

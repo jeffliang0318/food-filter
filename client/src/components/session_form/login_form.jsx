@@ -30,7 +30,6 @@ class loginForm extends React.Component {
             that.props.closeModal();
           }
         });
-
       }
 
     render() {

@@ -11,67 +11,14 @@ $(function() {
                     App.decode(URL.createObjectURL(e.target.files[0]));
                 }
             });
-
-        //     $(".controls button").on("click", function(e) {
-        //         var input = document.querySelector(".controls input[type=file]");
-        //         if (input.files && input.files.length) {
-        //             App.decode(URL.createObjectURL(input.files[0]));
-        //         }
-        //     });
-
-        //     $(".controls .reader-config-group").on("change", "input, select", function(e) {
-            //         e.preventDefault();
-            //         var $target = $(e.target),
-            //             value = $target.attr("type") === "checkbox" ? $target.prop("checked") : $target.val(),
-            //             name = $target.attr("name"),
-            //             state = self._convertNameToState(name);
-            
-            //         console.log("Value of "+ state + " changed to " + value);
-            //         self.setState(state, value);
-            //     });
         },
-        // _accessByPath: function(obj, path, val) {
-        //     console.log(".................................");
-        //     var parts = path.split('.'),
-        //         depth = parts.length,
-        //         setter = (typeof val !== "undefined") ? true : false;
-
-        //     return parts.reduce(function(o, key, i) {
-        //         if (setter && (i + 1) === depth) {
-        //             o[key] = val;
-        //         }
-        //         return key in o ? o[key] : {};
-        //     }, obj);
-        // },
-        // _convertNameToState: function(name) {
-        //     return name.replace("_", ".").split("-").reduce(function(result, value) {
-        //         return result + value.charAt(0).toUpperCase() + value.substring(1);
-        //     });
-        // },
-        // detachListeners: function() {
-        //     $(".controls input[type=file]").off("change");
-        //     $(".controls .reader-config-group").off("change", "input, select");
-        //     $(".controls button").off("click");
-        // },
         decode: function(src) {
             var self = this,
                 config = $.extend({}, self.state, {src: src});
 
             Quagga.decodeSingle(config, function(result) {});
         },
-        // setState: function(path, value) {
-        //     var self = this;
 
-        //     if (typeof self._accessByPath(self.inputMapper, path) === "function") {
-        //         value = self._accessByPath(self.inputMapper, path)(value);
-        //     }
-
-        //     self._accessByPath(self.state, path, value);
-
-        //     console.log(JSON.stringify(self.state));
-        //     App.detachListeners();
-        //     App.init();
-        // },
         inputMapper: {
             inputStream: {
                 size: function(value){
@@ -122,34 +69,18 @@ $(function() {
 
     App.init();
 
-    function calculateRectFromArea(canvas, area) {
-        console.log(canvas);
-        console.log(area);
-        console.log(".................................");
-        var canvasWidth = canvas.width,
-            canvasHeight = canvas.height,
-            top = parseInt(area.top)/100,
-            right = parseInt(area.right)/100,
-            bottom = parseInt(area.bottom)/100,
-            left = parseInt(area.left)/100;
-
-        top *= canvasHeight;
-        right = canvasWidth - canvasWidth*right;
-        bottom = canvasHeight - canvasHeight*bottom;
-        left *= canvasWidth;
-        return {
-            x: left,
-            y: top,
-            width: right - left,
-            height: bottom - top
-        };
-    }
-
     Quagga.onProcessed(function(result) {
         console.log('THIS IS THE RESULT  ' + result); //if result === undefined also not working
+        $('#search-error-strip ul.search-error').empty();
         var drawingCtx = Quagga.canvas.ctx.overlay,
             drawingCanvas = Quagga.canvas.dom.overlay,
             area;
+
+        if (result === undefined) {
+            console.log('product undefined');
+            var $node = $('<li>Cannot Find Barcode. Please try again.</li>');
+            $("#search-error-strip ul.search-error").prepend($node);
+        }
 
         if (result) {
             if (result.boxes) {
@@ -160,6 +91,10 @@ $(function() {
                     Quagga.ImageDebug.drawPath(box, {x: 0, y: 1}, drawingCtx, {color: "green", lineWidth: 2});
                     //NOT WORKING 
                 });
+                if (result.box === undefined) {
+                    var $node = $('<li className="error-list-item">Cannot Read Barcode. Please try again.</li>');
+                    $("#search-error-strip ul.search-error").prepend($node);
+                }
             }
 
             if (result.box) {
