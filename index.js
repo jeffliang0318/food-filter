@@ -5,6 +5,7 @@ const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
 const keys = require('./config/keys');
 require('./models/User');
 //need to load User before passport otherwise Schema couldnt been found
@@ -13,6 +14,7 @@ require('./services/passport');
 const app = express();
 
 app.use(bodyParser.json());
+app.use(expressValidator());
 
 app.use(cookieParser());
 app.use(

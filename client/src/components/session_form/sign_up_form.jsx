@@ -21,13 +21,24 @@ class signUpForm extends React.Component {
           });
       }
 
+      componentDidUpdate(){
+        if(this.props.auth) {
+            this.props.closeModal();
+          }
+      }
     handleSubmit(e) {
       // console.log('submit');
         e.preventDefault();
         const user = Object.assign({}, this.state);
         // console.log(this.state);
+        let that = this;
         this.props.registerUser(user)
-        .then(() => this.props.closeModal());
+        // .then(function(){
+        //   if(that.props.auth) {
+        //     that.props.closeModal();
+        //   }
+        // });
+
       }
 
     render() {
