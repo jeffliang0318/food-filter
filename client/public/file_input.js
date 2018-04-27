@@ -5,9 +5,12 @@ $(function() {
         },
         attachListeners: function() {
             var self = this;
-
+            console.log("helloooooooooo");
+            
             $(".controls input[type=file]").on("change", function(e) {
+                console.log("change");
                 if (e.target.files && e.target.files.length) {
+                    console.log("should be working");
                     App.decode(URL.createObjectURL(e.target.files[0]));
                 }
             });

@@ -2,8 +2,9 @@ import { connect } from "react-redux";
 import searchUploadUPC from "./search_upload_upc";
 
 const mapStateToProps = (state) => {
-  return {
-  };
+  return ({
+  }
+  );
 };
 
 const mapDispatchToProps = dispatch => {

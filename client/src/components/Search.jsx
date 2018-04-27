@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import { fetch_product } from '../actions/searchResults';
 
@@ -11,6 +11,7 @@ class Search extends Component {
       searchTerm: ""
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.redirectToUpload = this.redirectToUpload.bind(this);
   }
 
   update(field) {
@@ -31,6 +32,11 @@ class Search extends Component {
 
   }
 
+  redirectToUpload(e) {
+    e.preventDefault();
+    this.props.history.push("/searchupload");
+  }
+
   render() {
     return (
         <form className="search-form">
@@ -40,6 +46,7 @@ class Search extends Component {
             onChange={this.update('searchTerm')}
           />
           <input className="submit" type="submit" onClick={this.handleSubmit} />
+          <Link to='/searchupload'><i className="fas fa-camera"></i></Link>
         </form>
     );
   }
