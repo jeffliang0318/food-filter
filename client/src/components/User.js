@@ -7,9 +7,28 @@ class User extends  Component {
     super(props);
     this.state = {
       "egg": false,
+      "albumin":false,
+      "globulin":false,
+      "lecithin":false,
+      "livetin":false,
       "lysozyme":false,
+      "vitellin":false,
       "peanut": false,
+      "arachis": false,
+      "goobers": false,
+      "lupin": false,
+      "lupine": false,
       "milk": false,
+      "whey": false,
+      "casein": false,
+      "caseinates": false,
+      "cheese": false,
+      "curds": false,
+      "custard": false,
+      "diacetyl": false,
+      "ghee": false,
+      "lactoferrin": false,
+      "lactose": false,
       "crab": false,
       "lobster": false,
       "shrimp": false,
@@ -53,16 +72,16 @@ class User extends  Component {
       for (let i = 0; i < oIngCheckboxs.length; i++) {
         if( defaultList.includes(oIngCheckboxs[i].id) ){
           oIngCheckboxs[i].checked = true;
-          let groupName = String(oIngCheckboxs[i].dataset.group);
-          let gourpBool = true;
-
-          let group = document.getElementById(groupName);
-          let oMembers = document.querySelectorAll(`[data-group="${group.id}"]`);
-          for (var j = 0; j < oMembers.length; j++) {
-            // console.log(oMembers[i].checked)
-            if(oMembers[j].checked === false) gourpBool = false;
+          if(oIngCheckboxs[i].dataset.group) {
+            let groupName = String(oIngCheckboxs[i].dataset.group);
+            let gourpBool = true;
+            let group = document.getElementById(groupName);
+            let oMembers = document.querySelectorAll(`[data-group="${groupName}"]`);
+            for (var j = 0; j < oMembers.length; j++) {
+              if(oMembers[j].checked === false) gourpBool = false;
+            }
+            group.checked = gourpBool;
           }
-          group.checked = gourpBool;
         }
       }
     });
@@ -105,6 +124,28 @@ class User extends  Component {
     return defaultList
   }
 
+
+  cantEatList() {
+    let items = this.defaultItems();
+    if(items.indexOf("milk") !== -1) {
+      const milkStr = "milk(whey, casein, caseinates, cheese, curds, custard, diacetyl, ghee, lactoferrin, lactose)";
+      let indexMilk = items.indexOf("milk");
+      items.splice(indexMilk, 11, milkStr);
+    }
+    if(items.indexOf("egg") !== -1) {
+      const eggStr = "egg(albumin, globulin, lecithin, livetin, lysozyme, vitellin)";
+      let indexEgg = items.indexOf("egg");
+      items.splice(indexEgg, 7, eggStr);
+    }
+    if(items.indexOf("peanut") !== -1) {
+      const peanutStr = "peanut(arachis, goobers, lupin, lupine)";
+      let indexPeanut = items.indexOf("egg");
+      items.splice(indexPeanut, 5, peanutStr);
+    }
+
+    return items.join(", ");
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     let valideItems =  Object.keys(this.state).filter(ing => {
@@ -115,11 +156,35 @@ class User extends  Component {
   }
 
   handleChange(e) {
+    let eggRelated = ["albumin", "globulin", "lecithin", "livetin", "lysozyme", "vitellin"];
+    let milkRelated = ["whey", "casein", "caseinates", "cheese", "curds", "custard", "diacetyl", "ghee", "lactoferrin", "lactose"];
+    let peanutRelated = ["arachis", "goobers", "lupin", "lupine"];
     return e => {
       let boolean = this.state[e.target.id]
       this.setState({
         [e.target.id]: !boolean
       })
+      if(e.target.id === "egg") {
+        for (var i = 0; i < eggRelated.length; i++) {
+          this.setState({
+            [eggRelated[i]]: !boolean
+          })
+        }
+      }
+      if(e.target.id === "milk") {
+        for (var j = 0; j < milkRelated.length; j++) {
+          this.setState({
+            [milkRelated[j]]: !boolean
+          })
+        }
+      }
+      if(e.target.id === "peanut") {
+        for (var k = 0; k < peanutRelated.length; k++) {
+          this.setState({
+            [peanutRelated[k]]: !boolean
+          })
+        }
+      }
     }
   }
 
@@ -467,7 +532,7 @@ class User extends  Component {
         </form>
         <br />
 
-        <h2>I cant eat these: {this.defaultItems().join(", ")}</h2>
+        <h2>I cant eat these: {this.cantEatList()}</h2>
         <button
           className="submit-ingredient-button"
           onClick={this.handleSubmit}
