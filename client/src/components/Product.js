@@ -3,6 +3,14 @@ import { connect } from 'react-redux';
 
 class Product extends Component {
   ingredientsChecker() {
+    if(!this.props.searchResults.ing) {
+      return (
+        <ul className="ing-ul">
+          <li key={`ing-000`} style={{color:"red"}}>
+            NDSA Database does not have ingredient for this product.
+          </li>
+        </ul>)
+    }
     const ing = this.props.searchResults.ing.desc;
 
     let ingrendients = [];

@@ -9,10 +9,9 @@ export const loginUser = (user) => async dispatch => {
 };
 
 export const registerUser = async function(user) {
-  let res;
-  console.log(user);
+
   try {
-    res = await axios.post('/users/register', user);
+    await axios.post('/users/register', user);
   } catch(error) {
     console.log(error)
   }
