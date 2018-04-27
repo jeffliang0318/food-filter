@@ -1,10 +1,6 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 
 class searchUploadUPC extends React.Component {
-    constructor(props) {
-        super(props);
-      }
 
     render() {
         //DO NOT CHANGE THESE className's controls, input-group, result_strip and thumbnails
