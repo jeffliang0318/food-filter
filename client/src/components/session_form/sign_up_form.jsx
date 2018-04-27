@@ -26,19 +26,31 @@ class signUpForm extends React.Component {
             this.props.closeModal();
           }
       }
-    handleSubmit(e) {
-      // console.log('submit');
-        e.preventDefault();
-        const user = Object.assign({}, this.state);
-        // console.log(this.state);
-        let that = this;
-        this.props.registerUser(user)
-        // .then(function(){
-        //   if(that.props.auth) {
-        //     that.props.closeModal();
-        //   }
-        // });
 
+
+      componentWillUnmount(){
+        this.props.clearErrors();
+      }
+
+      handleSubmit(e) {
+        // console.log('submit');
+          e.preventDefault();
+          const user = Object.assign({}, this.state);
+          // console.log(this.state);
+          let that = this;
+          this.props.registerUser(user)
+        }
+
+        renderErrors() {
+          return(
+            <ul className='error'>
+              {this.props.errors.map((error,i) => (
+                <li key = {`errors-${i}`}>
+                  {error}
+                </li>
+              ))}
+            </ul>
+          );
       }
 
     render() {
@@ -50,6 +62,7 @@ class signUpForm extends React.Component {
                   <h1 className="login-title">{this.props.formType}</h1>
 
                   <div>
+                    {this.renderErrors()}
                     <input
                       type="text"
                       value={this.state.username}

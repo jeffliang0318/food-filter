@@ -3,6 +3,7 @@ export const LOGIN_USER = 'LOGIN_USER';
 export const FETCH_ERROR = 'fetch_error';
 export const FETCH_USER = 'fetch_user';
 export const FETCH_AUTH_ERRORS = 'fetch_auth_errors';
+export const RECEIVE_ERRORS = 'receiveErrors';
 
 // export const REGISTER_USER = 'REGISTER_USER';
 
