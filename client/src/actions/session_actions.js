@@ -1,19 +1,32 @@
 import axios from 'axios';
-export const LOGIN_USER = 'login_user';
-export const REGISTER_USER = 'register_user';
+export const LOGIN_USER = 'LOGIN_USER';
+export const FETCH_ERROR = 'FETCH_ERROR';
+export const FETCH_USER = 'fetch_user';
+// export const REGISTER_USER = 'REGISTER_USER';
 
 export const loginUser = (user) => async dispatch => {
-  const res = await axios.post('/users/login', user);
-
-  dispatch({ type: LOGIN_USER, payload: res.data });
+  let res;
+  try {
+    res = await axios.post('/users/login', user);
+    dispatch({ type: FETCH_USER, payload: res.data });
+  } catch(error) {
+    console.log(error.response);
+    dispatch({ type: FETCH_ERROR, payload: error });
+  }
 };
 
-export const registerUser = async function(user) {
+export const registerUser = (user) => async dispatch => {
 
+  let res;
   try {
-    await axios.post('/users/register', user);
+    res = await axios.post('/users/register', user);
+    // console.log(res);
+
+    dispatch({ type: FETCH_USER, payload: res.data });
+
   } catch(error) {
-    console.log(error)
+    dispatch({ type: FETCH_ERROR, payload: error });
+    // console.log(error)
   }
   // const res = await axios.post('/users/register', user);
   //
