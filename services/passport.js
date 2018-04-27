@@ -18,6 +18,7 @@ passport.deserializeUser((id, done) => {
 });
 
 passport.use(new LocalStrategy(
+  {proxy: true},
   function(username, password, done) {
     User.findOne({ username: username }, function (err, user) {
       if (err) { return done(err); }

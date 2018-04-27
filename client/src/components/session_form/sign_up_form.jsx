@@ -26,7 +26,8 @@ class signUpForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         // console.log(this.state);
-        this.props.registerUser(user);
+        this.props.registerUser(user)
+        .then(() => this.props.closeModal());
       }
 
     render() {

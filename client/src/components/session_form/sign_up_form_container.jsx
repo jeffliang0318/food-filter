@@ -7,7 +7,8 @@ import signUpForm from "./sign_up_form";
 
 const mapStateToProps = (state) => {
   return {
-    formType: "Register"
+    formType: "Register",
+    auth: state.auth
   };
 };
 
