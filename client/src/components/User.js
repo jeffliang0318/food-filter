@@ -139,7 +139,7 @@ class User extends  Component {
     }
     if(items.indexOf("peanut") !== -1) {
       const peanutStr = "peanut(arachis, goobers, lupin, lupine)";
-      let indexPeanut = items.indexOf("egg");
+      let indexPeanut = items.indexOf("peanut");
       items.splice(indexPeanut, 5, peanutStr);
     }
 
