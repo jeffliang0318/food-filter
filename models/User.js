@@ -5,7 +5,12 @@ const Schema = mongoose.Schema;
 
 // START HASHING
 const saltRounds = 10;
-
+const validateEmail = (email) => {
+  if (email.length > 254) {
+    return false;
+  }
+  return (/\S+@\S+\.\S+/).test(email);
+};
 
 const userSchema = new Schema({
   googleId: String,
@@ -13,22 +18,20 @@ const userSchema = new Schema({
 
 	username: {
 		type: String,
-		index:true
+		index:true,
+
 	},
 	password: {
 		type: String,
-    require: true
 	},
 	email: {
-		type: String
-	},
-	name: {
-		type: String
+		type: String,
+  
 	}
-
 });
 
 var User = module.exports = mongoose.model('users', userSchema);
+
 
 module.exports.createUser = function(newUser, callback){
 	bcrypt.genSalt(saltRounds, function(err, salt) {
