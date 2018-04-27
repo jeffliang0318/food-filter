@@ -70,14 +70,12 @@ $(function() {
     App.init();
 
     Quagga.onProcessed(function(result) {
-        console.log('THIS IS THE RESULT  ' + result); //if result === undefined also not working
         $('#search-error-strip ul.search-error').empty();
         var drawingCtx = Quagga.canvas.ctx.overlay,
             drawingCanvas = Quagga.canvas.dom.overlay,
             area;
 
         if (result === undefined) {
-            console.log('product undefined');
             var $node = $('<li>Cannot Find Barcode. Please try again.</li>');
             $("#search-error-strip ul.search-error").prepend($node);
         }
@@ -104,26 +102,18 @@ $(function() {
             if (result.codeResult && result.codeResult.code) {
                 Quagga.ImageDebug.drawPath(result.line, {x: 'x', y: 'y'}, drawingCtx, {color: 'red', lineWidth: 3});
             }
-
-            if (App.state.inputStream.area) {
-                area = calculateRectFromArea(drawingCanvas, App.state.inputStream.area);
-                drawingCtx.strokeStyle = "#0F0";
-                drawingCtx.strokeRect(area.x, area.y, area.width, area.height);
-            }
     }
     });
 
     Quagga.onDetected(function(result) {
         var code = result.codeResult.code;
-        console.log(code);
             var $node,
             canvas = Quagga.canvas.dom.image;
-            console.log(code);
-            
+            window.upcCode = (code);
             $node = $('<li><div class="thumbnail"><div class="imgWrapper"><img /></div><div class="caption"><h4 class="code"></h4></div></div></li>');
             $node.find("img").attr("src", canvas.toDataURL());
             $node.find("h4.code").html(code);
+            $("#result_strip ul.thumbnails").empty();
             $("#result_strip ul.thumbnails").prepend($node);
-            console.log($node);
     });
 });
