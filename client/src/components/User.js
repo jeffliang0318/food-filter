@@ -566,7 +566,6 @@ class User extends  Component {
           <a key={2} className="button-group" href="/">Back to Homepage</a>
         ];
       default:
-
         return (
           <div>
             <h1>Hi, {this.props.auth.name}</h1>
