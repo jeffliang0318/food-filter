@@ -17,7 +17,7 @@ class User extends  Component {
       "crawfish":false,
       "mussel":false,
       "oyster": false,
-      "shellfish": ["crab", "lobster", "shrimp", "clams", "mussel", "oyster"],
+      "shellfish": ["crab", "lobster", "shrimp", "clams", "mussel", "crawfish", "oyster"],
       "almond": false,
       "cashew": false,
       "chestnut": false,
@@ -37,7 +37,7 @@ class User extends  Component {
 
   componentDidMount(){
     this.props.fetchUser().then(res => {
-      let ings = res.allergyIngredient;
+      let ings = res.allergyIngredient || [];
       for (var i = 0; i < ings.length; i++) {
         if (Object.keys(this.state).includes(ings[i])) {
           this.setState({[ings[i]]: true})
@@ -214,7 +214,7 @@ class User extends  Component {
                 name="ingcheckbox"
                 onChange={this.updteGroupCheckbox()}
               />
-              <label htmlFor="treenuts">Wheat Allgey</label>
+              <label htmlFor="wheat">Wheat Allgey</label>
             </div>
           </div>
           <div className="ing-group">
@@ -283,7 +283,7 @@ class User extends  Component {
           <div className="ing-group">
             <div>
               <input
-                id="wheat"
+                id="treenuts"
                 type="checkbox"
                 name="ingcheckbox"
                 onChange={this.updteGroupCheckbox()}
