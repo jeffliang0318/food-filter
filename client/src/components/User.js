@@ -10,13 +10,27 @@ class User extends  Component {
       "lysozyme":false,
       "peanut": false,
       "milk": false,
-      "beef": false,
-      "lamb": false,
-      "redmeat": ["beef", "lamb"],
       "crab": false,
       "lobster": false,
       "shrimp": false,
-      "shellfish": ["crab", "lobster", "shrimp"],
+      "clams":false,
+      "crawfish":false,
+      "mussel":false,
+      "oyster": false,
+      "shellfish": ["crab", "lobster", "shrimp", "clams", "mussel", "oyster"],
+      "almond": false,
+      "cashew": false,
+      "chestnut": false,
+      "hazelnut": false,
+      "pistachio": false,
+      "walnut": false,
+      "treenuts": ["almond", "cashew", "chestnut", "hazelnut", "pistachio", "walnut"],
+      "bran": false,
+      "bulgur": false,
+      "durum": false,
+      "gluten": false,
+      "kamut": false,
+      "wheat": ["bran", "bulgur", "durum", "gluten", "kamut"]
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -160,99 +174,6 @@ class User extends  Component {
       <div>
         <h4>Need Update?</h4>
         <form>
-
-          <div className="ing-group">
-            <div>
-              <input
-                id="shellfish"
-                type="checkbox"
-                name="ingcheckbox"
-                onChange={this.updteGroupCheckbox()}
-              />
-              <label htmlFor="shellfish">shellfish</label>
-            </div>
-          </div>
-
-          <div className="ing-group">
-            <div>
-              <input
-                id="crab"
-                type="checkbox"
-                name="ingcheckbox"
-                data-group="shellfish"
-                onChange={this.updateGroupMemberCheck()}
-              />
-              <label htmlFor="crab">crab</label>
-            </div>
-          </div>
-
-          <div className="ing-group">
-            <div>
-              <input
-                id="shrimp"
-                type="checkbox"
-                name="ingcheckbox"
-                data-group="shellfish"
-                onChange={this.updateGroupMemberCheck()}
-              />
-              <label htmlFor="shrimp">shrimp</label>
-            </div>
-          </div>
-
-          <div className="ing-group">
-            <div>
-              <input
-                id="lobster"
-                type="checkbox"
-                name="ingcheckbox"
-                data-group="shellfish"
-                onChange={this.updateGroupMemberCheck()}
-              />
-              <label htmlFor="lobster">lobster</label>
-            </div>
-          </div>
-          <br />
-
-          <div className="ing-group">
-            <div>
-              <input
-                id="redmeat"
-                type="checkbox"
-                name="ingcheckbox"
-                onChange={this.updteGroupCheckbox()}
-              />
-              <label htmlFor="redmeat">redmeat</label>
-            </div>
-          </div>
-
-          <div className="ing-group">
-            <div>
-              <input
-                id="beef"
-                type="checkbox"
-                name="ingcheckbox"
-                data-group="redmeat"
-                onChange={this.updateGroupMemberCheck()}
-              />
-              <label htmlFor="beef">beef</label>
-            </div>
-          </div>
-
-          <div className="ing-group">
-            <div>
-              <input
-                id="lamb"
-                type="checkbox"
-                name="ingcheckbox"
-                data-group="redmeat"
-                onChange={this.updateGroupMemberCheck()}
-              />
-              <label htmlFor="lamb">lamb</label>
-            </div>
-          </div>
-
-          <br />
-
           <div>
             <input
               id="peanut"
@@ -282,6 +203,267 @@ class User extends  Component {
             />
             <label htmlFor="milk">milk</label>
           </div>
+
+          <br />
+
+          <div className="ing-group">
+            <div>
+              <input
+                id="wheat"
+                type="checkbox"
+                name="ingcheckbox"
+                onChange={this.updteGroupCheckbox()}
+              />
+              <label htmlFor="treenuts">Wheat Allgey</label>
+            </div>
+          </div>
+          <div className="ing-group">
+            <div>
+              <input
+                id="bran"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="wheat"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="bran">bran</label>
+            </div>
+          </div>
+          <div className="ing-group">
+            <div>
+              <input
+                id="bulgur"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="wheat"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="bulgur">bulgur</label>
+            </div>
+          </div>
+          <div className="ing-group">
+            <div>
+              <input
+                id="durum"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="wheat"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="durum">durum</label>
+            </div>
+          </div>
+          <div className="ing-group">
+            <div>
+              <input
+                id="gluten"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="wheat"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="gluten">gluten</label>
+            </div>
+          </div>
+          <div className="ing-group">
+            <div>
+              <input
+                id="kamut"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="wheat"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="kamut">kamut</label>
+            </div>
+          </div>
+          <br />
+
+
+          <div className="ing-group">
+            <div>
+              <input
+                id="wheat"
+                type="checkbox"
+                name="ingcheckbox"
+                onChange={this.updteGroupCheckbox()}
+              />
+              <label htmlFor="treenuts">Treenuts Allergy</label>
+            </div>
+          </div>
+          <div className="ing-group">
+            <div>
+              <input
+                id="almond"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="treenuts"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="almond">almond</label>
+            </div>
+          </div>
+          <div className="ing-group">
+            <div>
+              <input
+                id="cashew"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="treenuts"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="cashew">cashew</label>
+            </div>
+          </div>
+          <div className="ing-group">
+            <div>
+              <input
+                id="chestnut"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="treenuts"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="chestnut">chestnut</label>
+            </div>
+          </div>
+          <div className="ing-group">
+            <div>
+              <input
+                id="hazelnut"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="treenuts"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="hazelnut">hazelnut</label>
+            </div>
+          </div>
+          <div className="ing-group">
+            <div>
+              <input
+                id="pistachio"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="treenuts"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="pistachio">pistachio</label>
+            </div>
+          </div>
+          <div className="ing-group">
+            <div>
+              <input
+                id="walnut"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="treenuts"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="walnut">walnut</label>
+            </div>
+          </div>
+          <br />
+
+
+          <div className="ing-group">
+            <div>
+              <input
+                id="shellfish"
+                type="checkbox"
+                name="ingcheckbox"
+                onChange={this.updteGroupCheckbox()}
+              />
+              <label htmlFor="shellfish">Shellfish Allergy</label>
+            </div>
+          </div>
+          <div className="ing-group">
+            <div>
+              <input
+                id="crab"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="shellfish"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="crab">crab</label>
+            </div>
+          </div>
+          <div className="ing-group">
+            <div>
+              <input
+                id="shrimp"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="shellfish"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="shrimp">shrimp</label>
+            </div>
+          </div>
+          <div className="ing-group">
+            <div>
+              <input
+                id="lobster"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="shellfish"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="lobster">lobster</label>
+            </div>
+          </div>
+          <div className="ing-group">
+            <div>
+              <input
+                id="clams"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="shellfish"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="clams">clams</label>
+            </div>
+          </div>
+          <div className="ing-group">
+            <div>
+              <input
+                id="crawfish"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="shellfish"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="crawfish">crawfish</label>
+            </div>
+          </div>
+          <div className="ing-group">
+            <div>
+              <input
+                id="mussel"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="shellfish"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="mussel">mussel</label>
+            </div>
+          </div>
+          <div className="ing-group">
+            <div>
+              <input
+                id="oyster"
+                type="checkbox"
+                name="ingcheckbox"
+                data-group="shellfish"
+                onChange={this.updateGroupMemberCheck()}
+              />
+              <label htmlFor="oyster">oyster</label>
+            </div>
+          </div>
+          <br />
+
+
         </form>
         <br />
 
@@ -316,9 +498,7 @@ class User extends  Component {
             <div>
               <h4>Your Allgey List</h4>
               <ul>
-              {
-                this.showUserList()
-              }
+              {this.showUserList()}
               </ul>
             </div>
             <hr />
