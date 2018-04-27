@@ -1,5 +1,4 @@
 import { connect } from "react-redux";
-import React from "react";
 import searchUploadUPC from "./search_upload_upc";
 
 const mapStateToProps = (state) => {
@@ -9,7 +8,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    
+
   };
 };
 

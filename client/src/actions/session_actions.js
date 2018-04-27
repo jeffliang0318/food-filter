@@ -9,12 +9,11 @@ export const loginUser = (user) => async dispatch => {
   try {
     res = await axios.post('/users/login', user);
     dispatch({ type: FETCH_USER, payload: res.data });
-} catch(error) {
-  console.log(error.response);
-  dispatch({ type: FETCH_ERROR, payload: error });
-}
+  } catch(error) {
+    console.log(error.response);
+    dispatch({ type: FETCH_ERROR, payload: error });
+  }
 };
-
 
 export const registerUser = (user) => async dispatch => {
 
@@ -24,6 +23,7 @@ export const registerUser = (user) => async dispatch => {
     // console.log(res);
 
     dispatch({ type: FETCH_USER, payload: res.data });
+
   } catch(error) {
     dispatch({ type: FETCH_ERROR, payload: error });
     // console.log(error)

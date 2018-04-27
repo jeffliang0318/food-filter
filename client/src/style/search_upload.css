@@ -1,13 +1,32 @@
-.capture-button {
-    border: 1px solid red;
+.photo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
 }
 
-.rerun-button {
-    border: 1px solid red;
+.header-barcode-container {
+  display: flex;
+  width: 500px;
 }
+
+.header-barcode-container > img {
+  height: 200px;
+}
+
+.capture-button {
+  /* border: 1px solid blue; */
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 3px;
+  background-color: lightgrey;
+}
+
 
 .controls .input-group {
     float: left;
+    margin-top: 20px;
   }
   
   .controls .input-group input, .controls .input-group button {
@@ -16,16 +35,25 @@
 
   #result_strip ul.thumbnails > li {
     width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   #result_strip ul.thumbnails > li .thumbnail .imgWrapper {
     width: 130px;
     height: 130px;
     overflow: hidden;
+    border: 1px solid black;
   }
 
   #result_strip ul.thumbnails > li .thumbnail .imgWrapper img {
     margin-top: -25px;
     width: 130px;
     height: 180px;
+    object-fit: contain;
+  }
+
+  #result_strip ul.thumbnails > li .thumbnail h4{
+    text-align: center;
   }

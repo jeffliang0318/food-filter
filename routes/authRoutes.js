@@ -19,7 +19,7 @@ module.exports = app => {
     passport.authenticate('google'),
     (req, res) => {
       // redirect to index after google auth
-      res.redirect('/')
+      res.redirect('/user')
     }
   );
 

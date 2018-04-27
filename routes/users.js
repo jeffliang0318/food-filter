@@ -45,6 +45,6 @@ app.post('/users/login',
     req.flash();
     let user = req.user;
     res.redirect('/api/current_user');
-});
+  });
 
 };
