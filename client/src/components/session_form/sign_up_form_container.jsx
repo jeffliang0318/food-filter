@@ -7,7 +7,8 @@ import signUpForm from "./sign_up_form";
 
 const mapStateToProps = (state) => {
   return {
-    formType: "Register"
+    formType: "Register",
+    auth: state.auth
   };
 };
 
@@ -17,7 +18,7 @@ const mapDispatchToProps = dispatch => {
     otherForm: (
         <a className='other-button' onClick={() => dispatch(openModal("login"))}>Already have an account? <span>Log In</span></a>
       ),
-    registerUser: (user) => registerUser(user)
+    registerUser: (user) => dispatch(registerUser(user))
   };
 };
 

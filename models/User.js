@@ -32,7 +32,7 @@ var User = module.exports = mongoose.model('users', userSchema);
 
 module.exports.createUser = function(newUser, callback){
 	bcrypt.genSalt(saltRounds, function(err, salt) {
-	    bcrypt.hash(newUser.password, salt, function(err, hash) {
+	    bcrypt.hash(newUser.password, salt, function(error, hash) {
 	        newUser.password = hash;
 	        newUser.save(callback);
 	    });
@@ -40,7 +40,7 @@ module.exports.createUser = function(newUser, callback){
 };
 
 module.exports.getUserByUsername = function(username, callback){
-	var query = {username: username};
+  var query = {username: username};
 	User.findOne(query, callback);
 };
 
@@ -49,9 +49,8 @@ module.exports.getUserById = function(id, callback){
 };
 
 module.exports.validPassword = function(candidatePassword, hash, callback){
-	bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
+  bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
     	if(err) throw err;
-      if(isMatch) return true;
+      callback(isMatch);
 	});
-  return false;
 };

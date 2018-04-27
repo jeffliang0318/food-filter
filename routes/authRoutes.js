@@ -3,8 +3,7 @@ const express = require('express');
 const localStrategy = require('passport-local').Strategy;
 //START REGULAR ROUTES
 const mongoose = require('mongoose');
-const User = mongoose.model('users'); // Is this the right the way to get User class from model?
-//users refer to the collection in the mongoDB database; .model makes a copy of the schema
+const User = mongoose.model('users');
 
 module.exports = app => {
 
@@ -43,12 +42,3 @@ module.exports = app => {
     res.redirect('/');
   });
 };
-
-
-function ensureAuthenticated(req, res, next){
-	if(req.isAuthenticated()){
-		return next();
-	} else {
-		res.redirect('/login');
-	}
-}

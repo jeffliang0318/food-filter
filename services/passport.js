@@ -18,16 +18,14 @@ passport.deserializeUser((id, done) => {
 });
 
 passport.use(new LocalStrategy(
-  function(username, password, done) {
-    User.findOne({ username: username }, function (err, user) {
-      if (err) { return done(err); }
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      if (!user.validPassword(password, user.password)) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
+  async (username, password, done) => {
+    const user = await User.findOne({username: username});
+    if (!user) {
+      return done(null, false, { message: 'Incorrect username.' });
+    }
+    User.validPassword(password, user.password, function (isMatch) {
+      if(isMatch) return done(null, user);
+      return done(null, false, { message: 'Incorrect password.' });
     });
   }
 ));
@@ -45,11 +43,12 @@ passport.use(
       // console.log(profile);
       if (existingUser) {
         //already exist
+        console.log(profile.emails[0].value);
         return done(null, existingUser);
       }
       // make new user
       const user = await new User({ googleId: profile.id,
-        allergyIngredient:[], name: profile.name.givenName}).save();
+        allergyIngredient:[], name: profile.name.givenName, email: profile.emails[0].value }).save();
       done(null, user);
     }
   )

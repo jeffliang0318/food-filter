@@ -40,6 +40,7 @@ class Search extends Component {
             onChange={this.update('searchTerm')}
           />
           <input className="submit" type="submit" onClick={this.handleSubmit} />
+          <a className="camera" href="/searchupload" ><i class="fas fa-camera"></i></a>
         </form>
     );
   }
