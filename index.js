@@ -36,14 +36,14 @@ app.use(flash());
 // });
 
 
-app.get('/', function(req, res){
-  res.render('index', { message: req.flash('info') });
-});
-
-app.get('/flash', function(req, res){
-  req.flash('info', 'Hi there!')
-  res.redirect('');
-});
+// app.get('/', function(req, res){
+//   res.render('index', { message: req.flash('info') });
+// });
+//
+// app.get('/flash', function(req, res){
+//   req.flash('info', 'Hi there!')
+//   res.redirect('');
+// });
 require('./routes/authRoutes')(app);
 require('./routes/users')(app);
 
