@@ -7,10 +7,9 @@ const passport = require('passport');
 module.exports = app => {
   app.get('/users/register',
     (req, res) => {
-     req.logout();
 
      // redirect to index after logout
-     res.redirect('/foo/bar');
+     res.redirect('/user');
    }
  );
 
@@ -46,7 +45,7 @@ module.exports = app => {
 				"$regex": "^" + email + "\\b", "$options": "i"
 		}}, function (err, mail) {
 				if (user || mail) {
-					return res.status(422).json({errors: "Email or Username taken"});
+					return res.status(422).json({errors: ['Email or Username taken']});
 				}
 				else {
 					var newUser = new User({
@@ -58,8 +57,7 @@ module.exports = app => {
             if (e) {
               return res.json({errors: e});
              } else {
-               console.log(savedUser);
-               res.send(savedUser);
+               return res.json(savedUser);
              }
 					});
 
