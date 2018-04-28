@@ -10,7 +10,7 @@ class searchUploadUPC extends React.Component {
     handleClick(e) {
         this.props.fetch_product(window.upcCode)
         .then(() => this.props.history.push("/results"));
-    
+
     }
 
     render() {
@@ -20,12 +20,11 @@ class searchUploadUPC extends React.Component {
           <div className='photo-container' >
             <div className='header-barcode-container'>
                 <img src="http://res.cloudinary.com/dwanjkcku/image/upload/c_scale,w_500/v1524763023/barcode.png" alt="barcode"/>
-                <div>
-                    <h1> Barcode Reader </h1>
-                    <br />
-                    <div> Upload a barcode and we will read the code for you.
+                <div className="header-content">
+                    <h4> Barcode Reader </h4>
+                    <p> Upload a barcode and we will read the code for you.
                     Please upload a photo of the barcode below.
-                    </div>
+                    </p>
                     <div className="controls">
                         <fieldset className="input-group">
                             <input className='capture-button'
@@ -40,7 +39,7 @@ class searchUploadUPC extends React.Component {
                 </div>
             </div>
             <div id="result_strip">
-                <ul className="thumbnails"></ul>
+                <ul className="thumbnails">Please Wait for image load...</ul>
             </div>
             <div>
             <button onClick={this.handleClick}>Search Item</button>

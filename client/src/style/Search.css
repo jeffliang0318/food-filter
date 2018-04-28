@@ -1,19 +1,19 @@
 .search-form {
   background: #fff;
-  width: 95%;
+  width: 86%;
   height: 36px;
   line-height: 38px;
   /* position: relative; */
   /* bottom: 2px; */
-  min-width: 520px;
-  margin-left: 10px;
+  min-width: 510px;
+
 }
 
 .search-form input:first-of-type {
   border: 1px solid #ccc;
   border-right: none;
   padding: 4px 10px;
-  width: 74%;
+  width: 73%;
   height: 80%;
 }
 
