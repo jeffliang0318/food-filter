@@ -5,6 +5,7 @@ const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+// const expressValidator = require('express-validator');
 const keys = require('./config/keys');
 require('./models/User');
 //need to load User before passport otherwise Schema couldnt been found
@@ -13,6 +14,7 @@ require('./services/passport');
 const app = express();
 
 app.use(bodyParser.json());
+// app.use(expressValidator());
 
 app.use(cookieParser());
 app.use(
@@ -28,29 +30,20 @@ app.use(passport.session());
 mongoose.connect(keys.mongoURI);
 // Connect Flash
 app.use(flash());
-app.use(function (req, res, next) {
-  res.locals.messages = require('express-messages')(req, res);
-  next();
-});
-
-// Global Vars for Flash messages
-//
 // app.use(function (req, res, next) {
-//   res.locals.success_msg = req.flash('success_msg');
-//   res.locals.error_msg = req.flash('error_msg');
-//   res.locals.error = req.flash('error'); // for passport sets its own error message on error
-//   res.locals.user = req.user || null;
+//   res.locals.messages = require('express-messages')(req, res);
 //   next();
 // });
 
-app.get('/', function(req, res){
-  res.render('index', { message: req.flash('info') });
-});
 
-app.get('/flash', function(req, res){
-  req.flash('info', 'Hi there!')
-  res.redirect('');
-});
+// app.get('/', function(req, res){
+//   res.render('index', { message: req.flash('info') });
+// });
+//
+// app.get('/flash', function(req, res){
+//   req.flash('info', 'Hi there!')
+//   res.redirect('');
+// });
 require('./routes/authRoutes')(app);
 require('./routes/users')(app);
 
