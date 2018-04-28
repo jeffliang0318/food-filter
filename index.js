@@ -35,15 +35,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-// Global Vars for Flash messages
-//
-// app.use(function (req, res, next) {
-//   res.locals.success_msg = req.flash('success_msg');
-//   res.locals.error_msg = req.flash('error_msg');
-//   res.locals.error = req.flash('error'); // for passport sets its own error message on error
-//   res.locals.user = req.user || null;
-//   next();
-// });
 
 app.get('/', function(req, res){
   res.render('index', { message: req.flash('info') });
