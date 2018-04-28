@@ -14,7 +14,7 @@ require('./services/passport');
 const app = express();
 
 app.use(bodyParser.json());
-app.use(expressValidator());
+// app.use(expressValidator());
 
 app.use(cookieParser());
 app.use(
