@@ -51,7 +51,8 @@ class User extends  Component {
       "durum": false,
       "gluten": false,
       "kamut": false,
-      "wheat": ["bran", "bulgur", "durum", "gluten", "kamut"]
+      "wheat": false,
+      "allwheat": ["wheat", "bran", "bulgur", "durum", "gluten", "kamut"]
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClear = this.handleClear.bind(this);
@@ -305,12 +306,12 @@ class User extends  Component {
               <div className="ing-item">
                 <div className="group-header">
                   <input
-                    id="wheat"
+                    id="allwheat"
                     type="checkbox"
                     name="ingcheckbox"
                     onChange={this.updteGroupCheckbox()}
                   />
-                  <label htmlFor="wheat">All Wheat</label>
+                  <label htmlFor="allwheat">All Wheat</label>
                 </div>
               </div>
               <div className="ing-item">
@@ -319,7 +320,7 @@ class User extends  Component {
                     id="bran"
                     type="checkbox"
                     name="ingcheckbox"
-                    data-group="wheat"
+                    data-group="allwheat"
                     onChange={this.updateGroupMemberCheck()}
                   />
                   <label htmlFor="bran">bran</label>
@@ -331,7 +332,7 @@ class User extends  Component {
                     id="bulgur"
                     type="checkbox"
                     name="ingcheckbox"
-                    data-group="wheat"
+                    data-group="allwheat"
                     onChange={this.updateGroupMemberCheck()}
                   />
                   <label htmlFor="bulgur">bulgur</label>
@@ -343,7 +344,7 @@ class User extends  Component {
                     id="durum"
                     type="checkbox"
                     name="ingcheckbox"
-                    data-group="wheat"
+                    data-group="allwheat"
                     onChange={this.updateGroupMemberCheck()}
                   />
                   <label htmlFor="durum">durum</label>
@@ -355,7 +356,7 @@ class User extends  Component {
                     id="gluten"
                     type="checkbox"
                     name="ingcheckbox"
-                    data-group="wheat"
+                    data-group="allwheat"
                     onChange={this.updateGroupMemberCheck()}
                   />
                   <label htmlFor="gluten">gluten</label>
@@ -367,10 +368,22 @@ class User extends  Component {
                     id="kamut"
                     type="checkbox"
                     name="ingcheckbox"
-                    data-group="wheat"
+                    data-group="allwheat"
                     onChange={this.updateGroupMemberCheck()}
                   />
                   <label htmlFor="kamut">kamut</label>
+                </div>
+              </div>
+              <div className="ing-item">
+                <div>
+                  <input
+                    id="wheat"
+                    type="checkbox"
+                    name="ingcheckbox"
+                    data-group="allwheat"
+                    onChange={this.updateGroupMemberCheck()}
+                  />
+                  <label htmlFor="wheat">wheat</label>
                 </div>
               </div>
             </div>

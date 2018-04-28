@@ -35,3 +35,8 @@
 .error-ul {
   padding: 5px;
 }
+
+.hightlight {
+  background: red;
+  color: #fff;
+}
