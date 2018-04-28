@@ -5,7 +5,7 @@ const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const bodyParser = require('body-parser');
-var expressValidator = require('express-validator');
+// const expressValidator = require('express-validator');
 const keys = require('./config/keys');
 require('./models/User');
 //need to load User before passport otherwise Schema couldnt been found
@@ -30,10 +30,10 @@ app.use(passport.session());
 mongoose.connect(keys.mongoURI);
 // Connect Flash
 app.use(flash());
-app.use(function (req, res, next) {
-  res.locals.messages = require('express-messages')(req, res);
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.locals.messages = require('express-messages')(req, res);
+//   next();
+// });
 
 
 app.get('/', function(req, res){
