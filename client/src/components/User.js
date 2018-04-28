@@ -609,9 +609,12 @@ class User extends  Component {
     let oAllCheckboxes = document.querySelectorAll("input[type='checkbox']");
     for (let i = 0; i < oAllCheckboxes.length; i++) {
       oAllCheckboxes[i].checked = false;
-      if(typeof this.state[oAllCheckboxes[i].id] === "boolean") {
+    }
+    let keys = Object.keys(this.state);
+    for (var i = 0; i < keys.length; i++) {
+      if(typeof this.state[keys[i]] === "boolean") {
         this.setState({
-          [oAllCheckboxes[i].id]:false
+          [keys[i]]:false
         })
       }
     }
@@ -634,7 +637,7 @@ class User extends  Component {
           <div className="userProfileList">
             <h1 className="username">Hi, {this.props.auth.name}</h1>
             <div>
-              <h4>Your Allergy List:</h4>
+              <h4>Your Allergy List</h4>
               <ul className="userList-ul clearfix">
               {this.showUserList()}
               </ul>

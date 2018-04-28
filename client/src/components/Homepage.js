@@ -202,7 +202,7 @@ class Homepage extends Component {
             </section>
           </div>
 
-          <div>
+          <div className="backToTop-col">
             <div
               id="backToTop"
               onClick={this.scrollTo("root")}>
