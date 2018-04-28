@@ -20,17 +20,20 @@ class Product extends Component {
       str = this.removeColon(ing);
     } else {
       str = ing;
-      str = str.replace('.', '');
-      str = str.replace('[', '');
-      str = str.replace(']', '');
-      str = str.replace('(', '');
-      str = str.replace(')', '');
+      // str = str.replace('.', '');
+      // str = str.replace('[', '');
+      // str = str.replace(']', '');
+      // str = str.replace('(', '');
+      // str = str.replace(')', '');
+      // str = str.replace('INCLUDING', '');
+      str = str.replace(/[()]/g, ', ');
       str = str.replace('INCLUDING', '');
       //delete 2 spaces
       str = str.replace(/\s\s+/g, ' ');
     }
     let singleIngArr = str.split(', ');
     singleIngArr = singleIngArr.filter(el => el !== "");
+    singleIngArr = singleIngArr.filter(el => el !== ".");
     ingrendients = ingrendients.concat(singleIngArr);
 
     let userList = this.props.auth.allergyIngredient;
