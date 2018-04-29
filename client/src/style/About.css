@@ -1,0 +1,21 @@
+.about {
+  background: #f7f7f7;
+}
+
+.aboou-container {
+  width: 80%;
+  /* border: 1px solid red; */
+  margin: 0 auto;
+  text-align: right;
+  padding: 10px 0 0 0;
+}
+
+.aboou-container a {
+  color: #8e8e8e;
+  font-style: italic;
+  font-size: 16px;
+}
+
+.aboou-container a:hover {
+  color: #3d3d3d;
+}
