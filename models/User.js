@@ -14,6 +14,7 @@ const validateEmail = (email) => {
 
 const userSchema = new Schema({
   googleId: String,
+  name: String,
   allergyIngredient: [String],
 	username: {
 		type: String,

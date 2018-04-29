@@ -618,7 +618,6 @@ class User extends  Component {
         })
       }
     }
-    console.log(this.state)
   }
 
   renderContent() {
