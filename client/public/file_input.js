@@ -87,7 +87,7 @@ $(function() {
                     return box !== result.box;
                 }).forEach(function (box) {
                     Quagga.ImageDebug.drawPath(box, {x: 0, y: 1}, drawingCtx, {color: "green", lineWidth: 2});
-                    //NOT WORKING 
+                    //NOT WORKING
                 });
                 if (result.box === undefined) {
                     var $node = $('<li className="error-list-item">Cannot Read Barcode. Please try again.</li>');

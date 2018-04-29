@@ -3,7 +3,7 @@
 }
 
 .homepage-hero {
-    min-width: 880px;
+  min-width: 1090px;
   margin: 0 auto;
   background-image: url("http://res.cloudinary.com/chengzii/image/upload/v1524589755/food-allergy.jpg");
   background-size: 100% auto;
@@ -21,7 +21,7 @@
 }
 .homepage-header {
   width: 70%;
-  min-width: 700px;
+  min-width: 1090px;
   margin: 0 auto;
   height: 360px;
   color: #fff;
@@ -41,26 +41,20 @@
 
 .homepage-header h1 {
   font-size: 56px;
-  padding: 80px 10px 0px 10px;
-  /* background: #ccc; */
-  /* position: relative; */
-  /* top: 140px; */
+  padding: 100px 10px 0px 10px;
   position: relative;
 }
 
 .homepage-header p {
   width: 70%;
   font-size: 18px;
-  margin: 30px 10px;
-  /* position: relative; */
-
-  /* top: 160px; */
+  margin: 20px 10px;
   position: relative;
 }
 
 .homepage-body {
   width: 80%;
-  min-width: 800px;
+  min-width: 1000px;
   margin: 0 auto;
   display: flex;
 }
