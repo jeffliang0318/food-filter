@@ -68,7 +68,7 @@ class Team extends Component {
                   <li className="info-name">TingTing</li>
                   <li>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                      TingTing Jiang is an analyst turned software engineer in Bay Area. Her practice encompasses Ruby on Rails, React and Redux, Node.js and CSS3. Jiang enjoys developing web applications to solve real life concerns. Her other passions include minimalist living, environmental sustainability , and Jazz music.
                     </p>
                   </li>
                   <li>
