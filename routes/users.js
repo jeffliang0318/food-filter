@@ -9,9 +9,9 @@ module.exports = app => {
 
   app.get('/users/register',
     (req, res) => {
-    console.log('session', req.session);
+    // console.log('session', req.session);
     let user = req.user;
-    console.log('user:', user);
+    // console.log('user:', user);
     res.redirect('/api/current_user');
    }
  );
@@ -36,7 +36,7 @@ module.exports = app => {
 
 	if (errors) {
     let errorsArr = Object.values(errors).map(function(obj){return obj.msg;});
-      console.log(errorsArr);
+      // console.log(errorsArr);
 		return res.status(422).json({ errors: errorsArr });
 	}
 	else {
@@ -75,7 +75,7 @@ module.exports = app => {
   app.post('/users/login',passport.authenticate('local'),
     (req, res) => {
       let user = req.user;
-      console.log(user);
+      // console.log(user);
       res.redirect('/api/current_user');
   });
 };
