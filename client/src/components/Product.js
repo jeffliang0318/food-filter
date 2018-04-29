@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class Product extends Component {
-
   ingredientsChecker() {
-    if(!this.props.searchResults.ing) {
+    if (!this.props.searchResults.ing) {
       return (
         <ul className="ing-ul">
-          <li key={`ing-000`} style={{color:"red"}}>
+          <li key={`ing-000`} style={{ color: "red" }}>
             NDSA Database does not have ingredient for this product.
           </li>
-        </ul>)
+        </ul>
+      );
     }
     const ing = this.props.searchResults.ing.desc;
 
     let ingrendients = [];
     let str;
-    if (ing.includes(':')) {
+    if (ing.includes(":")) {
       str = this.removeColon(ing);
     } else {
       str = ing;
@@ -26,12 +26,12 @@ class Product extends Component {
       // str = str.replace('(', '');
       // str = str.replace(')', '');
       // str = str.replace('INCLUDING', '');
-      str = str.replace(/[()]/g, ', ');
-      str = str.replace('INCLUDING', '');
+      str = str.replace(/[()]/g, ", ");
+      str = str.replace("INCLUDING", "");
       //delete 2 spaces
-      str = str.replace(/\s\s+/g, ' ');
+      str = str.replace(/\s\s+/g, " ");
     }
-    let singleIngArr = str.split(', ');
+    let singleIngArr = str.split(", ");
     singleIngArr = singleIngArr.filter(el => el !== "");
     singleIngArr = singleIngArr.filter(el => el !== ".");
     ingrendients = ingrendients.concat(singleIngArr);
@@ -39,10 +39,15 @@ class Product extends Component {
     let userList = this.props.auth.allergyIngredient;
     return (
       <ul className="ing-ul">
-        {ingrendients.map((ing, idx) =>
-           (userList && this.checkInclude(ing, userList)) ?
-            <li className="hightlight" key={`ing-${idx}`}>{ing}</li>
-            : <li key={`ing-${idx}`}>{ing}</li>
+        {ingrendients.map(
+          (ing, idx) =>
+            userList && this.checkInclude(ing, userList) ? (
+              <li className="hightlight" key={`ing-${idx}`}>
+                {ing}
+              </li>
+            ) : (
+              <li key={`ing-${idx}`}>{ing}</li>
+            )
         )}
       </ul>
     );
@@ -50,9 +55,13 @@ class Product extends Component {
 
   checkInclude(ing, userList) {
     for (var i = 0; i < userList.length; i++) {
-      if(ing.toLowerCase().includes("soymilk") && userList[i] === "milk") {continue};
-      if(ing.toLowerCase().includes("almondmilk") && userList[i] === "milk") {continue};
-      if(ing.toLowerCase().includes(userList[i])) return true;
+      if (ing.toLowerCase().includes("soymilk") && userList[i] === "milk") {
+        continue;
+      }
+      if (ing.toLowerCase().includes("almondmilk") && userList[i] === "milk") {
+        continue;
+      }
+      if (ing.toLowerCase().includes(userList[i])) return true;
     }
     return false;
   }
@@ -73,8 +82,6 @@ class Product extends Component {
   }
 
   removeColon(ing) {
-
-
     let str = ing.split(".").join(" ");
     str = ing.split(":").join(" ");
     // str = ing.split(",").join(" ");
@@ -85,11 +92,11 @@ class Product extends Component {
     // str = str.replace(')', '');
     // str = str.replace(/[\[\]']+/g, ' ');
     // str = str.replace(/[()]/g, ' ');
-    str = str.replace(/[()]/g, ', ');
-    str = str.replace('INCLUDING', '');
+    str = str.replace(/[()]/g, ", ");
+    str = str.replace("INCLUDING", "");
     //delete 2 spaces
-    str = str.replace(/\s\s+/g, ' ');
-    console.log(str)
+    str = str.replace(/\s\s+/g, " ");
+    console.log(str);
     return str;
   }
 
@@ -134,6 +141,5 @@ const mapStateToProps = state => ({
   errors: state.errors,
   auth: state.auth
 });
-
 
 export default connect(mapStateToProps, null)(Product);

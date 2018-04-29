@@ -1,10 +1,10 @@
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const LocalStrategy = require('passport-local').Strategy;
-const mongoose = require('mongoose');
-const keys = require('../config/keys');
+const passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const LocalStrategy = require("passport-local").Strategy;
+const mongoose = require("mongoose");
+const keys = require("../config/keys");
 
-const User = mongoose.model('users');
+const User = mongoose.model("users");
 
 passport.serializeUser((user, done) => {
   // user.id is user id not googleId, cause user might sign in in different strategy
@@ -17,24 +17,25 @@ passport.deserializeUser((id, done) => {
   });
 });
 
-passport.use(new LocalStrategy(
-  async (username, password, done) => {
-    const user = await User.findOne({username: username});
+passport.use(
+  new LocalStrategy(async (username, password, done) => {
+    const user = await User.findOne({ username: username });
     if (!user) {
-      return done(null, false, { message: 'Incorrect username.' });
+      return done(null, false, { message: "Incorrect username." });
     }
-    User.validPassword(password, user.password, function (isMatch) {
-      if(isMatch) return done(null, user);
-      return done(null, false, { message: 'Incorrect password.' });
+    User.validPassword(password, user.password, function(isMatch) {
+      if (isMatch) return done(null, user);
+      return done(null, false, { message: "Incorrect password." });
     });
-  }
-));
+  })
+);
+
 passport.use(
   new GoogleStrategy(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: '/auth/google/callback',
+      callbackURL: "/auth/google/callback",
       proxy: true
     },
     // callback
@@ -47,8 +48,12 @@ passport.use(
         return done(null, existingUser);
       }
       // make new user
-      const user = await new User({ googleId: profile.id,
-        allergyIngredient:[], name: profile.name.givenName, email: profile.emails[0].value }).save();
+      const user = await new User({
+        googleId: profile.id,
+        allergyIngredient: [],
+        name: profile.name.givenName,
+        email: profile.emails[0].value
+      }).save();
       done(null, user);
     }
   )
