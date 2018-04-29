@@ -66,7 +66,9 @@ class searchUploadUPC extends React.Component {
               <ul>
                 <li className="searchExample-li" id="858089003050" onClick={this.handleExampleClick}>
                   <div className="searchExample-imgWrapper">
-                    <img src="http://res.cloudinary.com/chengzii/image/upload/v1524974638/IMG_7175.jpg" alt="barcodeDemo" />
+                    <div className="searchExample-imgBox">
+                      <img src="http://res.cloudinary.com/chengzii/image/upload/v1524974638/IMG_7175.jpg" alt="barcodeDemo" />
+                    </div>
                   </div>
                   <div className="searchExample-codeContainer">
                     <p className="searchExample-code">858089003050</p>
@@ -75,7 +77,9 @@ class searchUploadUPC extends React.Component {
 
                 <li className="searchExample-li" id="099482455859" onClick={this.handleExampleClick}>
                   <div className="searchExample-imgWrapper">
+                    <div className="searchExample-imgBox">
                     <img src="https://res.cloudinary.com/chengzii/image/upload/v1524983562/wholeWheatBread.jpg" alt="barcodeDemo" />
+                    </div>
                   </div>
                   <div className="searchExample-codeContainer">
                     <p className="searchExampleCode">099482455859</p>
@@ -84,7 +88,9 @@ class searchUploadUPC extends React.Component {
 
                 <li className="searchExample-li" id="025293600232" onClick={this.handleExampleClick}>
                   <div className="searchExample-imgWrapper">
+                    <div className="searchExample-imgBox">
                     <img src="http://res.cloudinary.com/chengzii/image/upload/v1524983307/soyMilk.jpg" alt="barcodeDemo" />
+                    </div>
                   </div>
                   <div className="searchExample-codeContainer">
                     <p className="searchExampleCode">025293600232</p>
@@ -93,7 +99,9 @@ class searchUploadUPC extends React.Component {
 
                 <li className="searchExample-li" id="011029311817" onClick={this.handleExampleClick}>
                   <div className="searchExample-imgWrapper">
-                    <img src="http://res.cloudinary.com/chengzii/image/upload/v1524983307/seafoodFlaker.jpg" alt="barcodeDemo" />
+                    <div className="searchExample-imgBox">
+                      <img src="http://res.cloudinary.com/chengzii/image/upload/v1524983307/seafoodFlaker.jpg" alt="barcodeDemo" />
+                    </div>
                   </div>
                   <div className="searchExample-codeContainer">
                     <p className="searchExampleCode">011029311817</p>
