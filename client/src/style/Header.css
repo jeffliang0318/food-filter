@@ -2,7 +2,7 @@
 nav {
   box-shadow: 0px 3px 6px 0px #ccc;
   padding: 20px 0 12px 0;
-  /* min-width: 700px; */
+
 }
 .nav-wrapper {
   height: 60px;
@@ -11,7 +11,8 @@ nav {
   /* justify-content: space-between; */
   align-items: center;
   width: 80%;
-  min-width: 800px;
+  min-width: 850px;
+  /* border: 1px solid red; */
 }
 
 .nav-wrapper .header-left {
