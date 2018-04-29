@@ -135,7 +135,7 @@
     display: flex;
     display: flex;
     justify-content: center;
-    margin-left: 80px;
+    margin-left: 70px;
   }
 
   .ing-group img {
@@ -148,5 +148,17 @@
     width: 35%;
     min-width: 60px;
     padding: 20px 0;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .ing-group {
+    width: 49%;
+    min-width: 280px;
+    height: auto;
+    display: flex;
+    display: flex;
+    justify-content: center;
+    margin-left: 0;
   }
 }
