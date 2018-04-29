@@ -13,6 +13,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(expressValidator());
+
 app.use(
   cookieSession({
     // cookie last for 30 days
@@ -27,9 +28,6 @@ mongoose.connect(keys.mongoURI);
 
 require('./routes/authRoutes')(app);
 require('./routes/users')(app);
-
-// const PORT = process.env.PORT || 5000;
-// app.listen(PORT);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT)

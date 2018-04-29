@@ -7,13 +7,13 @@ const User = mongoose.model('users');
 
 module.exports = app => {
 
-  app.get(
-    '/auth/google',
-    passport.authenticate('google', {
+  // send to google to do the authentication
+  app.get('/auth/google', passport.authenticate('google', {
       scope: ['profile', 'email']
     })
   );
 
+  // handle the callback after google has authenticated the user
   app.get(
     '/auth/google/callback',
     passport.authenticate('google'),
@@ -22,6 +22,7 @@ module.exports = app => {
       res.redirect('/user')
     }
   );
+
 
   app.get('/api/current_user', (req, res) => {
     res.send(req.user);
@@ -41,13 +42,14 @@ module.exports = app => {
     req.logout();
     res.redirect('/');
   });
+
+  // locally --------------------------------
+   // app.get('/connect/local', function(req, res) {
+   //     res.render('connect-local.ejs', { message: req.flash('loginMessage') });
+   // });
+   // app.post('/connect/local', passport.authenticate('local-signup', {
+   //     successRedirect : '/user', // redirect to the secure profile section
+   //     failureRedirect : '/connect/local', // redirect back to the signup page if there is an error
+   //     failureFlash : true // allow flash messages
+   // }));
 };
-
-
-// function ensureAuthenticated(req, res, next){
-// 	if(req.isAuthenticated()){
-// 		return next();
-// 	} else {
-// 		res.redirect('/login');
-// 	}
-// }
