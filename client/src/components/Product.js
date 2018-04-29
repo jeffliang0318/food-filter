@@ -71,7 +71,7 @@ class Product extends Component {
     // str = str.replace(']', '');
     // str = str.replace('(', '');
     // str = str.replace(')', '');
-    // str = str.replace(/[\[\]']+/g, ' ');
+    str = str.replace(/[\[\]]+/g, ', ');
     // str = str.replace(/[()]/g, ' ');
     str = str.replace(/[()]/g, ', ');
     str = str.replace('INCLUDING', '');

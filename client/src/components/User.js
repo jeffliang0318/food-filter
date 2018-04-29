@@ -22,6 +22,7 @@ class User extends  Component {
       "lupin": false,
       "lupine": false,
       "milk": false,
+      "cream":false,
       "whey": false,
       "casein": false,
       "caseinates": false,
@@ -114,9 +115,9 @@ class User extends  Component {
   cantEatList() {
     let items = this.defaultItems();
     if(items.indexOf("milk") !== -1) {
-      const milkStr = "milk(whey, casein, caseinates, cheese, curds, custard, diacetyl, ghee, lactoferrin, lactose)";
+      const milkStr = "milk(cream, whey, casein, caseinates, cheese, curds, custard, diacetyl, ghee, lactoferrin, lactose)";
       let indexMilk = items.indexOf("milk");
-      items.splice(indexMilk, 11, milkStr);
+      items.splice(indexMilk, 12, milkStr);
     }
     if(items.indexOf("egg") !== -1) {
       const eggStr = "egg(albumin, globulin, lecithin, livetin, lysozyme, vitellin)";
@@ -148,7 +149,7 @@ class User extends  Component {
 
   handleChange(e) {
     let eggRelated = ["albumin", "globulin", "lecithin", "livetin", "lysozyme", "vitellin"];
-    let milkRelated = ["whey", "casein", "caseinates", "cheese", "curds", "custard", "diacetyl", "ghee", "lactoferrin", "lactose"];
+    let milkRelated = ["cream", "whey", "casein", "caseinates", "cheese", "curds", "custard", "diacetyl", "ghee", "lactoferrin", "lactose"];
     let peanutRelated = ["arachis", "goobers", "lupin", "lupine"];
     let fishRelated = ["fillet"];
     return e => {
