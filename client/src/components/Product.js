@@ -17,20 +17,10 @@ class Product extends Component {
     let ingrendients = [];
     let str;
     if (ing.includes(':')) {
-      str = this.removeColon(ing);
-    } else {
-      str = ing;
-      // str = str.replace('.', '');
-      // str = str.replace('[', '');
-      // str = str.replace(']', '');
-      // str = str.replace('(', '');
-      // str = str.replace(')', '');
-      // str = str.replace('INCLUDING', '');
-      str = str.replace(/[()]/g, ', ');
-      str = str.replace('INCLUDING', '');
-      //delete 2 spaces
-      str = str.replace(/\s\s+/g, ' ');
+      str = ing.split(":").join(" ");
     }
+    str = this.removeColon(ing);
+
     let singleIngArr = str.split(', ');
     singleIngArr = singleIngArr.filter(el => el !== "");
     singleIngArr = singleIngArr.filter(el => el !== ".");
@@ -73,10 +63,8 @@ class Product extends Component {
   }
 
   removeColon(ing) {
-
-
     let str = ing.split(".").join(" ");
-    str = ing.split(":").join(" ");
+    // str = ing.split(":").join(" ");
     // str = ing.split(",").join(" ");
     // str = str.replace(',', ' ');
     // str = str.replace('[', '');
@@ -89,7 +77,6 @@ class Product extends Component {
     str = str.replace('INCLUDING', '');
     //delete 2 spaces
     str = str.replace(/\s\s+/g, ' ');
-    console.log(str)
     return str;
   }
 

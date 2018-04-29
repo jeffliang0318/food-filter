@@ -73,30 +73,30 @@ class searchUploadUPC extends React.Component {
                   </div>
                 </li>
 
-                <li className="searchExample-li">
+                <li className="searchExample-li" id="099482455859" onClick={this.handleExampleClick}>
                   <div className="searchExample-imgWrapper">
-                    <img src="http://res.cloudinary.com/dwanjkcku/image/upload/c_scale,w_500/v1524763023/barcode.png" alt="barcodeDemo" />
+                    <img src="https://res.cloudinary.com/chengzii/image/upload/v1524983562/wholeWheatBread.jpg" alt="barcodeDemo" />
                   </div>
                   <div className="searchExample-codeContainer">
-                    <p className="searchExampleCode">123456789123</p>
+                    <p className="searchExampleCode">099482455859</p>
                   </div>
                 </li>
 
-                <li className="searchExample-li">
+                <li className="searchExample-li" id="025293600232" onClick={this.handleExampleClick}>
                   <div className="searchExample-imgWrapper">
-                    <img src="http://res.cloudinary.com/dwanjkcku/image/upload/c_scale,w_500/v1524763023/barcode.png" alt="barcodeDemo" />
+                    <img src="http://res.cloudinary.com/chengzii/image/upload/v1524983307/soyMilk.jpg" alt="barcodeDemo" />
                   </div>
                   <div className="searchExample-codeContainer">
-                    <p className="searchExampleCode">123456789123</p>
+                    <p className="searchExampleCode">025293600232</p>
                   </div>
                 </li>
 
-                <li className="searchExample-li last-li">
+                <li className="searchExample-li" id="011029311817" onClick={this.handleExampleClick}>
                   <div className="searchExample-imgWrapper">
-                    <img src="http://res.cloudinary.com/dwanjkcku/image/upload/c_scale,w_500/v1524763023/barcode.png" alt="barcodeDemo" />
+                    <img src="http://res.cloudinary.com/chengzii/image/upload/v1524983307/seafoodFlaker.jpg" alt="barcodeDemo" />
                   </div>
                   <div className="searchExample-codeContainer">
-                    <p className="searchExampleCode">123456789123</p>
+                    <p className="searchExampleCode">011029311817</p>
                   </div>
                 </li>
 
