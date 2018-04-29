@@ -74,23 +74,21 @@
   width: 25%;
   min-width: 280px;
   height: auto;
-  /* max-height: 180px; */
-  /* float: left; */
   display: flex;
 }
 
 .ing-group img {
-  width: 170px;
-  max-width: 200px;
-  height: auto;
+  width: 180px;
+  max-width: 180px;
+  height: 175px;
 }
 .ing-group label {
   font-size: 16px;
 }
 .group-list {
-  width: 48%;
-  min-width: 98px;
-  padding: 20px 0 20px 10px;
+  width: 35%;
+  min-width: 60px;
+  padding: 20px 0;
 }
 
 .editShow {
@@ -126,4 +124,41 @@
   margin: 0 auto;
   text-align: center;
   font-size: 22px;
+}
+
+
+@media only screen and (max-width: 1400px) {
+  .ing-group {
+    width: 42%;
+    min-width: 280px;
+    height: auto;
+    display: flex;
+    display: flex;
+    justify-content: center;
+    margin-left: 70px;
+  }
+
+  .ing-group img {
+    width: 180px;
+    max-width: 180px;
+    height: 175px;
+  }
+
+  .group-list {
+    width: 35%;
+    min-width: 60px;
+    padding: 20px 0;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .ing-group {
+    width: 49%;
+    min-width: 280px;
+    height: auto;
+    display: flex;
+    display: flex;
+    justify-content: center;
+    margin-left: 0;
+  }
 }

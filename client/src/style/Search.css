@@ -49,3 +49,17 @@
 .camera i:active{
   color: #fff;
 }
+
+@media only screen and (max-width: 1200px) {
+  .search-form {
+    /* border: 1px solid red; */
+  }
+
+  .nav-wrapper {
+    /* border: 1px solid blue; */
+  }
+
+  nav {
+    box-shadow: 0 0 0 0 #fff;
+  }
+}

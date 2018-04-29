@@ -34,10 +34,8 @@ class signUpForm extends React.Component {
       }
 
       handleSubmit(e) {
-        // console.log('submit');
           e.preventDefault();
           const user = Object.assign({}, this.state);
-          // console.log(this.state);
 
           this.props.registerUser(user);
         }
