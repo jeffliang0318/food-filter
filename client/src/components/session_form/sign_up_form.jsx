@@ -9,7 +9,14 @@ class signUpForm extends React.Component {
           name: "",
           email: "",
           password: "",
-          password2: ""
+          password2: "",
+          style:{
+            border: '1px solid #cea0a5',
+            padding: '10px',
+            color:' #86181d',
+            backgroundColor: '#ffdce0'
+          }
+
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
@@ -36,24 +43,38 @@ class signUpForm extends React.Component {
 
       handleSubmit(e) {
           e.preventDefault();
-          const user = Object.assign({}, this.state);
+         const {username, email, name, password, password2} = this.state;
+          let userInfo = {
+            username: username,
+            email: email,
+            name: name,  
+            password: password,
+            password2: password2
+          }
+          const user = Object.assign({}, userInfo);
 
           this.props.registerUser(user);
         }
 
         renderErrors() {
+
+          let errors= this.props.errors;
+          if (errors.length !== 0) {
           return(
-            <ul className='error'>
-              {this.props.errors.map((error,i) => (
+            <ul style = {this.state.style}>
+              {
+                this.props.errors.map((error,i) => (
                 <li key = {`errors-${i}`}>
                   {error}
                 </li>
               ))}
             </ul>
           );
+        }
       }
 
     render() {
+
         return (
           <div className='whole-login-container'>
             <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -63,6 +84,7 @@ class signUpForm extends React.Component {
 
                   <div>
                     {this.renderErrors()}
+
                     <input
                       type="text"
                       value={this.state.username}

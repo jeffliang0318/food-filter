@@ -75,3 +75,23 @@ nav {
   background-color: #31b0d5;
   border-color: #269abc;
 }
+
+#profile-btn {
+  width: 70px;
+  text-align: center;
+}
+
+#logout-btn {
+  width: 70px;
+  text-align: center;
+}
+
+#login-btn{
+  width: 70px;
+  text-align: center;
+}
+
+#demo-btn{
+  width: 70px;
+  text-align: center;
+}

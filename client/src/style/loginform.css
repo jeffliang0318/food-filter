@@ -94,3 +94,11 @@
     justify-content: center;
     align-items: center;
 }
+
+.error {
+  border: 1px solid #cea0a5;
+  padding: 10px;
+  color: #86181d;
+  background-color: #ffdce0;
+  display: none;
+}
