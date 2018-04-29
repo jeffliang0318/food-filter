@@ -60,7 +60,6 @@ class signUpForm extends React.Component {
 
           let errors= this.props.errors;
           if (errors.length !== 0) {
-            // document.getElementsByClassName("error").style.display="block";
           return(
             <ul style = {this.state.style}>
               {

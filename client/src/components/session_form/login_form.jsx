@@ -21,9 +21,7 @@ class loginForm extends React.Component {
       update(field) {
         return e =>
           this.setState({
-
             [field]: e.currentTarget.value
-
           });
       }
 
@@ -33,9 +31,12 @@ class loginForm extends React.Component {
           }
       }
 
+
       componentWillUnmount(){
         this.props.clearErrors();
+
       }
+
 
 
     handleSubmit(e) {
@@ -45,9 +46,7 @@ class loginForm extends React.Component {
           password:this.state.password
         };
         const user = Object.assign({}, userInfo);
-
         this.props.loginUser(user);
-
       }
 
       renderErrors() {
@@ -65,7 +64,10 @@ class loginForm extends React.Component {
         }
     }
 
+
+
     render() {
+      
         return (
           <div className='whole-login-container'>
 
@@ -75,6 +77,7 @@ class loginForm extends React.Component {
                   <h1 className="login-title">Please {this.props.formType}</h1>
                   <div>
                     {this.renderErrors()}
+
                     <input
                       type="text"
                       value={this.state.username}
@@ -115,6 +118,7 @@ class loginForm extends React.Component {
 
             <div className="form-nav">
               {this.props.otherForm}
+
             </div>
 
             </div>

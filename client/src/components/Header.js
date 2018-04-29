@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { openModal } from '../actions/modal_actions';
+import { loginUser, registerUser } from '../actions/session_actions';
 
 import Search from './Search';
 
@@ -13,7 +14,11 @@ class Header extends Component {
       case false:
         return [
           <a key="1" id='login-btn' className="button-group" onClick={() => this.props.openModal('login')}> Login </a>,
-          <a key="2" id='demo-btn' className="button-group" href="/">Demo</a>,
+          <a key="2" id='demo-btn' className="button-group" onClick = {
+              // () => this.props.registerUser({username:'Demo', email:'demo@demo.com', password:'password', password2:'password'})}
+              () => this.props.loginUser({username:'Demo', password:'password'})}
+
+            >Demo</a>,
         ];
       default:
         return [
@@ -43,11 +48,14 @@ class Header extends Component {
 }
 
 function mapStateToProps(state) {
-  return { auth: state.auth };
+  return {auth: state.auth };
 }
 
 const mapDispatchToProps = dispatch => ({
-  openModal: modal => dispatch(openModal(modal))
+  openModal: modal => dispatch(openModal(modal)),
+  registerUser:(user) => dispatch(registerUser(user)),
+  loginUser:(user) => dispatch(loginUser(user))
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
