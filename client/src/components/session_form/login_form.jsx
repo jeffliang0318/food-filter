@@ -67,7 +67,7 @@ class loginForm extends React.Component {
 
 
     render() {
-      
+
         return (
           <div className='whole-login-container'>
 
@@ -107,7 +107,8 @@ class loginForm extends React.Component {
             </form>
 
             <button
-              className="session-submit demo-login">
+              className="session-submit demo-login" onClick = {
+                  () => this.props.loginUser({username:'Demo', password:'password'})}>
               Demo Login
             </button>
 
