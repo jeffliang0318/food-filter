@@ -12,7 +12,7 @@ class Team extends Component {
             <li className="team-li">
               <div className="info-wrapper">
                 <div className="photo-wrapper">
-                  <img src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524855355/egg.png" />
+                  <img src="https://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524855355/egg.png" />
                 </div>
                 <ul className="info-detail">
                   <li>Jeff</li>
@@ -25,7 +25,7 @@ class Team extends Component {
             <li className="team-li">
               <div className="info-wrapper">
                 <div className="photo-wrapper">
-                <img src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524855355/egg.png" />
+                <img src="https://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524855355/egg.png" />
                 </div>
                 <ul>
                   <li>Tiffany</li>
@@ -38,7 +38,7 @@ class Team extends Component {
             <li className="team-li">
               <div className="info-wrapper">
                 <div className="photo-wrapper">
-                <img src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524855355/egg.png" />
+                <img src="https://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524855355/egg.png" />
                 </div>
                 <ul>
                   <li>TingTing</li>
@@ -51,7 +51,7 @@ class Team extends Component {
             <li className="team-li">
               <div className="info-wrapper">
                 <div className="photo-wrapper">
-                <img src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524855355/egg.png" />
+                <img src="https://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524855355/egg.png" />
                 </div>
                 <ul>
                   <li>Ziyan</li>
