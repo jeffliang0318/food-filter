@@ -47,7 +47,7 @@ class signUpForm extends React.Component {
           let userInfo = {
             username: username,
             email: email,
-            name: name,  
+            name: name,
             password: password,
             password2: password2
           }
@@ -144,7 +144,8 @@ class signUpForm extends React.Component {
             </form>
 
             <button
-              className="session-submit demo-login">
+              className="session-submit demo-login" onClick = {
+                  () => this.props.loginUser({username:'Demo', password:'password'})}>
               Demo Login
             </button>
 

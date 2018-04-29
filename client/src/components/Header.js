@@ -15,7 +15,6 @@ class Header extends Component {
         return [
           <a key="1" id='login-btn' className="button-group" onClick={() => this.props.openModal('login')}> Login </a>,
           <a key="2" id='demo-btn' className="button-group" onClick = {
-              // () => this.props.registerUser({username:'Demo', email:'demo@demo.com', password:'password', password2:'password'})}
               () => this.props.loginUser({username:'Demo', password:'password'})}
 
             >Demo</a>,
