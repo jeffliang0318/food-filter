@@ -13,7 +13,7 @@ class Team extends Component {
             <li className="team-li">
               <div className="info-wrapper">
                 <div className="photo-wrapper">
-                  <img src="http://res.cloudinary.com/chengzii/image/upload/v1525031709/jeff.jpg" alt="team-photo"/>
+                  <img alt="team-pic" src="https://res.cloudinary.com/chengzii/image/upload/v1525031709/jeff.jpg" />
                 </div>
                 <ul className="info-detail">
                   <li className="info-name">Jeff</li>
@@ -23,10 +23,10 @@ class Team extends Component {
                     </p>
                   </li>
                   <li>
-                    <a href="https://github.com/jeffliang0318" target="_blank">
+                    <a href="https://github.com/jeffliang0318" target="_blank" rel="noopener noreferrer">
                       <i className="fab fa-github-square"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/jeff-chun-liang-699bb679/" target="_blank">
+                    <a href="https://www.linkedin.com/in/jeff-chun-liang-699bb679/" target="_blank" rel="noopener noreferrer">
                       <i className="fab fa-linkedin"></i>
                     </a>
                   </li>
@@ -45,16 +45,16 @@ class Team extends Component {
                   </p>
                 </li>
                 <li>
-                  <a href="https://github.com/tjshiu" target="_blank">
+                  <a href="https://github.com/tjshiu" target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-github-square"></i>
                   </a>
-                  <a href="https://www.linkedin.com/in/tiffany-shiu/" target="_blank">
+                  <a href="https://www.linkedin.com/in/tiffany-shiu/" target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-linkedin"></i>
                   </a>
                 </li>
               </ul>
                 <div className="photo-wrapper">
-                  <img src="https://res.cloudinary.com/chengzii/image/upload/v1525031709/tiffany.jpg" alt="team-photo"/>
+                  <img src="https://res.cloudinary.com/chengzii/image/upload/v1525031709/tiffany.jpg" alt="team-pic"/>
                 </div>
               </div>
             </li>
@@ -62,7 +62,7 @@ class Team extends Component {
             <li className="team-li">
               <div className="info-wrapper">
                 <div className="photo-wrapper">
-                <img src="https://res.cloudinary.com/chengzii/image/upload/v1525031709/tingting.jpg" alt="team-photo"/>
+                <img src="https://res.cloudinary.com/chengzii/image/upload/v1525031709/tingting.jpg" alt="team-pic"/>
                 </div>
                 <ul className="info-detail">
                   <li className="info-name">TingTing</li>
@@ -72,10 +72,10 @@ class Team extends Component {
                     </p>
                   </li>
                   <li>
-                    <a href="https://github.com/jiangtt18" target="_blank">
+                    <a href="https://github.com/jiangtt18" target="_blank" rel="noopener noreferrer">
                       <i className="fab fa-github-square"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/jiangtt/" target="_blank">
+                    <a href="https://www.linkedin.com/in/jiangtt/" target="_blank" rel="noopener noreferrer">
                       <i className="fab fa-linkedin"></i>
                     </a>
                   </li>
@@ -94,16 +94,16 @@ class Team extends Component {
                   </p>
                 </li>
                 <li>
-                  <a href="https://github.com/zw301" target="_blank">
+                  <a href="https://github.com/zw301" target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-github-square"></i>
                   </a>
-                  <a href="https://linkedin.com/in/ziyan-wang-4149b6161/" target="_blank">
+                  <a href="https://linkedin.com/in/ziyan-wang-4149b6161/" target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-linkedin"></i>
                   </a>
                 </li>
               </ul>
                 <div className="photo-wrapper">
-                  <img src="https://res.cloudinary.com/chengzii/image/upload/v1525032334/ziyan.jpg" alt="team-photo"/>
+                  <img src="https://res.cloudinary.com/chengzii/image/upload/v1525032334/ziyan.jpg" alt="team-pic"/>
                 </div>
               </div>
             </li>

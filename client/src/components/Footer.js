@@ -9,7 +9,7 @@ class Footer extends Component {
         <section className="footer-body">
           <div>
             <a href="https://github.com/jeffliang0318/food-filter">
-              <i class="fab fa-github-square"></i>
+              <i className="fab fa-github-square"></i>
             </a>
           </div>
           <div>
