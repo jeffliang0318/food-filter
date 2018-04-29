@@ -89,7 +89,6 @@ class Product extends Component {
     str = str.replace('INCLUDING', '');
     //delete 2 spaces
     str = str.replace(/\s\s+/g, ' ');
-    console.log(str)
     return str;
   }
 

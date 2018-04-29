@@ -44,7 +44,6 @@ passport.use(
       // console.log(profile);
       if (existingUser) {
         //already exist
-        console.log(profile.emails[0].value);
         return done(null, existingUser);
       }
       // make new user
