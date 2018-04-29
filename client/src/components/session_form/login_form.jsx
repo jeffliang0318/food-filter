@@ -6,7 +6,13 @@ class loginForm extends React.Component {
         super(props);
         this.state = {
           username: "",
-          password: ""
+          password: "",
+          style:{
+            border: '1px solid #cea0a5',
+            padding: '10px',
+            color:' #86181d',
+            backgroundColor: '#ffdce0'
+          }
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
@@ -15,7 +21,9 @@ class loginForm extends React.Component {
       update(field) {
         return e =>
           this.setState({
+
             [field]: e.currentTarget.value
+
           });
       }
 
@@ -32,22 +40,29 @@ class loginForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
+        let userInfo = {
+          username: this.state.username,
+          password:this.state.password
+        };
+        const user = Object.assign({}, userInfo);
 
         this.props.loginUser(user);
 
       }
 
       renderErrors() {
-        return(
-          <ul className='error'>
-            {this.props.errors.map((error,i) => (
-              <li key = {`errors-${i}`}>
-                {error}
-              </li>
-            ))}
-          </ul>
-        );
+        let errors = this.props.errors;
+        if (errors.length !== 0) {
+          return(
+            <ul style = {this.state.style}>
+              {errors.map((error,i) => (
+                <li key = {`errors-${i}`}>
+                  {error}
+                </li>
+              ))}
+            </ul>
+          );
+        }
     }
 
     render() {
