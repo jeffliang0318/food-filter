@@ -39,7 +39,7 @@ class Header extends Component {
           </Link>
           <div className="header-right">
             <Search />
-            <ul className="header-right-auth">{this.renderContent()}</ul>
+            <div className="header-right-auth">{this.renderContent()}</div>
           </div>
         </div>
       </nav>

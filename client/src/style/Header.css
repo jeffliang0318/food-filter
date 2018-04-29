@@ -1,55 +1,72 @@
 
-#root {
-  /* background-color: #ccc; */
-}
-
 nav {
   box-shadow: 0px 3px 6px 0px #ccc;
   padding: 20px 0 12px 0;
+  min-width: 1090px;
 }
 .nav-wrapper {
   height: 60px;
-  width: 80%;
-  min-width: 600px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 80%;
+  min-width: 1090px;
+  /* border: 1px solid red; */
 }
 
 .nav-wrapper .header-left {
   flex: 1;
+  padding-left: 52px;
+  margin-right: 10px;
 }
 
 .nav-wrapper .brand-logo {
-  font-size: 30px;
-  /* line-height: 100px; */
-  /* border: 1px solid red; */
+  font-size: 36px;
   position: relative;
   top: 4px;
+  background-image: url("http://res.cloudinary.com/chengzii/image/upload/v1524847432/foodFilterIcon.png");
+  background-repeat: no-repeat;
+  background-size: 50px auto;
+  background-position: 0px 0px;
+  height: 60px;
+  line-height: 64px;
+  color: #233873;
+  cursor: pointer;
+}
+
+.nav-wrapper .brand-logo:hover{
+  color: #3a5dbe;
+}
+
+.nav-wrapper a {
+  display: inline-block;
+}
+
+.nav-wrapper a:active {
+  color:black;
 }
 
 .nav-wrapper .header-right {
   display: flex;
-  flex: 3;
+  flex: 9;
   justify-content: flex-end;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .nav-wrapper .header-right-auth {
   display: flex;
 }
 
-.nav-wrapper .header-right-auth li {
-  padding: 10px;
-}
 
 .button-group {
+  outline: none;
   border: 1px solid #46b8da;
   background-color: #5bc0de;
   border-radius: 3px;
   margin-left: 8px;
   padding: 12px 10px 8px 10px;
+
   font-size: 16px;
   color: #fff;
 }

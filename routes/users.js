@@ -1,17 +1,13 @@
-// const login = require('../client/src/actions/session_actions');
 const flash = require('connect-flash');
 var User = require('../models/User');
 const passport = require('passport');
-// const expressValidator = require('express-validator');
 
 
 module.exports = app => {
 
   app.get('/users/register',
     (req, res) => {
-    console.log('session', req.session);
     let user = req.user;
-    console.log('user:', user);
     res.redirect('/api/current_user');
    }
  );
@@ -22,13 +18,14 @@ module.exports = app => {
 
 	var email = req.body.email;
 	var username = req.body.username;
+	var name = req.body.name;
 	var password = req.body.password;
 	var password2 = req.body.password2;
-  console.log(email, username, password);
 	// Validation
 	req.checkBody('email', 'Email is required').notEmpty();
 	req.checkBody('email', 'Email is not valid').isEmail();
 	req.checkBody('username', 'Username is required').notEmpty();
+	req.checkBody('name', 'Name is required').notEmpty();
 	req.checkBody('password', 'Password is required').notEmpty();
 	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
@@ -36,7 +33,7 @@ module.exports = app => {
 
 	if (errors) {
     let errorsArr = Object.values(errors).map(function(obj){return obj.msg;});
-      console.log(errorsArr);
+      // console.log(errorsArr);
 		return res.status(422).json({ errors: errorsArr });
 	}
 	else {
@@ -54,6 +51,7 @@ module.exports = app => {
 					var newUser = new User({
 						email: email,
 						username: username,
+						name: name,
 						password: password
 					});
 					User.createUser(newUser, function (e, savedUser) {
@@ -75,7 +73,7 @@ module.exports = app => {
   app.post('/users/login',passport.authenticate('local'),
     (req, res) => {
       let user = req.user;
-      console.log(user);
+      // console.log(user);
       res.redirect('/api/current_user');
   });
 };

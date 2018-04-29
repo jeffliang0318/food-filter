@@ -18,14 +18,12 @@ export const loginUser = (user) => dispatch => {
       axios.post('/users/login', user).then((res) => {
       dispatch({ type: FETCH_USER, payload: res.data });
     }).catch((error) => {
-      console.log();
       dispatch(receiveErrors(['Invalid username or password']));
     });
 };
 
 
 export const registerUser = (user) => dispatch => {
-
     axios.post('/users/register', user).then((res) => {
       dispatch({ type: FETCH_USER, payload: res.data });
     }).catch((error) => {

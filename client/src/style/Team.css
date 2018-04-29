@@ -1,0 +1,42 @@
+.team-main {
+  width: 78%;
+  margin: 10px auto;
+  background: #f5f5f5;
+  box-shadow: 0px 3px 6px 0px #ccc;
+  padding: 20px;
+}
+
+.team-main h2 {
+  text-align: center;
+}
+
+.team-section {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.team-li {
+  border: 1px solid red;
+}
+.info-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.photo-wrapper {
+  /* flex: 1; */
+  width: 120px;
+  overflow: hidden;
+  border: 1px solid blue;
+}
+
+.photo-wrapper img {
+  width: 120px;
+}
+
+.info-detail {
+  flex: 3;
+  border: 1px solid green;
+  padding: 20px;
+  /* width: 50%; */
+}

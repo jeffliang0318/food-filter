@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Product extends Component {
+
   ingredientsChecker() {
     if(!this.props.searchResults.ing) {
       return (
@@ -16,26 +17,34 @@ class Product extends Component {
     let ingrendients = [];
     let str;
     if (ing.includes(':')) {
-      str = this.removeColon(ing);
-    } else {
-      str = ing;
-      str = str.replace('.', '');
-      str = str.replace('[', '');
-      str = str.replace(']', '');
-      str = str.replace('(', '');
-      str = str.replace(')', '');
-      str = str.replace('INCLUDING', '');
-      //delete 2 spaces
-      str = str.replace(/\s\s+/g, ' ');
+      str = ing.split(":").join(" ");
     }
+    str = this.removeColon(ing);
+
     let singleIngArr = str.split(', ');
+    singleIngArr = singleIngArr.filter(el => el !== "");
+    singleIngArr = singleIngArr.filter(el => el !== ".");
     ingrendients = ingrendients.concat(singleIngArr);
 
+    let userList = this.props.auth.allergyIngredient;
     return (
       <ul className="ing-ul">
-        {ingrendients.map((ing, idx) => <li key={`ing-${idx}`}>{ing}</li>)}
+        {ingrendients.map((ing, idx) =>
+           (userList && this.checkInclude(ing, userList)) ?
+            <li className="hightlight" key={`ing-${idx}`}>{ing}</li>
+            : <li key={`ing-${idx}`}>{ing}</li>
+        )}
       </ul>
     );
+  }
+
+  checkInclude(ing, userList) {
+    for (var i = 0; i < userList.length; i++) {
+      if(ing.toLowerCase().includes("soymilk") && userList[i] === "milk") {continue};
+      if(ing.toLowerCase().includes("almondmilk") && userList[i] === "milk") {continue};
+      if(ing.toLowerCase().includes(userList[i])) return true;
+    }
+    return false;
   }
 
   nutrientsChecker() {
@@ -54,21 +63,20 @@ class Product extends Component {
   }
 
   removeColon(ing) {
-    let ingArr = ing.split('.');
-    let str;
-    for (var i = 0; i < ingArr.length; i++) {
-      let index = ingArr[i].indexOf(':');
-      if (index > 0) {
-        str = ingArr[i].slice(index + 2, ingArr[i].length);
-        str = str.replace('[', '');
-        str = str.replace(']', '');
-        str = str.replace('(', '');
-        str = str.replace(')', '');
-        str = str.replace('INCLUDING', '');
-        //delete 2 spaces
-        str = str.replace(/\s\s+/g, ' ');
-      }
-    }
+    let str = ing.split(".").join(" ");
+    // str = ing.split(":").join(" ");
+    // str = ing.split(",").join(" ");
+    // str = str.replace(',', ' ');
+    // str = str.replace('[', '');
+    // str = str.replace(']', '');
+    // str = str.replace('(', '');
+    // str = str.replace(')', '');
+    // str = str.replace(/[\[\]']+/g, ' ');
+    // str = str.replace(/[()]/g, ' ');
+    str = str.replace(/[()]/g, ', ');
+    str = str.replace('INCLUDING', '');
+    //delete 2 spaces
+    str = str.replace(/\s\s+/g, ' ');
     return str;
   }
 
@@ -81,7 +89,6 @@ class Product extends Component {
       </ul>
     );
   }
-
 
   render() {
     if (!this.props.searchResults) {
@@ -111,7 +118,9 @@ class Product extends Component {
 
 const mapStateToProps = state => ({
   searchResults: state.searchResults,
-  errors: state.errors
+  errors: state.errors,
+  auth: state.auth
 });
+
 
 export default connect(mapStateToProps, null)(Product);

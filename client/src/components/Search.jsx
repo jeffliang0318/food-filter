@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { fetch_product } from '../actions/searchResults';
+import { fetch_product, receiveErrors } from '../actions/searchResults';
 
 class Search extends Component {
   constructor(props) {
@@ -22,6 +22,9 @@ class Search extends Component {
   handleSubmit(e) {
     e.preventDefault();
     let searchTerm = this.state.searchTerm;
+    // if(searchTerm.length !== 12) {
+    //   this.props.receiveErrors(["UPC should contain 12 numbers."]);
+    // }
     this.props.fetch_product(searchTerm)
       .then(() =>
         this.setState({
@@ -40,6 +43,7 @@ class Search extends Component {
             onChange={this.update('searchTerm')}
           />
           <input className="submit" type="submit" onClick={this.handleSubmit} />
+          <a className="camera" href="/searchupload"><i className="fas fa-camera"></i></a>
         </form>
     );
   }
@@ -49,6 +53,7 @@ class Search extends Component {
 const mapDispatchToProps = dispatch => ({
   fetch_product: (searchTerms) =>
     dispatch(fetch_product(searchTerms)),
+  receiveErrors: (errors) => dispatch(receiveErrors(errors)),
 });
 
 export default withRouter(connect(null, mapDispatchToProps)(Search));

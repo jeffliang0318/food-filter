@@ -1,12 +1,14 @@
 .user-profile {
-  border: 1px solid red;
-  width: 70%;
-  /* min-width: 700px; */
+  border: 1px solid #ccc;
+  box-shadow: 0px 3px 6px 0px #ccc;
+  width: 78%;
+  min-width: 700px;
   margin: 10px auto 0;
   padding: 20px;
   position: relative;
 }
 
+/* Login require */
 .user-profile h3 {
   font-size: 24px;
   margin-bottom: 20px;
@@ -15,4 +17,148 @@
 
 .user-profile span {
   padding-top: 10px;
+}
+
+.username {
+  font-size: 36px;
+  margin-top: 20px;
+  text-align: center;
+    color: #079eda;
+}
+
+.userProfileList h4 {
+  margin-top: 20px;
+  /* border-top: 1px solid #ccc; */
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+  background: #f7f7f7;
+  line-height: 30px;
+  padding-top:10px
+}
+
+
+.userList-ul {
+  padding: 14px 0 10px 10px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.userList-ul li {
+  /* list-style: circle; */
+  width: 22%;
+  float: left;
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.userList-ul li i {
+  margin-right: 5px;
+  font-size: 14px;
+  color: #000;
+}
+
+.clearfix::after, .clearfix::before {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.ing-form {
+  /* display: flex; */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ing-group {
+  width: 25%;
+  min-width: 280px;
+  height: auto;
+  display: flex;
+}
+
+.ing-group img {
+  width: 180px;
+  max-width: 180px;
+  height: 175px;
+}
+.ing-group label {
+  font-size: 16px;
+}
+.group-list {
+  width: 35%;
+  min-width: 60px;
+  padding: 20px 0;
+}
+
+.editShow {
+  position: relative;
+}
+
+.editShow .update-button {
+  background-color: #bb0000;
+  padding: 10px 14px 12px 12px;
+  border-radius: 3px;
+  position: relative;
+  top: -2px;
+  color: #fff;
+  position: relative;
+  top: -4px;
+}
+
+.editShow .update-button:hover{
+  background-color: #dd4b39;
+}
+
+.update-clear {
+  display: flex;
+  justify-content:space-around;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.editShow p {
+  color: #e68028;
+  padding-top: 10px;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 22px;
+}
+
+
+@media only screen and (max-width: 1400px) {
+  .ing-group {
+    width: 42%;
+    min-width: 280px;
+    height: auto;
+    display: flex;
+    display: flex;
+    justify-content: center;
+    margin-left: 70px;
+  }
+
+  .ing-group img {
+    width: 180px;
+    max-width: 180px;
+    height: 175px;
+  }
+
+  .group-list {
+    width: 35%;
+    min-width: 60px;
+    padding: 20px 0;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .ing-group {
+    width: 49%;
+    min-width: 280px;
+    height: auto;
+    display: flex;
+    display: flex;
+    justify-content: center;
+    margin-left: 0;
+  }
 }

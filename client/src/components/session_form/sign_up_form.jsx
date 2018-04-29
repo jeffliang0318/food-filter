@@ -6,6 +6,7 @@ class signUpForm extends React.Component {
         super(props);
         this.state = {
           username: "",
+          name: "",
           email: "",
           password: "",
           password2: "",
@@ -41,17 +42,16 @@ class signUpForm extends React.Component {
       }
 
       handleSubmit(e) {
-        // console.log('submit');
           e.preventDefault();
-         const {username, email, password, password2} = this.state;
+         const {username, email, name, password, password2} = this.state;
           let userInfo = {
             username: username,
             email: email,
+            name: name,  
             password: password,
             password2: password2
           }
           const user = Object.assign({}, userInfo);
-          // console.log(this.state);
 
           this.props.registerUser(user);
         }
@@ -101,6 +101,16 @@ class signUpForm extends React.Component {
                       onChange={this.update("email")}
                       className="login-input"
                       placeholder="Email"
+                      />
+                  </div>
+                <br />
+                  <div>
+                    <input
+                      type="text"
+                      value={this.state.name}
+                      onChange={this.update("name")}
+                      className="login-input"
+                      placeholder="Name"
                       />
                   </div>
                 <br />
