@@ -18,7 +18,7 @@ passport.deserializeUser((id, done) => {
 });
 
 passport.use(new LocalStrategy(
-  {proxy:true}
+
   async (username, password, done) => {
     const user = await User.findOne({username: username});
     if (!user) {
