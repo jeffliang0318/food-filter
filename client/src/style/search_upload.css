@@ -45,16 +45,6 @@
 }
 
 
-.controls .input-group {
-  /* float: left; */
-  /* margin-top: 20px; */
-  /* border: 1px solid red; */
-}
-
-.controls .input-group input, .controls .input-group button {
-  /* display: block; */
-}
-
 #result_strip {
   text-align: center;
 }
@@ -202,4 +192,10 @@
   width: 100%;
   height: auto;
   object-fit:cover;
+}
+
+@media only screen and (max-width: 1200px) {
+  .searchExample-imgWrapper {
+    height: 200px;
+  }
 }
