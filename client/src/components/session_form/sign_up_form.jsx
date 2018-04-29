@@ -24,6 +24,7 @@ class signUpForm extends React.Component {
       componentDidUpdate(){
         if(this.props.auth) {
             this.props.closeModal();
+            this.props.loginUser({username: this.state.username, password: this.state.password})
           }
       }
 

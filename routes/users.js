@@ -1,3 +1,4 @@
+// const login = require('../client/src/actions/session_actions');
 const flash = require('connect-flash');
 var User = require('../models/User');
 const passport = require('passport');
@@ -5,11 +6,13 @@ const passport = require('passport');
 
 
 module.exports = app => {
+
   app.get('/users/register',
     (req, res) => {
-
-     // redirect to index after logout
-     res.redirect('/user');
+    console.log('session', req.session);
+    let user = req.user;
+    console.log('user:', user);
+    res.redirect('/api/current_user');
    }
  );
 
@@ -57,7 +60,9 @@ module.exports = app => {
             if (e) {
               return res.json({errors: e});
              } else {
-               return res.json(savedUser);
+               res.json(savedUser);
+               // res.user = savedUser;
+               // res.redirect('/api/current_user');
              }
 					});
 
@@ -67,11 +72,24 @@ module.exports = app => {
 	}
 });
 
-  app.post('/users/login',
-   passport.authenticate('local',{ failureFlash: 'Invalid username or password.' }),
+  app.post('/users/login',passport.authenticate('local'),
     (req, res) => {
-      req.flash();
       let user = req.user;
+      console.log(user);
       res.redirect('/api/current_user');
   });
 };
+
+
+
+function ensureAuthenticated(req, res, next){
+	if(req.isAuthenticated()){
+		return next();
+	} else {
+		return res.status(401).json({
+        errors:['User not authenticated']
+      });
+
+}
+
+}
