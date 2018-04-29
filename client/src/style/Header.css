@@ -2,17 +2,16 @@
 nav {
   box-shadow: 0px 3px 6px 0px #ccc;
   padding: 20px 0 12px 0;
-  min-width: 1090px;
+  /* min-width: 700px; */
 }
 .nav-wrapper {
   height: 60px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   width: 80%;
-  min-width: 1090px;
-  /* border: 1px solid red; */
+  min-width: 800px;
 }
 
 .nav-wrapper .header-left {
@@ -50,7 +49,7 @@ nav {
 .nav-wrapper .header-right {
   display: flex;
   flex: 9;
-  justify-content: flex-end;
+  justify-content: space-between;
   /* align-items: center; */
 }
 
@@ -66,7 +65,6 @@ nav {
   border-radius: 3px;
   margin-left: 8px;
   padding: 12px 10px 8px 10px;
-
   font-size: 16px;
   color: #fff;
 }
