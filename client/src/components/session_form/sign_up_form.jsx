@@ -24,6 +24,7 @@ class signUpForm extends React.Component {
       componentDidUpdate(){
         if(this.props.auth) {
             this.props.closeModal();
+            this.props.loginUser({username: this.state.username, password: this.state.password})
           }
       }
 
@@ -37,7 +38,7 @@ class signUpForm extends React.Component {
           e.preventDefault();
           const user = Object.assign({}, this.state);
           // console.log(this.state);
-          let that = this;
+
           this.props.registerUser(user);
         }
 
