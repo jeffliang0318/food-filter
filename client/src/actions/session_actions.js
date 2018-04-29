@@ -25,7 +25,6 @@ export const loginUser = (user) => dispatch => {
 
 
 export const registerUser = (user) => dispatch => {
-
     axios.post('/users/register', user).then((res) => {
       dispatch({ type: FETCH_USER, payload: res.data });
     }).catch((error) => {

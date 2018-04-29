@@ -40,6 +40,7 @@
   padding: 10px;
   border-radius: 3px;
   background-color: lightgrey;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
 }
 
@@ -50,52 +51,145 @@
   /* border: 1px solid red; */
 }
 
-  .controls .input-group input, .controls .input-group button {
-    /* display: block; */
-  }
+.controls .input-group input, .controls .input-group button {
+  /* display: block; */
+}
 
-  #result_strip {
-  }
+#result_strip {
+  text-align: center;
+}
 
-  #result_strip ul {
-    margin: 0 auto;
-    display: flex;
-    width: 70%;
-  }
+#result_strip p {
+  font-size: 24px;
+  margin: 10px;
+  /* border-bottom: 1px solid #ccc; */
+}
 
-  .thumbnails {
-    font-size: 20px;
-    color: #dd4b39;
-  }
+#result_strip ul {
+  margin: 0 auto;
+  display: flex;
+  width: 70%;
+}
+
+.thumbnails {
+  font-size: 20px;
+  color: #dd4b39;
+}
 
 
-  #result_strip ul.thumbnails > li {
-    margin: 0 auto;
-    width: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#result_strip ul.thumbnails > li {
+  margin: 0 auto;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid #ccc; */
+}
 
-    border: 1px solid #ccc;
-  }
+#result_strip ul.thumbnails > li .thumbnail .imgWrapper {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+}
 
-  #result_strip ul.thumbnails > li .thumbnail .imgWrapper {
-    width: 300px;
-    height: 300px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
+#result_strip ul.thumbnails > li .thumbnail .imgWrapper img {
+  /* margin-top: -25px; */
+  width: 300px;
+  height: auto;
+  object-fit: cover;
+  /* border: 1px solid grey; */
+}
 
-  #result_strip ul.thumbnails > li .thumbnail .imgWrapper img {
-    /* margin-top: -25px; */
-    width: 300px;
-    height: auto;
-    object-fit: cover;
-    border: 1px solid grey;
-  }
+#result_strip ul.thumbnails > li .thumbnail h4{
+  text-align: center;
+}
 
-  #result_strip ul.thumbnails > li .thumbnail h4{
-    text-align: center;
-  }
+.searchButton-container {
+  /* border: 1px solid blue; */
+  /* padding-bottom: 60px; */
+  margin: 10px auto;
+  border-bottom: 1px solid #ccc;
+  width: 80%;
+}
+
+.searchButton {
+  width: 300px;
+  padding: 10px 0;
+  background-color: #5bc0de;
+  border: 1px solid #46b8da;
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.searchButton:hover{
+  background-color: #31b0d5;
+  border-color: #269abc;
+}
+#search-error-strip ul.search-error {
+  color: red;
+}
+
+.recentlySearch {
+}
+
+.recentlySearch h4 {
+  padding: 15px 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+.recentlySearch p {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.recentlySearch ul {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.searchExample-li:first-child{
+  /* margin-left: 10px; */
+}
+
+.searchExample-li {
+  width: 25%;
+  /* margin-right: 6px; */
+  /* border: 1px solid #ccc; */
+}
+
+.searchExample-li > div {
+  /* height: 30px; */
+  /* border-collapse: collapse; */
+  /* border-right: none; */
+}
+
+
+
+.searchExample-imgWrapper {
+  width: 100%;
+  overflow: hidden;
+  background: #f7f7f7;
+  height: 280px;
+  /* border-bottom: 1px solid #ccc; */
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+}
+
+.searchExample-imgWrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
