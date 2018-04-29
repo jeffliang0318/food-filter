@@ -21,7 +21,6 @@ class searchUploadUPC extends React.Component {
 
     render() {
         //DO NOT CHANGE THESE className's controls, input-group, result_strip and thumbnails
-        console.log(window.upcCode);
         return (
           <div className='photo-container' >
             <div className='header-barcode-container'>
@@ -48,12 +47,12 @@ class searchUploadUPC extends React.Component {
                 <p>Barcode Reading Area</p>
                 <ul className="thumbnails">
                   <li>
-                    <div class="thumbnail">
-                      <div class="imgWrapper">
-                        <img src="http://res.cloudinary.com/dwanjkcku/image/upload/c_scale,w_500/v1524763023/barcode.png" alt="barcodeDemo" />
+                    <div className="thumbnail">
+                      <div className="imgWrapper">
+                        <img src="http://res.cloudinary.com/chengzii/image/upload/v1524972811/barcodeDemo.png" alt="barcodeDemo" />
                       </div>
-                      <div class="caption">
-                        <h4 class="code"></h4>
+                      <div className="caption">
+                        <h4 className="code"> </h4>
                       </div>
                     </div>
                   </li>
@@ -63,49 +62,41 @@ class searchUploadUPC extends React.Component {
               <button className="searchButton" onClick={this.handleClick}>Search</button>
             </div>
             <div className="recentlySearch">
-              <h4>Recently Search</h4>
+              <h4>Demo Images</h4>
               <ul>
-                <li className="searchExample-li" id="222222222222" onClick={this.handleExampleClick}>
-                  <div>
-                    <div class="searchExample-imgWrapper">
-                      <img src="http://res.cloudinary.com/dwanjkcku/image/upload/c_scale,w_500/v1524763023/barcode.png" alt="barcodeDemo" />
-                    </div>
-                    <div class="searchExample-codeContainer">
-                      <p class="searchExample-code">123456789123</p>
-                    </div>
+                <li className="searchExample-li" id="858089003050" onClick={this.handleExampleClick}>
+                  <div className="searchExample-imgWrapper">
+                    <img src="http://res.cloudinary.com/chengzii/image/upload/v1524974638/IMG_7175.jpg" alt="barcodeDemo" />
+                  </div>
+                  <div className="searchExample-codeContainer">
+                    <p className="searchExample-code">858089003050</p>
                   </div>
                 </li>
 
                 <li className="searchExample-li">
-                  <div>
-                    <div class="searchExample-imgWrapper">
-                      <img src="http://res.cloudinary.com/dwanjkcku/image/upload/c_scale,w_500/v1524763023/barcode.png" alt="barcodeDemo" />
-                    </div>
-                    <div class="searchExample-codeContainer">
-                      <p class="searchExampleCode">123456789123</p>
-                    </div>
+                  <div className="searchExample-imgWrapper">
+                    <img src="http://res.cloudinary.com/dwanjkcku/image/upload/c_scale,w_500/v1524763023/barcode.png" alt="barcodeDemo" />
+                  </div>
+                  <div className="searchExample-codeContainer">
+                    <p className="searchExampleCode">123456789123</p>
                   </div>
                 </li>
 
                 <li className="searchExample-li">
-                  <div>
-                    <div class="searchExample-imgWrapper">
-                      <img src="http://res.cloudinary.com/dwanjkcku/image/upload/c_scale,w_500/v1524763023/barcode.png" alt="barcodeDemo" />
-                    </div>
-                    <div class="searchExample-codeContainer">
-                      <p class="searchExampleCode">123456789123</p>
-                    </div>
+                  <div className="searchExample-imgWrapper">
+                    <img src="http://res.cloudinary.com/dwanjkcku/image/upload/c_scale,w_500/v1524763023/barcode.png" alt="barcodeDemo" />
+                  </div>
+                  <div className="searchExample-codeContainer">
+                    <p className="searchExampleCode">123456789123</p>
                   </div>
                 </li>
 
                 <li className="searchExample-li last-li">
-                  <div>
-                    <div class="searchExample-imgWrapper">
-                      <img src="http://res.cloudinary.com/dwanjkcku/image/upload/c_scale,w_500/v1524763023/barcode.png" alt="barcodeDemo" />
-                    </div>
-                    <div class="searchExample-codeContainer">
-                      <p class="searchExampleCode">123456789123</p>
-                    </div>
+                  <div className="searchExample-imgWrapper">
+                    <img src="http://res.cloudinary.com/dwanjkcku/image/upload/c_scale,w_500/v1524763023/barcode.png" alt="barcodeDemo" />
+                  </div>
+                  <div className="searchExample-codeContainer">
+                    <p className="searchExampleCode">123456789123</p>
                   </div>
                 </li>
 

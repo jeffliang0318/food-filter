@@ -166,15 +166,14 @@
 .searchExample-li {
   width: 25%;
   /* margin-right: 6px; */
+  /* border: 1px solid #ccc; */
 }
 
 .searchExample-li > div {
-  border: 1px solid #ccc;
-  border-collapse: collapse;
+  /* height: 30px; */
+  /* border-collapse: collapse; */
   /* border-right: none; */
 }
-
-
 
 
 
@@ -182,10 +181,15 @@
   width: 100%;
   overflow: hidden;
   background: #f7f7f7;
-  border-bottom: 1px solid #ccc;
+  height: 280px;
+  /* border-bottom: 1px solid #ccc; */
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
 }
 
 .searchExample-imgWrapper img {
   width: 100%;
+  height: auto;
   object-fit: cover;
 }

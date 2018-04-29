@@ -26,8 +26,6 @@ export const receiveErrors = (errors) => ({
 });
 
 export const registerUser = (user) => dispatch => {
-
-  let res;
   // try {
     // res = await axios.post('/users/register', user);
     axios.post('/users/register', user).then((res) => {
