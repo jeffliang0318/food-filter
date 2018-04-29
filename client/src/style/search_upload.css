@@ -179,7 +179,7 @@
 
 .searchExample-imgWrapper {
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   background: #f7f7f7;
   height: 280px;
   /* border-bottom: 1px solid #ccc; */
@@ -188,8 +188,18 @@
   align-items: center;
 }
 
+.searchExample-imgBox {
+  border: 1px solid #ccc;
+  width: 80%;
+  height: 80%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+    margin: 0 auto;
+}
+
 .searchExample-imgWrapper img {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  object-fit:cover;
 }

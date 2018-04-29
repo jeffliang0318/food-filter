@@ -8,6 +8,7 @@ class User extends  Component {
     this.state = {
       "soy":false,
       "fish":false,
+      "fillet":false,
       "egg": false,
       "albumin":false,
       "globulin":false,
@@ -127,6 +128,11 @@ class User extends  Component {
       let indexPeanut = items.indexOf("peanut");
       items.splice(indexPeanut, 5, peanutStr);
     }
+    if(items.indexOf("fish") !== -1) {
+      const fishStr = "fish(fillet)";
+      let indexFish = items.indexOf("fish");
+      items.splice(indexFish, 2, fishStr);
+    }
 
     return items.join(", ");
   }
@@ -144,6 +150,7 @@ class User extends  Component {
     let eggRelated = ["albumin", "globulin", "lecithin", "livetin", "lysozyme", "vitellin"];
     let milkRelated = ["whey", "casein", "caseinates", "cheese", "curds", "custard", "diacetyl", "ghee", "lactoferrin", "lactose"];
     let peanutRelated = ["arachis", "goobers", "lupin", "lupine"];
+    let fishRelated = ["fillet"];
     return e => {
       let boolean = this.state[e.target.id]
       this.setState({
@@ -167,6 +174,13 @@ class User extends  Component {
         for (var k = 0; k < peanutRelated.length; k++) {
           this.setState({
             [peanutRelated[k]]: !boolean
+          })
+        }
+      }
+      if(e.target.id === "fish") {
+        for (var z = 0; z < fishRelated.length; z++) {
+          this.setState({
+            [fishRelated[z]]: !boolean
           })
         }
       }

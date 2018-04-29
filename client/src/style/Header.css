@@ -12,6 +12,7 @@ nav {
   align-items: center;
   width: 80%;
   min-width: 1090px;
+  /* border: 1px solid red; */
 }
 
 .nav-wrapper .header-left {
