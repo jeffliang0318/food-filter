@@ -10,8 +10,8 @@ import User from './User';
 import Team from './Team';
 import Homepage from './Homepage';
 import SearchUpload from './search_upload_upc/search_upload_upc_container';
-
 import Product from './Product';
+import About from './About';
 
 class App extends Component {
   componentDidMount() {
@@ -23,6 +23,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Modal />
+            <About />
             <Header />
             <Route exact path="/" component={Homepage} />
             <Route exact path="/user" component={User} />
