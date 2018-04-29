@@ -13,9 +13,10 @@ export const loginUser = (user) => async dispatch => {
   let res;
   try {
     res = await axios.post('/users/login', user);
+    console.log(res);
     dispatch({ type: FETCH_USER, payload: res.data });
 } catch(error) {
-  console.log(error.response);
+  // console.log(error.response);
   dispatch({ type: FETCH_AUTH_ERRORS, payload: error });
 }
 };

@@ -1,7 +1,7 @@
 const flash = require('connect-flash');
 var User = require('../models/User');
 const passport = require('passport');
-// const expressValidator = require('express-validator');
+const expressValidator = require('express-validator');
 
 
 module.exports = app => {
@@ -21,7 +21,6 @@ module.exports = app => {
 	var username = req.body.username;
 	var password = req.body.password;
 	var password2 = req.body.password2;
-  console.log(email, username, password);
 	// Validation
 	req.checkBody('email', 'Email is required').notEmpty();
 	req.checkBody('email', 'Email is not valid').isEmail();
@@ -33,7 +32,7 @@ module.exports = app => {
 
 	if (errors) {
     let errorsArr = Object.values(errors).map(function(obj){return obj.msg;});
-      console.log(errorsArr);
+      // console.log(errorsArr);
 		return res.status(422).json({ errors: errorsArr });
 	}
 	else {
@@ -54,6 +53,7 @@ module.exports = app => {
 						password: password
 					});
 					User.createUser(newUser, function (e, savedUser) {
+            console.log(res.body);
             if (e) {
               return res.json({errors: e});
              } else {
@@ -68,10 +68,9 @@ module.exports = app => {
 });
 
   app.post('/users/login',
-   passport.authenticate('local',{ failureFlash: 'Invalid username or password.' }),
+   passport.authenticate('local-login'),
     (req, res) => {
-      req.flash();
-      let user = req.user;
-      res.redirect('/api/current_user');
-  });
+      res.send(req.user);
+    }
+  );
 };
