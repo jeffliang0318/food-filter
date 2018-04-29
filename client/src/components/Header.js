@@ -12,13 +12,13 @@ class Header extends Component {
         return;
       case false:
         return [
-          <a key="1" className="button-group" onClick={() => this.props.openModal('login')}> Login </a>,
-          <a key="2" className="button-group" href="/">Demo</a>,
+          <a key="1" id='login-btn' className="button-group" onClick={() => this.props.openModal('login')}> Login </a>,
+          <a key="2" id='demo-btn' className="button-group" href="/">Demo</a>,
         ];
       default:
         return [
-          <a key="1"  href="/user" className="button-group">User</a>,
-          <a key="2" className="button-group" href="/api/logout">Logout</a>
+          <a key="1" id='profile-btn' href="/user" className="button-group">My Profile</a>,
+          <a key="2" id='logout-btn' className="button-group" href="/api/logout">Logout</a>
         ];
     }
   }
