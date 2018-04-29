@@ -5,10 +5,18 @@ class signUpForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+          user: {
           username: "",
           email: "",
           password: "",
           password2: ""
+        },
+         style: {
+         border: '1px solid #cea0a5',
+         padding: '10px',
+         color: '#86181d',
+         backgroundColor: '#ffdce0',
+        }
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
@@ -16,15 +24,15 @@ class signUpForm extends React.Component {
 
       update(field) {
         return e =>
-          this.setState({
-            [field]: e.currentTarget.value
+          this.setState({ user: {
+            [field]: e.currentTarget.value}
           });
       }
 
       componentDidUpdate(){
         if(this.props.auth) {
             this.props.closeModal();
-            this.props.loginUser({username: this.state.username, password: this.state.password})
+            this.props.loginUser({username: this.state.user.username, password: this.state.user.password})
           }
       }
 
@@ -36,25 +44,31 @@ class signUpForm extends React.Component {
       handleSubmit(e) {
         // console.log('submit');
           e.preventDefault();
-          const user = Object.assign({}, this.state);
+          const user = Object.assign({}, this.state.user);
           // console.log(this.state);
 
           this.props.registerUser(user);
         }
 
         renderErrors() {
+          let errors = this.props.errors;
+          if (errors.length !== 0) {
+            // document.getElementsByClassName("error").style.display="block";
           return(
-            <ul className='error'>
-              {this.props.errors.map((error,i) => (
+            <ul style = {this.state.style}>
+              {
+                this.props.errors.map((error,i) => (
                 <li key = {`errors-${i}`}>
                   {error}
                 </li>
               ))}
             </ul>
           );
+        }
       }
 
     render() {
+
         return (
           <div className='whole-login-container'>
             <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -64,9 +78,10 @@ class signUpForm extends React.Component {
 
                   <div>
                     {this.renderErrors()}
+
                     <input
                       type="text"
-                      value={this.state.username}
+                      value={this.state.user.username}
                       onChange={this.update("username")}
                       className="login-input"
                       placeholder="Username"
@@ -76,7 +91,7 @@ class signUpForm extends React.Component {
                   <div>
                     <input
                       type="text"
-                      value={this.state.email}
+                      value={this.state.user.email}
                       onChange={this.update("email")}
                       className="login-input"
                       placeholder="Email"
@@ -86,7 +101,7 @@ class signUpForm extends React.Component {
                   <div>
                     <input
                       type="password"
-                      value={this.state.password}
+                      value={this.state.user.password}
                       onChange={this.update("password")}
                       className="login-input"
                       placeholder="Password"
@@ -96,7 +111,7 @@ class signUpForm extends React.Component {
                   <div>
                     <input
                       type="password"
-                      value={this.state.password2}
+                      value={this.state.user.password2}
                       onChange={this.update("password2")}
                       className="login-input"
                       placeholder="Confirm Password"
