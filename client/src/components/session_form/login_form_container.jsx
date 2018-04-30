@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => {
     closeModal: () => dispatch(closeModal()),
     loginUser: (user) => dispatch(loginUser(user)),
     otherForm: (
-      <a className='other-button' onClick={() => dispatch(openModal("signup"))}>Need an Account? <span>Click to Register</span></a>
+      <a className='other-button' onClick={() => dispatch(openModal("signup"))}>New to FoodFilter? <span>Create an account</span></a>
     ),
     clearErrors: () => dispatch(receiveErrors([])),
   };
