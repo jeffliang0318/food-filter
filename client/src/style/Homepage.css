@@ -54,7 +54,7 @@
 
 .homepage-body {
   width: 80%;
-  min-width: 798px;
+  min-width: 800px;
   margin: 0 auto;
   display: flex;
 }
@@ -69,14 +69,13 @@
 }
 
 .body-nav {
-  /* position: fixed; */
   font-size: 18px;
   height: 42px;
   line-height: 48px;
   border-bottom: 1px solid #fff;
   padding-left: 20px;
   /* position: sticky; */
-/* position: -webkit-sticky; */
+  /* position: -webkit-sticky; */
 }
 
 .body-nav:hover {
