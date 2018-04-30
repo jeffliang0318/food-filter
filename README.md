@@ -62,63 +62,15 @@ The technologies that used includes the MERN stack(MongoDB, Expresss.js, React/R
 * API calls to USDA food database [USDA NDB API](https://ndb.nal.usda.gov/ndb/doc/index)
 * Image upload library to scan the barcode [QuaggaJS](https://serratus.github.io/quaggaJS/)
 
-**Local Authentication**
+**Authentication**
+Traditionally, user log in by providing username and password. With the rise of social networking, single sign-on using an OAuth provider, for example, Google, has become a popular authentication method. Utilizing Passport.js as authentication middleware, we created both traditional and Google authentication and were able to delegate Cookie-Session module from Node.js to the application.
 
-We utilized both Google Authentication and local Authentication. Below is our code for registering a user locally.
+To resolve validation collisions between traditional and Google authentication at model level, we incorporated Validator module form Express.js. The express-Validator enabled us not only to separate concerns between two authentications but also dynamically customize error messages.
 
-```JavaScript
-// Register User
-  app.post('/users/register', function (req, res) {
 
-	var email = req.body.email;
-	var username = req.body.username;
-	var name = req.body.name;
-	var password = req.body.password;
-	var password2 = req.body.password2;
-	// Validation
-	req.checkBody('email', 'Email is required').notEmpty();
-	req.checkBody('email', 'Email is not valid').isEmail();
-	req.checkBody('username', 'Username is required').notEmpty();
-	req.checkBody('name', 'Name is required').notEmpty();
-	req.checkBody('password', 'Password is required').notEmpty();
-	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+![Auth](https://github.com/jeffliang0318/food-filter/blob/master/assets/auth.png)
 
-	var errors = req.validationErrors();
 
-	if (errors) {
-    let errList = Object.values(errors).map(function(err){return err.msg;});
-		return res.status(422).json({ errors: errList });
-	}
-	else {
-		//checking for email and username are already taken
-		User.findOne({ username: {
-      "$regex": "^" + username + "\\b", "$options": "i"
-	  }}, function (err, user) {
-			User.findOne({ email: {
-				"$regex": "^" + email + "\\b", "$options": "i"
-		}}, function (err, mail) {
-				if (user || mail) {
-					return res.status(422).json({errors: ['Email or Username taken']});
-				} else {
-					var newUser = new User({
-						email: email,
-						username: username,
-						name: name,
-						password: password
-					});
-					User.createUser(newUser, function (e, savedUser) {
-            if (e) {
-              return res.json({errors: e});
-             } else {
-               res.json(savedUser);
-             }
-					});
-				}
-			});
-		});
-	}
-});
-```
 
 **Search Results Stored in State**
 
