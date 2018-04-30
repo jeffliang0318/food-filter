@@ -86,8 +86,8 @@ We utilized both Google Authentication and local Authentication. Below is our co
 	var errors = req.validationErrors();
 
 	if (errors) {
-    let errorsArr = Object.values(errors).map(function(obj){return obj.msg;});
-		return res.status(422).json({ errors: errorsArr });
+    let errList = Object.values(errors).map(function(err){return err.msg;});
+		return res.status(422).json({ errors: errList });
 	}
 	else {
 		//checking for email and username are already taken
