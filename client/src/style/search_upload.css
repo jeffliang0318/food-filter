@@ -57,7 +57,6 @@
 #result_strip p {
   font-size: 24px;
   margin: 10px;
-  /* border-bottom: 1px solid #ccc; */
 }
 
 #result_strip ul {
@@ -78,7 +77,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid #ccc; */
 }
 
 #result_strip ul.thumbnails > li .thumbnail .imgWrapper {
@@ -93,11 +91,9 @@
 }
 
 #result_strip ul.thumbnails > li .thumbnail .imgWrapper img {
-  /* margin-top: -25px; */
   width: 300px;
   height: auto;
   object-fit: cover;
-  /* border: 1px solid grey; */
 }
 
 #result_strip ul.thumbnails > li .thumbnail h4{
@@ -105,8 +101,6 @@
 }
 
 .searchButton-container {
-  /* border: 1px solid blue; */
-  /* padding-bottom: 60px; */
   margin: 10px auto;
   border-bottom: 1px solid #ccc;
   width: 80%;
@@ -161,8 +155,6 @@
 
 .searchExample-li {
   width: 25%;
-  /* margin-right: 6px; */
-  /* border: 1px solid #ccc; */
 }
 
 .searchExample-li > div {

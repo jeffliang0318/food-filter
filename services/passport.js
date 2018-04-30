@@ -7,7 +7,7 @@ const keys = require('../config/keys');
 const User = mongoose.model('users');
 
 passport.serializeUser((user, done) => {
-  // user.id is user id not googleId, cause user might sign in in different strategy
+  // user.id is user id not googleId, cause user might sign in localy
   done(null, user.id);
 });
 

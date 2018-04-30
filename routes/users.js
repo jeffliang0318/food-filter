@@ -12,7 +12,6 @@ module.exports = app => {
    }
  );
 
-
  	// Register User
   app.post('/users/register', function (req, res) {
 
