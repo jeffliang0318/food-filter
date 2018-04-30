@@ -5,6 +5,7 @@ const passport = require('passport');
 
 module.exports = app => {
 
+
  	// Register User
   app.post('/users/register', function (req, res) {
     const {email,username,preferredName,password,password2} = req.body;

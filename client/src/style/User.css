@@ -28,7 +28,6 @@
 
 .userProfileList h4 {
   margin-top: 20px;
-  /* border-top: 1px solid #ccc; */
   font-size: 24px;
   margin-bottom: 10px;
   text-align: center;
@@ -45,7 +44,6 @@
 }
 
 .userList-ul li {
-  /* list-style: circle; */
   width: 22%;
   float: left;
   font-size: 20px;

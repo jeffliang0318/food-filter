@@ -18,7 +18,7 @@
 }
 
 .team-section {
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
 }
 
@@ -27,7 +27,6 @@
 }
 .team-li {
   padding: 12px 40px 12px 40px;
-  /* border: 1px solid #ccc; */
   background: #fff;
   margin-bottom: 30px;
 }
@@ -61,12 +60,12 @@
 }
 
 .info-name {
-  font-size: 24px;
+  font-size: 28px;
   padding-top: 10px;
 }
 
 .info-detail p {
-  font-size: 14px;
+  font-size: 18px;
   margin: 6px 0 10px 0;
 }
 
@@ -79,15 +78,20 @@
   margin-right: 10px;
 }
 
-
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 2000px) {
   .team-section {
     width: 70%;
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1500px) {
   .team-section {
     width: 80%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .team-section {
+    width: 90%;
   }
 }
