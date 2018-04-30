@@ -36,6 +36,7 @@
 .team-link {
   cursor: pointer;
 }
+
 .team-link:hover {
   color: #3d3d3d;
 }
