@@ -14,7 +14,7 @@ class Footer extends Component {
           </div>
           <div>
             <a href="/team" className="team-link">
-              © 2018 FoodFilter Team
+              ©FoodFilter - About us
             </a>
           </div>
         </section>
