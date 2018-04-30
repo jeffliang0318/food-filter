@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+
 class Product extends Component {
 
   ingredientsChecker() {
@@ -19,6 +20,7 @@ class Product extends Component {
     if (ing.includes(':')) {
       str = ing.split(":").join(" ");
     }
+
     str = this.removeColon(ing);
 
     let singleIngArr = str.split(', ');
@@ -64,16 +66,9 @@ class Product extends Component {
 
   removeColon(ing) {
     let str = ing.split(".").join(" ");
-    // str = ing.split(":").join(" ");
-    // str = ing.split(",").join(" ");
-    // str = str.replace(',', ' ');
-    // str = str.replace('[', '');
-    // str = str.replace(']', '');
-    // str = str.replace('(', '');
-    // str = str.replace(')', '');
-    str = str.replace(/[\[\]]+/g, ', ');
-    // str = str.replace(/[()]/g, ' ');
-    str = str.replace(/[()]/g, ', ');
+
+    str = str.replace(/\[|\]/g,', ');
+    str = str.replace(/\(|\)/g,', ')
     str = str.replace('INCLUDING', '');
     //delete 2 spaces
     str = str.replace(/\s\s+/g, ' ');

@@ -3,65 +3,66 @@ import { withRouter } from "react-router-dom";
 
 class loginForm extends React.Component {
     constructor(props) {
-        super(props);
-        this.state = {
-          username: "",
-          password: "",
-          style:{
-            border: '1px solid #cea0a5',
-            padding: '10px',
-            color:' #86181d',
-            backgroundColor: '#ffdce0'
-          }
-        };
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.update = this.update.bind(this);
-      }
+      super(props);
+      this.state = {
+        username: "",
+        password: "",
+        style:{
+          border: '1px solid #cea0a5',
+          padding: '10px',
+          color:' #86181d',
+          backgroundColor: '#ffdce0'
+        }
+      };
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.update = this.update.bind(this);
+    }
 
-      update(field) {
-        return e =>
-          this.setState({
-            [field]: e.currentTarget.value
-          });
-      }
+    update(field) {
+      return e =>
+        this.setState({
+          [field]: e.currentTarget.value
+        });
+    }
 
-      componentDidUpdate(){
-        if(this.props.auth) {
-            this.props.closeModal();
-          }
-      }
+    componentDidMount() {
+      this.props.clearErrors();
+    }
 
-
-      componentWillUnmount(){
-        this.props.clearErrors();
-
-      }
+    componentDidUpdate(){
+      if(this.props.auth) {
+          this.props.closeModal();
+        }
+    }
 
 
+    componentWillUnmount(){
+      this.props.clearErrors();
+    }
 
     handleSubmit(e) {
-        e.preventDefault();
-        let userInfo = {
-          username: this.state.username,
-          password:this.state.password
-        };
-        const user = Object.assign({}, userInfo);
-        this.props.loginUser(user);
-      }
+      e.preventDefault();
+      let userInfo = {
+        username: this.state.username,
+        password:this.state.password
+      };
+      const user = Object.assign({}, userInfo);
+      this.props.loginUser(user);
+    }
 
-      renderErrors() {
-        let errors = this.props.errors;
-        if (errors.length !== 0) {
-          return(
-            <ul style = {this.state.style}>
-              {errors.map((error,i) => (
-                <li key = {`errors-${i}`}>
-                  {error}
-                </li>
-              ))}
-            </ul>
-          );
-        }
+    renderErrors() {
+      let errors = this.props.errors;
+      if (errors.length !== 0) {
+        return(
+          <ul style = {this.state.style}>
+            {errors.map((error,i) => (
+              <li key = {`errors-${i}`}>
+                {error}
+              </li>
+            ))}
+          </ul>
+        );
+      }
     }
 
 
@@ -119,10 +120,9 @@ class loginForm extends React.Component {
 
             <div className="form-nav">
               {this.props.otherForm}
-
             </div>
 
-            </div>
+          </div>
         );
     }
 

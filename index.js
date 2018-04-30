@@ -16,8 +16,8 @@ app.use(expressValidator());
 
 app.use(
   cookieSession({
-    // cookie last for 30 days
-    maxAge: 10 * 24 * 60 * 60 * 1000,
+    // cookie last for 1 day
+    maxAge:  24 * 60 * 60 * 1000,
     keys: [keys.cookieKey]
   })
 );
