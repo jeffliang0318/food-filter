@@ -1,23 +1,37 @@
 .team-main {
-  width: 78%;
+  width: 80%;
+  min-width: 800px;
   margin: 10px auto;
   background: #f5f5f5;
   box-shadow: 0px 3px 6px 0px #ccc;
-  padding: 20px;
+  background: url("http://res.cloudinary.com/chengzii/image/upload/v1525033274/sanfrancisco.jpg");
+  background-size: cover;
 }
 
 .team-main h2 {
   text-align: center;
+  padding: 40px 0 10px 0;
+  font-size: 54px;
+  /* font-family: curssive; */
+  color: #fff;
+  text-shadow: 1px 1px 8px #000;
 }
 
 .team-section {
-  width: 70%;
+  width: 60%;
   margin: 0 auto;
 }
 
-.team-li {
-  border: 1px solid red;
+.team-ul {
+  padding-bottom: 40px;
 }
+.team-li {
+  padding: 12px 40px 12px 40px;
+  /* border: 1px solid #ccc; */
+  background: #fff;
+  margin-bottom: 30px;
+}
+
 .info-wrapper {
   display: flex;
   align-items: center;
@@ -25,18 +39,55 @@
 
 .photo-wrapper {
   /* flex: 1; */
-  width: 120px;
+  width: 150px;
+  height: 150px;
   overflow: hidden;
-  border: 1px solid blue;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+
 }
 
 .photo-wrapper img {
-  width: 120px;
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  object-position:center;
 }
 
 .info-detail {
   flex: 3;
-  border: 1px solid green;
   padding: 20px;
   /* width: 50%; */
+}
+
+.info-name {
+  font-size: 24px;
+  padding-top: 10px;
+}
+
+.info-detail p {
+  font-size: 14px;
+  margin: 6px 0 10px 0;
+}
+
+.info-detail a {
+  color: #000;
+}
+
+.info-detail i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+
+@media only screen and (max-width: 1500px) {
+  .team-section {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .team-section {
+    width: 80%;
+  }
 }

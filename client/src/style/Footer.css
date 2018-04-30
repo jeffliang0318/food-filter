@@ -3,12 +3,39 @@
   font-size: 20px;
   background: #f7f7f7;
   /* background: rgba(0,0,0,0.2); */
+  /* min-width: 900px; */
 }
 
 .footer section {
-  width: 80%;
+  width: 78%;
+  min-width: 800px;
   margin: 20px auto 0;
-  height: 200px;
-  border: 1px solid red;
+  height: 100px;
+  color: grey
+}
 
+.footer-body {
+  font-size: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+}
+
+.footer-body a {
+  color: grey;
+}
+
+.footer-body a:hover{
+  color: #3d3d3d;
+}
+
+.footer-body a i {
+  font-size: 32px;
+}
+
+.team-link {
+  cursor: pointer;
+}
+.team-link:hover {
+  color: #3d3d3d;
 }

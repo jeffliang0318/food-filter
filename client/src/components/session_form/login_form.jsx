@@ -6,7 +6,13 @@ class loginForm extends React.Component {
         super(props);
         this.state = {
           username: "",
-          password: ""
+          password: "",
+          style:{
+            border: '1px solid #cea0a5',
+            padding: '10px',
+            color:' #86181d',
+            backgroundColor: '#ffdce0'
+          }
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
@@ -25,32 +31,43 @@ class loginForm extends React.Component {
           }
       }
 
+
       componentWillUnmount(){
         this.props.clearErrors();
+
       }
+
 
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
-
+        let userInfo = {
+          username: this.state.username,
+          password:this.state.password
+        };
+        const user = Object.assign({}, userInfo);
         this.props.loginUser(user);
-
       }
 
       renderErrors() {
-        return(
-          <ul className='error'>
-            {this.props.errors.map((error,i) => (
-              <li key = {`errors-${i}`}>
-                {error}
-              </li>
-            ))}
-          </ul>
-        );
+        let errors = this.props.errors;
+        if (errors.length !== 0) {
+          return(
+            <ul style = {this.state.style}>
+              {errors.map((error,i) => (
+                <li key = {`errors-${i}`}>
+                  {error}
+                </li>
+              ))}
+            </ul>
+          );
+        }
     }
 
+
+
     render() {
+
         return (
           <div className='whole-login-container'>
 
@@ -60,6 +77,7 @@ class loginForm extends React.Component {
                   <h1 className="login-title">Please {this.props.formType}</h1>
                   <div>
                     {this.renderErrors()}
+
                     <input
                       type="text"
                       value={this.state.username}
@@ -89,7 +107,8 @@ class loginForm extends React.Component {
             </form>
 
             <button
-              className="session-submit demo-login">
+              className="session-submit demo-login" onClick = {
+                  () => this.props.loginUser({username:'Demo', password:'password'})}>
               Demo Login
             </button>
 
@@ -100,6 +119,7 @@ class loginForm extends React.Component {
 
             <div className="form-nav">
               {this.props.otherForm}
+
             </div>
 
             </div>

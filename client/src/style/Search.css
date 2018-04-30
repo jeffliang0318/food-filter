@@ -1,20 +1,22 @@
 .search-form {
   background: #fff;
-  width: 86%;
+  /* width: 86%; */
   height: 36px;
   line-height: 38px;
+  /* border: 1px solid red; */
   /* position: relative; */
   /* bottom: 2px; */
-  min-width: 510px;
-
+  /* min-width: 320px; */
 }
 
 .search-form input:first-of-type {
   border: 1px solid #ccc;
   border-right: none;
   padding: 4px 10px;
-  width: 73%;
+  width: 50%;
   height: 80%;
+  min-width: 300px;
+  /* border: 1px solid red; */
 }
 
 .search-form .submit {
@@ -51,15 +53,7 @@
   color: #fff;
 }
 
-@media only screen and (max-width: 1200px) {
-  .search-form {
-    /* border: 1px solid red; */
-  }
-
-  .nav-wrapper {
-    /* border: 1px solid blue; */
-  }
-
+@media only screen and (max-width: 850px) {
   nav {
     box-shadow: 0 0 0 0 #fff;
   }

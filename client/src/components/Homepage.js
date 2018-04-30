@@ -27,7 +27,7 @@ class Homepage extends Component {
         <div className="homepage-hero">
           <div className="header-backcolor" />
           <div className="homepage-header">
-            <h1>Food Filter</h1>
+            <h1>FoodFilter</h1>
             <p className="homepage-description">
               An allergy occurs when your body’s natural defenses overreact to
               exposure to a particular substance, treating it as an invader and
