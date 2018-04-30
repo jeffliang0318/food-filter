@@ -10,16 +10,13 @@ module.exports = app => {
     //
     const {email,username,name,password,password2} = req.body;
     _validateFrom(req);
-
-	   var errors = req.validationErrors();
-
-
-  	if (errors) {
-      let errorsArr = Object.values(errors).map(function(obj){return obj.msg;});
-      return res.status(422).json({ errors: errorsArr });
-
+	  let errors = req.validationErrors();
+  	if(errors){
+      let errorsArr = Object.values(errors)
+                      .map(function(err){return err.msg;});
+      return res.status(422).json({errors: errorsArr});
   	}
-  	 else {
+  	else {
   	// 	User.findOne(
     //     {username: _processInput(username)},
     //     function(err, resUsername) {
@@ -32,12 +29,8 @@ module.exports = app => {
     // }
 
     //checking for email and username are already taken
-		User.findOne({ username: {
-			"$regex": "^" + username + "\\b", "$options": "i"
-		}}, function (err, user) {
-			User.findOne({ email: {
-				"$regex": "^" + email + "\\b", "$options": "i"
-		}}, function (err, mail) {
+		User.findOne({ username: _processInput(username)}, function (err, user) {
+			User.findOne({ email:  _processInput(email)}, function (err, mail) {
 				if (user || mail) {
 					return res.status(422).json({errors: ['Email or Username taken']});
 				}
