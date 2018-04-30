@@ -647,7 +647,7 @@ class User extends  Component {
       default:
         return (
           <div className="userProfileList">
-            <h1 className="username">Hi, {this.props.auth.name}</h1>
+            <h1 className="username">Hi, {this.props.auth.preferredName}</h1>
             <div>
               <h4>Your Allergy List</h4>
               <ul className="userList-ul clearfix">

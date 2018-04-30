@@ -47,7 +47,7 @@ passport.use(
       }
       // make new user
       const user = await new User({ googleId: profile.id,
-        allergyIngredient:[], name: profile.name.givenName, email: profile.emails[0].value }).save();
+        allergyIngredient:[], preferredName: profile.name.givenName, email: profile.emails[0].value }).save();
       done(null, user);
     }
   )
