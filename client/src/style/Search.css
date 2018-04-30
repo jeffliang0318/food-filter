@@ -3,15 +3,10 @@
   /* width: 86%; */
   height: 36px;
   line-height: 38px;
-  /* border: 1px solid red; */
-  /* position: relative; */
-  /* bottom: 2px; */
-  /* min-width: 320px; */
 }
 
 .search-container {
   display: flex;
-  /* align-items: baseline; */
 }
 
 .search-buttons {
@@ -31,6 +26,7 @@
   background: #7e7e7e;
   color: #fff;
   padding: 14px 10px 13px 10px;
+
 }
 
 .search-form .submit:hover {
@@ -43,8 +39,6 @@
   color: #fff;
   font-size: 18px;
   padding: 2px 16px 0px 16px;
-  /* position: relative; */
-  /* top: -2px; */
   border-left: 1px solid #fff;
 }
 

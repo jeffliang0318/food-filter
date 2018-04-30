@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-// const { Schema } = mongoose
 const Schema = mongoose.Schema;
 
 // START HASHING
@@ -14,24 +13,21 @@ const validateEmail = (email) => {
 
 const userSchema = new Schema({
   googleId: String,
-  name: String,
+  preferredName: String,
   allergyIngredient: [String],
 	username: {
 		type: String,
 		index:true,
-
 	},
 	password: {
 		type: String,
 	},
 	email: {
 		type: String,
-
 	}
 });
 
 var User = module.exports = mongoose.model('users', userSchema);
-
 
 module.exports.createUser = function(newUser, callback){
 	bcrypt.genSalt(saltRounds, function(err, salt) {

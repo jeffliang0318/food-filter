@@ -8,9 +8,6 @@ class Homepage extends Component {
   }
 
   scrollTo(elId) {
-    // return () => {
-    // el.scrollIntoView({ behavior: 'smooth' });
-    // };
 
     return () => {
       document.getElementById(elId).scrollIntoView({

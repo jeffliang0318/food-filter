@@ -26,7 +26,7 @@ According to Food Allergy Research & Education organization, individuals with a 
 
 ### OAuth
 
-![Google Auth](https://github.com/jeffliang0318/food-filter/blob/master/assets/google%20auth3.gif)
+![Google Auth](https://github.com/jeffliang0318/food-filter/blob/master/assets/imageedit_1_2115255583.gif)
 
 ### Update User's Profile
 
@@ -38,7 +38,7 @@ According to Food Allergy Research & Education organization, individuals with a 
 
 ### Barcode Upload
 
-![Upload]()
+![Upload](https://github.com/jeffliang0318/food-filter/blob/master/assets/Barcode%20Search.gif)
 
 ## Technologies and Code Highlights
 
@@ -86,8 +86,8 @@ We utilized both Google Authentication and local Authentication. Below is our co
 	var errors = req.validationErrors();
 
 	if (errors) {
-    let errorsArr = Object.values(errors).map(function(obj){return obj.msg;});
-		return res.status(422).json({ errors: errorsArr });
+    let errList = Object.values(errors).map(function(err){return err.msg;});
+		return res.status(422).json({ errors: errList });
 	}
 	else {
 		//checking for email and username are already taken
