@@ -74,4 +74,5 @@ nav {
 .button-group:hover {
   background-color: #31b0d5;
   border-color: #269abc;
+  cursor: pointer;
 }
