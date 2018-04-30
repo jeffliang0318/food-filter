@@ -63,6 +63,7 @@ The technologies that used includes the MERN stack(MongoDB, Expresss.js, React/R
 * Image upload library to scan the barcode [QuaggaJS](https://serratus.github.io/quaggaJS/)
 
 **Authentication**
+
 Traditionally, user log in by providing username and password. With the rise of social networking, single sign-on using an OAuth provider, for example, Google, has become a popular authentication method. Utilizing Passport.js as authentication middleware, we created both traditional and Google authentication and were able to delegate Cookie-Session module from Node.js to the application.
 
 To resolve validation collisions between traditional and Google authentication at model level, we incorporated Validator module form Express.js. The express-Validator enabled us not only to separate concerns between two authentications but also dynamically customize error messages.
