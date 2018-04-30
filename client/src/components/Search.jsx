@@ -22,9 +22,6 @@ class Search extends Component {
   handleSubmit(e) {
     e.preventDefault();
     let searchTerm = this.state.searchTerm;
-    // if(searchTerm.length !== 12) {
-    //   this.props.receiveErrors(["UPC should contain 12 numbers."]);
-    // }
     this.props.fetch_product(searchTerm)
       .then(() =>
         this.setState({
@@ -37,13 +34,22 @@ class Search extends Component {
   render() {
     return (
         <form className="search-form">
-          <input
-            value = {this.state.searchTerm}
-            placeholder="Search UPC"
-            onChange={this.update('searchTerm')}
-          />
-          <input className="submit" type="submit" onClick={this.handleSubmit} />
-          <a className="camera" href="/searchupload"><i className="fas fa-camera"></i></a>
+          <div className="search-container">
+            <input
+              value = {this.state.searchTerm}
+              placeholder="Search UPC"
+              onChange={this.update('searchTerm')}
+              className="search-input"
+            />
+            <div className="search-buttons">
+              <div>
+                <input className="submit" type="submit" onClick={this.handleSubmit} />
+              </div>
+              <div>
+                <a className="camera" href="/searchupload"><i className="fas fa-camera"></i></a>
+              </div>
+            </div>
+          </div>
         </form>
     );
   }
