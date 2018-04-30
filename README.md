@@ -69,7 +69,7 @@ Traditionally, user log in by providing username and password. With the rise of 
 To resolve validation collisions between traditional and Google authentication at model level, we incorporated Validator module form Express.js. The express-Validator enabled us not only to separate concerns between two authentications but also dynamically customize error messages.
 
 
-![Auth](https://github.com/jeffliang0318/food-filter/blob/master/assets/auth.png)
+![Auth](http://res.cloudinary.com/doohtqbau/image/upload/c_scale,w_359/v1525068520/auth_uznc9t.png)
 
 
 
