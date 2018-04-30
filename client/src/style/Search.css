@@ -25,7 +25,8 @@
 .search-form .submit {
   background: #7e7e7e;
   color: #fff;
-  padding: 14px 10px 13px;
+  padding: 14px 10px 13px 10px;
+
 }
 
 .search-form .submit:hover {
@@ -36,6 +37,7 @@
 .camera {
   background: #7e7e7e;
   color: #fff;
+  font-size: 18px;
   padding: 2px 16px 0px 16px;
   border-left: 1px solid #fff;
 }

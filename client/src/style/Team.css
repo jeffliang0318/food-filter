@@ -78,6 +78,11 @@
   margin-right: 10px;
 }
 
+@media only screen and (max-width: 2000px) {
+  .team-section {
+    width: 70%;
+  }
+}
 
 @media only screen and (max-width: 1500px) {
   .team-section {
