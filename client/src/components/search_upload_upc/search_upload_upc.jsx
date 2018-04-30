@@ -24,7 +24,7 @@ class searchUploadUPC extends React.Component {
         return (
           <div className='photo-container' >
             <div className='header-barcode-container'>
-                <img src="http://res.cloudinary.com/dwanjkcku/image/upload/c_scale,w_500/v1524763023/barcode.png" alt="barcode"/>
+                <img src="https://res.cloudinary.com/dwanjkcku/image/upload/c_scale,w_500/v1524763023/barcode.png" alt="barcode"/>
                 <div className="header-content">
                     <h4> Barcode Reader </h4>
                     <p> Upload a barcode and we will read the code for you.
@@ -49,7 +49,7 @@ class searchUploadUPC extends React.Component {
                   <li>
                     <div className="thumbnail">
                       <div className="imgWrapper">
-                        <img src="http://res.cloudinary.com/chengzii/image/upload/v1524972811/barcodeDemo.png" alt="barcodeDemo" />
+                        <img src="https://res.cloudinary.com/chengzii/image/upload/v1524972811/barcodeDemo.png" alt="barcodeDemo" />
                       </div>
                       <div className="caption">
                         <h4 className="code"> </h4>
@@ -67,7 +67,7 @@ class searchUploadUPC extends React.Component {
                 <li className="searchExample-li" id="858089003050" onClick={this.handleExampleClick}>
                   <div className="searchExample-imgWrapper">
                     <div className="searchExample-imgBox">
-                      <img src="http://res.cloudinary.com/chengzii/image/upload/v1524974638/IMG_7175.jpg" alt="barcodeDemo" />
+                      <img src="https://res.cloudinary.com/chengzii/image/upload/v1524974638/IMG_7175.jpg" alt="barcodeDemo" />
                     </div>
                   </div>
                   <div className="searchExample-codeContainer">
@@ -89,7 +89,7 @@ class searchUploadUPC extends React.Component {
                 <li className="searchExample-li" id="025293600232" onClick={this.handleExampleClick}>
                   <div className="searchExample-imgWrapper">
                     <div className="searchExample-imgBox">
-                    <img src="http://res.cloudinary.com/chengzii/image/upload/v1524983307/soyMilk.jpg" alt="barcodeDemo" />
+                    <img src="https://res.cloudinary.com/chengzii/image/upload/v1524983307/soyMilk.jpg" alt="barcodeDemo" />
                     </div>
                   </div>
                   <div className="searchExample-codeContainer">
@@ -100,7 +100,7 @@ class searchUploadUPC extends React.Component {
                 <li className="searchExample-li" id="011029311817" onClick={this.handleExampleClick}>
                   <div className="searchExample-imgWrapper">
                     <div className="searchExample-imgBox">
-                      <img src="http://res.cloudinary.com/chengzii/image/upload/v1524983307/seafoodFlaker.jpg" alt="barcodeDemo" />
+                      <img src="https://res.cloudinary.com/chengzii/image/upload/v1524983307/seafoodFlaker.jpg" alt="barcodeDemo" />
                     </div>
                   </div>
                   <div className="searchExample-codeContainer">

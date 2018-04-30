@@ -44,6 +44,11 @@
   border: 1px solid #ccc;
 }
 
+.capture-button:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
 
 #result_strip {
   text-align: center;
@@ -123,6 +128,7 @@
 .searchButton:hover{
   background-color: #31b0d5;
   border-color: #269abc;
+  cursor: pointer;
 }
 #search-error-strip ul.search-error {
   color: red;

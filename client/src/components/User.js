@@ -243,7 +243,7 @@ class User extends  Component {
         <h4>Update Allergy List</h4>
         <form className="ing-form clearfix">
           <div className="ing-group">
-            <img alt="allergyIngredient" src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524851914/peanut.png" />
+            <img alt="allergyIngredient" src="https://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524851914/peanut.png" />
             <div className="group-list">
               <div className="ing-item">
                 <input
@@ -258,7 +258,7 @@ class User extends  Component {
           </div>
 
           <div className="ing-group">
-            <img alt="allergyIngredient" src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524855355/egg.png" />
+            <img alt="allergyIngredient" src="https://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524855355/egg.png" />
             <div className="group-list">
               <div className="ing-item">
                 <input
@@ -273,7 +273,7 @@ class User extends  Component {
           </div>
 
           <div className="ing-group">
-            <img alt="allergyIngredient" src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524852058/milk.png" />
+            <img alt="allergyIngredient" src="https://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524852058/milk.png" />
             <div className="group-list">
               <div className="ing-item">
                 <input
@@ -288,7 +288,7 @@ class User extends  Component {
           </div>
 
           <div className="ing-group">
-            <img alt="allergyIngredient" src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524852185/soy.png" />
+            <img alt="allergyIngredient" src="https://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524852185/soy.png" />
             <div className="group-list">
               <div className="ing-item">
                 <input
@@ -303,7 +303,7 @@ class User extends  Component {
           </div>
 
           <div className="ing-group">
-            <img alt="allergyIngredient" src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524854828/fish.png" />
+            <img alt="allergyIngredient" src="https://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524854828/fish.png" />
             <div className="group-list">
               <div className="ing-item">
                 <input
@@ -318,7 +318,7 @@ class User extends  Component {
           </div>
 
           <div className="ing-group">
-            <img alt="allergyIngredient" src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524852142/wheat.png" />
+            <img alt="allergyIngredient" src="https://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524852142/wheat.png" />
             <div className="group-list">
               <div className="ing-item">
                 <div className="group-header">
@@ -407,7 +407,7 @@ class User extends  Component {
           </div>
 
           <div className="ing-group">
-            <img alt="allergyIngredient" src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524851999/treenuts.png" />
+            <img alt="allergyIngredient" src="https://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524851999/treenuts.png" />
             <div className="group-list">
               <div className="ing-item">
                 <div className="group-header">
@@ -496,7 +496,7 @@ class User extends  Component {
           </div>
 
           <div className="ing-group">
-            <img alt="allergyIngredient" src="http://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524852222/shellfish.png" />
+            <img alt="allergyIngredient" src="https://res.cloudinary.com/chengzii/image/upload/c_scale,w_200/v1524852222/shellfish.png" />
             <div className="group-list">
               <div className="ing-item">
                 <div className="group-header">
