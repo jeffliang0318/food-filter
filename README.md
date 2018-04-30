@@ -38,7 +38,7 @@ According to Food Allergy Research & Education organization, individuals with a 
 
 ### Barcode Upload
 
-![Upload]()
+![Upload](https://github.com/jeffliang0318/food-filter/blob/master/assets/Barcode%20Search.gif)
 
 ## Technologies and Code Highlights
 
