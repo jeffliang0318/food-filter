@@ -37,13 +37,22 @@ class Search extends Component {
   render() {
     return (
         <form className="search-form">
-          <input
-            value = {this.state.searchTerm}
-            placeholder="Search UPC"
-            onChange={this.update('searchTerm')}
-          />
-          <input className="submit" type="submit" onClick={this.handleSubmit} />
-          <a className="camera" href="/searchupload"><i className="fas fa-camera"></i></a>
+          <div className="search-container">
+            <input
+              value = {this.state.searchTerm}
+              placeholder="Search UPC"
+              onChange={this.update('searchTerm')}
+              className="search-input"
+            />
+            <div className="search-buttons">
+              <div>
+                <input className="submit" type="submit" onClick={this.handleSubmit} />
+              </div>
+              <div>
+                <a className="camera" href="/searchupload"><i className="fas fa-camera"></i></a>
+              </div>
+            </div>
+          </div>
         </form>
     );
   }

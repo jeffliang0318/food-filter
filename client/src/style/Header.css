@@ -51,6 +51,7 @@ nav {
   display: flex;
   flex: 9;
   justify-content: space-between;
+  /* border: 1px solid red; */
   /* align-items: center; */
 }
 
@@ -65,10 +66,15 @@ nav {
   background-color: #5bc0de;
   border-radius: 3px;
   margin-left: 8px;
-  padding: 12px 10px 8px 10px;
+  padding: 14px 10px 8px 10px;
   font-size: 16px;
   color: #fff;
 }
+
+.button-group:focus {
+  color: #fff;
+}
+
 
 .button-group:hover {
   background-color: #31b0d5;
@@ -76,7 +82,7 @@ nav {
   cursor: pointer;
 }
 
-#profile-btn {
+/* #profile-btn {
   width: 70px;
   text-align: center;
 }
@@ -94,4 +100,4 @@ nav {
 #demo-btn{
   width: 70px;
   text-align: center;
-}
+} */
