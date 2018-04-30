@@ -21,7 +21,6 @@ const mapDispatchToProps = dispatch => {
       <a className='other-button' onClick={() => dispatch(openModal("signup"))}>Need an Account? <span>Click to Register</span></a>
     ),
     clearErrors: () => dispatch(receiveErrors([])),
-
   };
 };
 
