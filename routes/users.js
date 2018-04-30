@@ -7,7 +7,7 @@ module.exports = app => {
 
  	// Register User
   app.post('/users/register', function (req, res) {
-    const {email,username,name,password,password2} = req.body;
+    const {email,username,preferredName,password,password2} = req.body;
     _validateFrom(req);
 	  let errors = req.validationErrors();
 
@@ -25,7 +25,7 @@ module.exports = app => {
   			        _invalidRegisterInfo(resUsername, resEmail, res);
   			      }
   			      else {
-  				      _saveValidateUser(email, username, name, password, res);
+  				      _saveValidateUser(email, username, preferredName, password, res);
   			      }
     		});
     	});
@@ -44,11 +44,11 @@ module.exports = app => {
 
 
 
-function _saveValidateUser(email, username, name, password ,res){
+function _saveValidateUser(email, username, preferredName, password ,res){
   var newUser = new User({
     email: email,
     username: username,
-    name: name,
+    preferredName: preferredName,
     password: password
   });
 
@@ -79,7 +79,7 @@ function _validateFrom(req) {
   req.checkBody('email', 'Email is required').notEmpty();
 	req.checkBody('email', 'Email is not valid').isEmail();
 	req.checkBody('username', 'Username is required').notEmpty();
-	req.checkBody('name', 'Name is required').notEmpty();
+	req.checkBody('preferredName', 'preferredName is required').notEmpty();
 	req.checkBody('password', 'Password is required').notEmpty();
 	req.checkBody('password2', 'Passwords do not match')
   .equals(req.body.password);
