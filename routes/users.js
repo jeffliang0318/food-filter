@@ -12,8 +12,8 @@ module.exports = app => {
    }
  );
 
-// Register User
 
+ 	// Register User
   app.post('/users/register', function (req, res) {
 
 	var email = req.body.email;
@@ -39,7 +39,7 @@ module.exports = app => {
 		//checking for email and username are already taken
 		User.findOne({ username: {
 			"$regex": "^" + username + "\\b", "$options": "i"
-	}}, function (err, user) {
+		}}, function (err, user) {
 			User.findOne({ email: {
 				"$regex": "^" + email + "\\b", "$options": "i"
 		}}, function (err, mail) {
