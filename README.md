@@ -26,7 +26,7 @@ According to Food Allergy Research & Education organization, individuals with a 
 
 ### OAuth
 
-![Google Auth](https://github.com/jeffliang0318/food-filter/blob/master/assets/google%20auth3.gif)
+![Google Auth](https://github.com/jeffliang0318/food-filter/blob/master/assets/imageedit_1_2115255583.gif)
 
 ### Update User's Profile
 
