@@ -66,8 +66,6 @@ class Product extends Component {
   removeColon(ing) {
     let str = ing.split(".").join(" ");
 
-    // str = str.replace(/[\[\]]+/g, ', ');
-    // str = str.replace(/[()]/g, ' ');
     str = str.replace(/\[|\]/g,', ');
     str = str.replace(/\(|\)/g,', ')
     str = str.replace('INCLUDING', '');

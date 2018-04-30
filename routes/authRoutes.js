@@ -6,13 +6,11 @@ const mongoose = require('mongoose');
 const User = mongoose.model('users');
 
 module.exports = app => {
-
   // send to google to do the authentication
   app.get('/auth/google', passport.authenticate('google', {
       scope: ['profile', 'email']
     })
   );
-
   // handle the callback after google has authenticated the user
   app.get(
     '/auth/google/callback',
@@ -28,8 +26,6 @@ module.exports = app => {
   });
 
   app.post('/api/current_user', async (req, res) => {
-    const body = req.body;
-    // const body = req.res;
     const  ingredient  = req.body;
     req.user.allergyIngredient = ingredient;
     const user = await req.user.save();

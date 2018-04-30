@@ -22,9 +22,6 @@ class Search extends Component {
   handleSubmit(e) {
     e.preventDefault();
     let searchTerm = this.state.searchTerm;
-    // if(searchTerm.length !== 12) {
-    //   this.props.receiveErrors(["UPC should contain 12 numbers."]);
-    // }
     this.props.fetch_product(searchTerm)
       .then(() =>
         this.setState({
