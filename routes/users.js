@@ -29,25 +29,13 @@ module.exports = app => {
     // }
 
     //checking for email and username are already taken
-		User.findOne({ username: _processInput(username)}, function (err, user) {
-			User.findOne({ email:  _processInput(email)}, function (err, mail) {
-				if (user || mail) {
+		User.findOne({ username: _processInput(username)}, function (err, resUser) {
+			User.findOne({ email:  _processInput(email)}, function (err, resEmail) {
+				if (resUser || resEmail) {
 					return res.status(422).json({errors: ['Email or Username taken']});
 				}
 				else {
-					var newUser = new User({
-						email: email,
-						username: username,
-						name: name,
-						password: password
-					});
-					User.createUser(newUser, function (e, savedUser) {
-            if (e) {
-              return res.json({errors: e});
-             } else {
-               res.json(savedUser);
-             }
-					});
+					_saveValidateUser(email, username, name, password ,res);
 				}
 			});
 		});
