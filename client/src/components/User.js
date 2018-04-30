@@ -71,9 +71,6 @@ class User extends  Component {
         }
       }
 
-      // let defaultList = Object.keys(this.state).filter(ing => {
-      //   return this.state[ing] && (typeof this.state[ing] === 'boolean')
-      // });
       let defaultList = this.defaultItems();
 
       let oIngCheckboxs = document.getElementsByName("ingcheckbox");
@@ -215,7 +212,6 @@ class User extends  Component {
       if(e.target.checked) {
         //group checkRedmeat
         let group = this.state[e.target.id]
-        // console.log(group)
         for (let i = 0; i < group.length; i++) {
           let oItem = document.getElementById(group[i]);
           oItem.checked = true;

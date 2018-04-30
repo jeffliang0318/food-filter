@@ -17,8 +17,8 @@ passport.deserializeUser((id, done) => {
   });
 });
 
-passport.use(new LocalStrategy(
-
+passport.use(
+  new LocalStrategy(
   async (username, password, done) => {
     const user = await User.findOne({username: username});
     if (!user) {
@@ -41,7 +41,6 @@ passport.use(
     // callback
     async (accessToken, refreshToken, profile, done) => {
       const existingUser = await User.findOne({ googleId: profile.id });
-      // console.log(profile);
       if (existingUser) {
         //already exist
         return done(null, existingUser);

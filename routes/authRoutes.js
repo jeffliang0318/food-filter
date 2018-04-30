@@ -23,7 +23,6 @@ module.exports = app => {
     }
   );
 
-
   app.get('/api/current_user', (req, res) => {
     res.send(req.user);
   });
@@ -43,13 +42,4 @@ module.exports = app => {
     res.redirect('/');
   });
 
-  // locally --------------------------------
-   // app.get('/connect/local', function(req, res) {
-   //     res.render('connect-local.ejs', { message: req.flash('loginMessage') });
-   // });
-   // app.post('/connect/local', passport.authenticate('local-signup', {
-   //     successRedirect : '/user', // redirect to the secure profile section
-   //     failureRedirect : '/connect/local', // redirect back to the signup page if there is an error
-   //     failureFlash : true // allow flash messages
-   // }));
 };

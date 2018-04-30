@@ -33,7 +33,6 @@ module.exports = app => {
 
 	if (errors) {
     let errorsArr = Object.values(errors).map(function(obj){return obj.msg;});
-      // console.log(errorsArr);
 		return res.status(422).json({ errors: errorsArr });
 	}
 	else {
@@ -59,11 +58,8 @@ module.exports = app => {
               return res.json({errors: e});
              } else {
                res.json(savedUser);
-               // res.user = savedUser;
-               // res.redirect('/api/current_user');
              }
 					});
-
 				}
 			});
 		});
@@ -73,12 +69,9 @@ module.exports = app => {
   app.post('/users/login',passport.authenticate('local'),
     (req, res) => {
       let user = req.user;
-      // console.log(user);
       res.redirect('/api/current_user');
   });
 };
-
-
 
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
@@ -86,8 +79,6 @@ function ensureAuthenticated(req, res, next){
 	} else {
 		return res.status(401).json({
         errors:['User not authenticated']
-      });
-
-}
-
+    });
+  }
 }
