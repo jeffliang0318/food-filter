@@ -75,7 +75,7 @@ class Homepage extends Component {
                 id='symptoms'>
                 <h3>Symptoms</h3>
                 <div className="section-content">
-                  Symptoms The body’s immune system keeps you healthy by
+                  The body’s immune system keeps you healthy by
                   fighting off infections and other dangers to good health. A
                   food allergy reaction occurs when your immune system
                   overreacts to a food or a substance in a food, identifying it

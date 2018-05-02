@@ -60,6 +60,7 @@ class User extends  Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClear = this.handleClear.bind(this);
+    this.scrollTo = this.scrollTo.bind(this);
   }
 
   componentDidMount(){
@@ -137,13 +138,22 @@ class User extends  Component {
     return items.join(", ");
   }
 
+  scrollTo(elId) {
+    document.getElementById(elId).scrollIntoView({
+      "behavior" : "smooth",
+      "block": "start",
+      "inline": "start"
+    });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
+
     let valideItems =  Object.keys(this.state).filter(ing => {
-      // if(ing === "egg")
       return this.state[ing] && (typeof this.state[ing] === 'boolean')
     });
     this.props.updateAllergyIngredient(valideItems);
+    this.scrollTo("allergy");
   }
 
   handleChange(e) {
@@ -649,7 +659,7 @@ class User extends  Component {
           <div className="userProfileList">
             <h1 className="username">Hi, {this.props.auth.preferredName}</h1>
             <div>
-              <h4>Your Allergy List</h4>
+              <h4 id="allergy">Your Allergy List</h4>
               <ul className="userList-ul clearfix">
               {this.showUserList()}
               </ul>

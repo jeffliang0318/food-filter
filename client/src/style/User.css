@@ -125,7 +125,8 @@
 }
 
 
-@media only screen and (max-width: 1450px) {
+
+@media only screen and (max-width: 1435px) {
   .ing-group {
     width: 42%;
     min-width: 280px;
@@ -149,7 +150,7 @@
   }
 }
 
-@media only screen and (max-width: 1136px) {
+@media only screen and (max-width: 1150px) {
   .ing-group {
     width: 49%;
     min-width: 280px;
