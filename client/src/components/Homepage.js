@@ -74,67 +74,11 @@ class Homepage extends Component {
                 <div className="section-content">
                   <ol className="symptoms-ul">
                     <li>Login or Register</li>
-                    <li>Milk</li>
-                    <li>Peanuts</li>
-                    <li>Shellfish</li>
-                    <li>Soy</li>
+                    <li>Select Allergies</li>
+                    <li>Type UPC, product name, or upload barcode photo!</li>
                   </ol>
-                  <p>
-                    Certain seeds, including sesame and mustard seeds (the main
-                    ingredient in the condiment mustard), also are common food
-                    allergy triggers and considered a major allergen in some
-                    countries. Symptoms of an allergic reaction may involve the
-                    skin, the gastrointestinal tract, the cardiovascular system
-                    and the respiratory tract. They can surface in one or more
-                    of the following ways:
-                  </p>
-                  <ul className="symptoms-ul">
-                    <li>Vomiting and/or stomach cramps</li>
-                    <li>Hives</li>
-                    <li>Shortness of breath</li>
-                    <li>Wheezing</li>
-                    <li>Repetitive cough</li>
-                    <li>Shock or circulatory collapse</li>
-                    <li>Tight, hoarse throat; trouble swallowing</li>
-                    <li>
-                      Swelling of the tongue, affecting the ability to talk or
-                      breathe
-                    </li>
-                    <li>Weak pulse</li>
-                    <li>Pale or blue coloring of skin</li>
-                    <li>Dizziness or feeling faint</li>
-                  </ul>
-                  <p>
-                    Most food-related symptoms occur within two hours of
-                    ingestion; often they start within minutes. In some very
-                    rare cases, the reaction may be delayed by four to six hours
-                    or even longer. Delayed reactions are most typically seen in
-                    children who develop eczema as a symptom of food allergy and
-                    in people with a rare allergy to red meat caused by the bite
-                    of a lone star tick. Another type of delayed food allergy
-                    reaction stems from food protein-induced enterocolitis
-                    syndrome (FPIES), a severe gastrointestinal reaction that
-                    generally occurs two to six hours after consuming milk, soy,
-                    certain grains and some other solid foods. It mostly occurs
-                    in young infants who are being exposed to these foods for
-                    the first time or who are being weaned. FPIES often involves
-                    repetitive vomiting and can lead to dehydration. In some
-                    instances, babies will develop bloody diarrhea. Because the
-                    symptoms resemble those of a viral illness or bacterial
-                    infection, diagnosis of FPIES may be delayed. FPIES is a
-                    medical emergency that should be treated with IV
-                    rehydration. Not everyone who experiences symptoms after
-                    eating certain foods has a food allergy or needs to avoid
-                    that food entirely; for instance, some people experience an
-                    itchy mouth and throat after eating a raw or uncooked fruit
-                    or vegetable. This may indicate oral allergy syndrome - a
-                    reaction to pollen, not to the food itself. The immune
-                    system recognizes the pollen and similar proteins in the
-                    food and directs an allergic response to it. The allergen is
-                    destroyed by heating the food, which can then be consumed
-                    with no problem.
-                  </p>
-                </div>
+                  
+                                  </div>
               </div>
 
               <div
