@@ -26,9 +26,10 @@ class Homepage extends Component {
           <div className="homepage-header">
             <h1>FoodFilter</h1>
             <p className="homepage-description">
-              An allergy occurs when your body’s natural defenses overreact to
-              exposure to a particular substance, treating it as an invader and
-              sending out chemicals to defend against it.
+              Welcome to Food Filter! 
+              <div>
+              We help you identify ingredients that you are allergic to based on your allergy profile. 
+              </div>
             </p>
           </div>
         </div>
@@ -58,53 +59,26 @@ class Homepage extends Component {
                 className="homepage-section"
                 id='overivew'>
 
-                <h3>Overview</h3>
+                <h3>About Food Filter</h3>
                 <div className="section-content">
-                  More than 50 million Americans have an allergy of some kind.
-                  Food allergies are estimated to affect 4 to 6 percent of
-                  children and 4 percent of adults, according to the Centers for
-                  Disease Control and Prevention. Food allergy symptoms are most
-                  common in babies and children, but they can appear at any age.
-                  You can even develop an allergy to foods you have eaten for
-                  years with no problems. Learn more about the types of food
-                  allergies.
+                  Our goal is to help you! Based off of each person's profile, we help you avoid food items by 
+                  highlighting ingredients that are potentially dangerous based on your allergy profile.
+                  You can type in the product name into the search bar or type the bar code
+                  that is found on the product. We also have a bar code scanner where you can upload a photo!
                 </div>
               </div>
 
               <div className="homepage-section"
                 id='symptoms'>
-                <h3>Symptoms</h3>
+                <h3>How to Use Food Filter</h3>
                 <div className="section-content">
-                  The body’s immune system keeps you healthy by
-                  fighting off infections and other dangers to good health. A
-                  food allergy reaction occurs when your immune system
-                  overreacts to a food or a substance in a food, identifying it
-                  as a danger and triggering a protective response. While
-                  allergies tend to run in families, it is impossible to predict
-                  whether a child will inherit a parent’s food allergy or
-                  whether siblings will have a similar condition. Some research
-                  does suggest that the younger siblings of a child with a
-                  peanut allergy will also be allergic to peanuts. Symptoms of a
-                  food allergy can range from mild to severe. Just because an
-                  initial reaction causes few problems doesn’t mean that all
-                  reactions will be similar; a food that triggered only mild
-                  symptoms on one occasion may cause more severe symptoms at
-                  another time. The most severe allergic reaction is anaphylaxis
-                  — a life-threatening whole-body allergic reaction that can
-                  impair your breathing, cause a dramatic drop in your blood
-                  pressure and affect your heart rate. Anaphylaxis can come on
-                  within minutes of exposure to the trigger food. It can be
-                  fatal and must be treated promptly with an injection of
-                  epinephrine (adrenaline). While any food can cause an adverse
-                  reaction, eight types of food account for about 90 percent of
-                  all reactions:
-                  <ul className="symptoms-ul">
-                    <li>Eggs</li>
+                  <ol className="symptoms-ul">
+                    <li>Login or Register</li>
                     <li>Milk</li>
                     <li>Peanuts</li>
                     <li>Shellfish</li>
                     <li>Soy</li>
-                  </ul>
+                  </ol>
                   <p>
                     Certain seeds, including sesame and mustard seeds (the main
                     ingredient in the condiment mustard), also are common food
