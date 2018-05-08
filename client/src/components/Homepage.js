@@ -76,8 +76,8 @@ class Homepage extends Component {
                     <li>Login or Register</li>
                     <li>Go to "My Profile"</li>
                     <li>Save Allergies</li>
-                    <li>Type UPC or product name in the search bar, or upload barcode photo</li>
-                    <li>See your results</li>
+                    <li>Type barcode number or product name in the search bar, or Upload barcode photo</li>
+                    <li>See your Results</li>
                   </ol> 
                   
 
