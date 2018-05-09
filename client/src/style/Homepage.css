@@ -30,11 +30,20 @@
 
 .symptoms-ul {
   margin: 10px 0 20px 30px;
+  counter-reset: item;
 }
 
 .symptoms-ul li {
-  list-style:square;
   color: #e68028;
+  text-indent: -2em;
+  counter-increment: item;
+  list-style-type: none;
+}
+
+.symptoms-ul li:before {
+  content: counter(item) ". ";
+  /* counter-increment: item; */
+  font-weight: bold;
 }
 
 
@@ -89,6 +98,10 @@
 }
 .homepage-section {
   margin-bottom: 40px;
+}
+
+.how-to-img {
+  width: 900px;
 }
 
 .homepage-section h3 {
