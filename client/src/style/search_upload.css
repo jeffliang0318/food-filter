@@ -147,6 +147,7 @@
   flex-wrap: wrap;
   width: 80%;
   margin: 0 auto;
+  padding-bottom: 40px;
 }
 
 .searchExample-li:first-child{
@@ -155,6 +156,7 @@
 
 .searchExample-li {
   width: 25%;
+  font-size: 15px;
 }
 
 .searchExample-li > div {
