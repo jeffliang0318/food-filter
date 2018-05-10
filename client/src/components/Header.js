@@ -22,7 +22,7 @@ class Header extends Component {
     const that = this;
     this.timer = setTimeout(function() {
       that.props.history.push("/user");
-    }, 600)
+    }, 300)
   }
   renderContent() {
     switch (this.props.auth) {
