@@ -26,9 +26,9 @@ class Homepage extends Component {
           <div className="homepage-header">
             <h1>FoodFilter</h1>
             <p className="homepage-description">
-              Welcome to Food Filter! 
+              Welcome to Food Filter!
               <br />
-              We help you identify ingredients that you are allergic to based on your allergy profile. 
+              We help you identify ingredients that you are allergic to based on your allergy profile.
             </p>
           </div>
         </div>
@@ -43,12 +43,13 @@ class Homepage extends Component {
             <div
               className="body-nav"
               onClick={this.scrollTo("symptoms")}>
-              Symptoms
+              How to Use
             </div>
             <div
-              className="body-nav"
-              onClick={this.scrollTo("triggers")}>
-              Triggers
+              className="body-nav">
+              <a href="/team" className="team-link">
+              Our Team
+              </a>
             </div>
           </aside>
 
@@ -60,7 +61,7 @@ class Homepage extends Component {
 
                 <h3>About Food Filter</h3>
                 <div className="section-content">
-                  Our goal is to help you! Based off of each person's profile, we help you avoid food items by 
+                  Our goal is to help you! Based off of each person's profile, we help you avoid food items by
                   highlighting ingredients that are potentially dangerous based on your allergy profile.
                   You can type in the product name into the search bar or type the bar code
                   that is found on the product. We also have a bar code scanner where you can upload a photo!
@@ -71,27 +72,19 @@ class Homepage extends Component {
                 id='symptoms'>
                 <h3>How to Use Food Filter</h3>
                 <div className="section-content">
-                  <img class="how-to-img" src="how_to.png"/>
                   <ol className="symptoms-ul">
-                    <li>Login or Register</li>
+                    <li>Login, Register or Login as Demo user</li>
                     <li>Go to "My Profile"</li>
                     <li>Save Allergies</li>
-                    <li>Type barcode number or product name in the search bar, or Upload barcode photo</li>
+                    <li>Type barcode number or product name in the search bar, or <a href="/searchupload">Upload barcode photo</a></li>
                     <li>See your Results</li>
-                  </ol> 
-                  
+                  </ol>
+                  <img className="how-to-img" src="how_to.png" alt="how_to_use"/>
+
 
                    </div>
               </div>
 
-              <div
-                className="homepage-section"
-                id='triggers'>
-                <h3>About Us</h3>
-                <div className="section-content">
-                 
-                </div>
-              </div>
             </section>
           </div>
 

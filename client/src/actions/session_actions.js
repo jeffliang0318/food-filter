@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 export const LOGIN_USER = 'LOGIN_USER';
 export const FETCH_ERROR = 'fetch_error';
 export const FETCH_USER = 'fetch_user';
@@ -15,7 +16,7 @@ export const receiveErrors = (errors) => ({
 
 export const loginUser = (user) => dispatch => {
 
-      axios.post('/users/login', user).then((res) => {
+    axios.post('/users/login', user).then((res) => {
       dispatch({ type: FETCH_USER, payload: res.data });
     }).catch((error) => {
       dispatch(receiveErrors(['Invalid username or password']));

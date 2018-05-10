@@ -29,15 +29,22 @@
 }
 
 .symptoms-ul {
-  margin: 10px 0 20px 30px;
+  /* text-align: center; */
+  margin: 10px 0 20px 36px;
   counter-reset: item;
 }
 
 .symptoms-ul li {
   color: #e68028;
-  text-indent: -2em;
+  /* text-indent: -2em; */
   counter-increment: item;
   list-style-type: none;
+}
+
+.symptoms-ul li a{
+  color: #e68028;
+  text-decoration: underline;
+  font-style: italic;
 }
 
 .symptoms-ul li:before {
@@ -72,6 +79,7 @@
   flex: 1;
   padding: 20px;
   background: linear-gradient(to right, #ffffff , #f5f5f5);
+  color: #666
 }
 
 .body-nav {
@@ -80,10 +88,16 @@
   line-height: 48px;
   border-bottom: 1px solid #fff;
   padding-left: 20px;
+  min-width: 100px;
+}
+
+.body-nav a {
+  color: #666
 }
 
 .body-nav:hover {
   background-color: #eee;
+  cursor: pointer;
 }
 
 

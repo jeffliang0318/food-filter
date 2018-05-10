@@ -9,12 +9,13 @@ class loginForm extends React.Component {
         password: "",
         style:{
           border: '1px solid #cea0a5',
-          padding: '10px',
+          padding: '14px 10px 10px 10px',
           color:' #86181d',
           backgroundColor: '#ffdce0'
         }
       };
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleDemoLogin = this.handleDemoLogin.bind(this);
       this.update = this.update.bind(this);
     }
 
@@ -36,9 +37,9 @@ class loginForm extends React.Component {
     }
 
 
-    componentWillUnmount(){
-      this.props.clearErrors();
-    }
+    // componentWillUnmount(){
+    //   this.props.clearErrors();
+    // }
 
     handleSubmit(e) {
       e.preventDefault();
@@ -48,6 +49,12 @@ class loginForm extends React.Component {
       };
       const user = Object.assign({}, userInfo);
       this.props.loginUser(user);
+      this.props.history.push("/user");
+    }
+
+    handleDemoLogin() {
+      this.props.loginUser({username:'Demo', password:'password'});
+      this.props.history.push("/user");
     }
 
     renderErrors() {
@@ -108,8 +115,8 @@ class loginForm extends React.Component {
             </form>
 
             <button
-              className="session-submit demo-login" onClick = {
-                  () => this.props.loginUser({username:'Demo', password:'password'})}>
+              className="session-submit demo-login"
+              onClick = {this.handleDemoLogin}>
               Demo Login
             </button>
 
