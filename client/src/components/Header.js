@@ -3,10 +3,27 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { openModal } from '../actions/modal_actions';
 import { loginUser, registerUser } from '../actions/session_actions';
+import { withRouter } from "react-router-dom";
 
 import Search from './Search';
 
+
 class Header extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleDemoLogin =   this.handleDemoLogin.bind(this);
+  }
+
+  handleDemoLogin() {
+    this.props.loginUser({username:'Demo', password:'password'});
+
+    clearTimeout(this.timer);
+    const that = this;
+    this.timer = setTimeout(function() {
+      that.props.history.push("/user");
+    }, 300)
+  }
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -14,10 +31,7 @@ class Header extends Component {
       case false:
         return [
           <a key="1" className="button-group" onClick={() => this.props.openModal('login')}> Login </a>,
-          <a key="2" className="button-group" onClick = {
-              () => this.props.loginUser({username:'Demo', password:'password'})}
-
-            >Demo</a>,
+          <a key="2" className="button-group" onClick = { this.handleDemoLogin}>Demo</a>,
         ];
       default:
         return [
@@ -57,4 +71,4 @@ const mapDispatchToProps = dispatch => ({
 
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

@@ -37,7 +37,7 @@ class Search extends Component {
           <div className="search-container">
             <input
               value = {this.state.searchTerm}
-              placeholder="Search UPC"
+              placeholder="Search UPC or Upload Barcode Image"
               onChange={this.update('searchTerm')}
               className="search-input"
             />

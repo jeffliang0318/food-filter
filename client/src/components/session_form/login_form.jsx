@@ -49,12 +49,24 @@ class loginForm extends React.Component {
       };
       const user = Object.assign({}, userInfo);
       this.props.loginUser(user);
-      this.props.history.push("/user");
+      // this.props.history.push("/user");
+
+      clearTimeout(this.timer);
+      const that = this;
+      this.timer = setTimeout(function() {
+        that.props.history.push("/user");
+      }, 600)
     }
 
     handleDemoLogin() {
       this.props.loginUser({username:'Demo', password:'password'});
-      this.props.history.push("/user");
+      // this.props.history.push("/user");
+
+      clearTimeout(this.timer);
+      const that = this;
+      this.timer = setTimeout(function() {
+        that.props.history.push("/user");
+      }, 300)
     }
 
     renderErrors() {

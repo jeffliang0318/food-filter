@@ -70,8 +70,8 @@ class searchUploadUPC extends React.Component {
                       <img src="https://res.cloudinary.com/chengzii/image/upload/v1524974638/IMG_7175.jpg" alt="barcodeDemo" />
                     </div>
                   </div>
-                  <div className="searchExample-codeContainer">
-                    <p className="searchExample-code">858089003050</p>
+                  <div>
+                    <p>858089003050 Icecream</p>
                   </div>
                 </li>
 
@@ -81,8 +81,8 @@ class searchUploadUPC extends React.Component {
                     <img src="https://res.cloudinary.com/chengzii/image/upload/v1524983562/wholeWheatBread.jpg" alt="barcodeDemo" />
                     </div>
                   </div>
-                  <div className="searchExample-codeContainer">
-                    <p className="searchExampleCode">099482455859</p>
+                  <div>
+                    <p>099482455859 Bread</p>
                   </div>
                 </li>
 
@@ -92,8 +92,8 @@ class searchUploadUPC extends React.Component {
                     <img src="https://res.cloudinary.com/chengzii/image/upload/v1524983307/soyMilk.jpg" alt="barcodeDemo" />
                     </div>
                   </div>
-                  <div className="searchExample-codeContainer">
-                    <p className="searchExampleCode">025293600232</p>
+                  <div>
+                    <p>025293600232 Soymilk</p>
                   </div>
                 </li>
 
@@ -103,8 +103,8 @@ class searchUploadUPC extends React.Component {
                       <img src="https://res.cloudinary.com/chengzii/image/upload/v1524983307/seafoodFlaker.jpg" alt="barcodeDemo" />
                     </div>
                   </div>
-                  <div className="searchExample-codeContainer">
-                    <p className="searchExampleCode">011029311817</p>
+                  <div>
+                    <p>011029311817 Fishstick</p>
                   </div>
                 </li>
 

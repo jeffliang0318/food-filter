@@ -61,10 +61,10 @@ class Homepage extends Component {
 
                 <h3>About Food Filter</h3>
                 <div className="section-content">
-                  Our goal is to help you! Based off of each person's profile, we help you avoid food items by
+                  Our goal is to help you. Based off of each person's profile, we help you avoid food items by
                   highlighting ingredients that are potentially dangerous based on your allergy profile.
                   You can type in the product name into the search bar or type the bar code
-                  that is found on the product. We also have a bar code scanner where you can upload a photo!
+                  that is found on the product. We also have a bar code scanner where you can upload a photo.
                 </div>
               </div>
 
@@ -72,7 +72,7 @@ class Homepage extends Component {
                 id='symptoms'>
                 <h3>How to Use Food Filter</h3>
                 <div className="section-content">
-                  <ol className="symptoms-ul">
+                  <ol className="symptoms-ol">
                     <li>Login, Register or Login as Demo user</li>
                     <li>Go to "My Profile"</li>
                     <li>Save Allergies</li>
