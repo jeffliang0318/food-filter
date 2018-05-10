@@ -149,11 +149,20 @@ class User extends  Component {
   handleSubmit(e) {
     e.preventDefault();
 
+    clearTimeout(this.timer)
+
     let valideItems =  Object.keys(this.state).filter(ing => {
       return this.state[ing] && (typeof this.state[ing] === 'boolean')
     });
     this.props.updateAllergyIngredient(valideItems);
-    this.scrollTo("allergy");
+    document.getElementById("updateCover").style.display = "flex";
+
+    let This = this;
+    this.timer = setTimeout(function() {
+      document.getElementById("updateCover").style.display = "none";
+      This.scrollTo("allergy");
+    }, 400)
+
   }
 
   handleChange(e) {
@@ -623,6 +632,9 @@ class User extends  Component {
               </button>
             </div>
           </h4>
+        </div>
+        <div id="updateCover">
+          <p>Updating...</p>
         </div>
       </div>
     );

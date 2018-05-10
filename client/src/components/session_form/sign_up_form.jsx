@@ -54,6 +54,7 @@ class signUpForm extends React.Component {
           const user = Object.assign({}, userInfo);
 
           this.props.registerUser(user);
+          this.props.history.push("/user")
         }
 
         renderErrors() {
