@@ -64,47 +64,51 @@ class searchUploadUPC extends React.Component {
             <div className="recentlySearch">
               <h4>Demo Images</h4>
               <ul>
-                <li className="searchExample-li" id="858089003050" onClick={this.handleExampleClick}>
-                  <div className="searchExample-imgWrapper">
+                <li className="searchExample-li">
+                  <div className="searchExample-imgWrapper"  id="858089003050" onClick={this.handleExampleClick}>
                     <div className="searchExample-imgBox">
                       <img src="https://res.cloudinary.com/chengzii/image/upload/v1524974638/IMG_7175.jpg" alt="barcodeDemo" />
                     </div>
                   </div>
                   <div>
-                    <p>858089003050 Icecream</p>
+                    <p>858089003050</p>
+                    <p>Icecream</p>
                   </div>
                 </li>
 
-                <li className="searchExample-li" id="099482455859" onClick={this.handleExampleClick}>
-                  <div className="searchExample-imgWrapper">
+                <li className="searchExample-li">
+                  <div className="searchExample-imgWrapper" id="013764027138" onClick={this.handleExampleClick}>
                     <div className="searchExample-imgBox">
-                    <img src="https://res.cloudinary.com/chengzii/image/upload/v1524983562/wholeWheatBread.jpg" alt="barcodeDemo" />
+                    <img src="http://res.cloudinary.com/chengzii/image/upload/v1526602890/wheatbread.jpg" alt="barcodeDemo" />
                     </div>
                   </div>
                   <div>
-                    <p>099482455859 Bread</p>
+                    <p>013764027138</p>
+                    <p>Wheat Bread</p>
                   </div>
                 </li>
 
-                <li className="searchExample-li" id="025293600232" onClick={this.handleExampleClick}>
-                  <div className="searchExample-imgWrapper">
+                <li className="searchExample-li">
+                  <div className="searchExample-imgWrapper" id="025293600232" onClick={this.handleExampleClick}>
                     <div className="searchExample-imgBox">
                     <img src="https://res.cloudinary.com/chengzii/image/upload/v1524983307/soyMilk.jpg" alt="barcodeDemo" />
                     </div>
                   </div>
                   <div>
-                    <p>025293600232 Soymilk</p>
+                    <p>025293600232</p>
+                    <p>Soymilk</p>
                   </div>
                 </li>
 
-                <li className="searchExample-li" id="011029311817" onClick={this.handleExampleClick}>
-                  <div className="searchExample-imgWrapper">
+                <li className="searchExample-li">
+                  <div className="searchExample-imgWrapper" id="011029311817" onClick={this.handleExampleClick}>
                     <div className="searchExample-imgBox">
                       <img src="https://res.cloudinary.com/chengzii/image/upload/v1524983307/seafoodFlaker.jpg" alt="barcodeDemo" />
                     </div>
                   </div>
                   <div>
-                    <p>011029311817 Fishstick</p>
+                    <p>011029311817</p>
+                    <p>Fishstick</p>
                   </div>
                 </li>
 
