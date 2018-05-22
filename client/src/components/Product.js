@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 
 
 class Product extends Component {
+  componentDidMount() {
+    window.scroll(0, 0);
+  }
 
   ingredientsChecker() {
     if(!this.props.searchResults.ing) {
